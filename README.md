@@ -9,4 +9,4 @@ Access the dashboard at [https://MicrosoftEdge.github.io/TopDeveloperNeeds](http
 See also:
 
 * [Our announcement blog post](https://blogs.windows.com/msedgedev/2024/04/18/2024-web-platform-top-developer-needs-dashboard).
-* [A GitHub issue to provide feedback on the dashboard](https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/2000).
+* [A GitHub issue to provide feedback on the dashboard](https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/782).
