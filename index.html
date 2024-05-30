@@ -67,7 +67,7 @@
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
                 <td>90%</td>
-                <td>93%</td>
+                <td>95%</td>
                 <td>38%</td>
                 <td>66%</td>
               </tr>
@@ -458,7 +458,7 @@
               </tr>
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
-                <td>96%</td>
+                <td>97%</td>
                 <td>98%</td>
                 <td>0%</td>
                 <td>0%</td>
@@ -818,15 +818,13 @@
           <h2><a href="#customized-built-in-elements">Customized built-in elements</a></h2>
           
             
-              <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#attr-is">Specification</a>
+              <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element">Specification</a>
             
           
           
-            <a href="https://caniuse.com/custom-elementsv1">Can I Use</a>
-          
         </div>
         
-          <p class="description">Customized built-in elements inherit from standard HTML elements such as <code>HTMLImageElement</code> or <code>HTMLParagraphElement</code>. Their implementation customizes the behavior of the standard element.</p>
+          <p class="description">Customized built-in elements are HTML elements that extend built-in elements using the <code>is</code> attribute, to add new behaviors that you define.</p>
         
         <div class="support">
           
@@ -1393,7 +1391,7 @@
           
         </div>
         
-          <p class="description">The <code>font-size-adjust</code> CSS property provides a way to preserve apparent size of text across fonts in the fallback chain by adjusting the used font size so that the specified metric is scaled to the same size regardless of the font used.</p>
+          <p class="description">The <code>font-size-adjust</code> CSS property preserves apparent text size, regardless of the font used, by scaling fonts to the same size with respect to a specific metric, such as x-height. This can help make fallback fonts look the same size.</p>
         
         <div class="support">
           
@@ -1412,8 +1410,8 @@
                 <th scope="row">Compatibility</th>
                 <td><abbr class="support-icon no" title="Not supported"></abbr></td>
                 <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 118">118</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17">17</abbr></td>
+                <td><abbr class="support-icon yes" title="Fully supported in 3">3</abbr></td>
+                <td><abbr class="support-icon yes" title="Fully supported in 16.4">16.4</abbr></td>
               </tr>
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
@@ -1447,9 +1445,9 @@
         </details>
       </li>
     
-      <li class="feature" id="css-custom-highlight-api">
+      <li class="feature" id="highlight">
         <div class="metadata">
-          <h2><a href="#css-custom-highlight-api">CSS Custom Highlight API</a></h2>
+          <h2><a href="#highlight">Custom highlights</a></h2>
           
             
               <a href="https://drafts.csswg.org/css-highlight-api-1/">Specification</a>
@@ -1458,7 +1456,7 @@
           
         </div>
         
-          <p class="description">The CSS Custom Highlight API styles arbitrary text ranges, without adding extra elements to the DOM.</p>
+          <p class="description">Custom highlights style arbitrary text ranges, without adding extra elements to the DOM.</p>
         
         <div class="support">
           
@@ -1506,15 +1504,15 @@
             </ul>
           
           <div class="chart">
-            <canvas id="chart-css-custom-highlight-api"></canvas>
-            <p class="chart-info">Number of passed subtests for CSS Custom Highlight API. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-highlight-api?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
+            <canvas id="chart-highlight"></canvas>
+            <p class="chart-info">Number of passed subtests for Custom highlights. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-highlight-api?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
           </div>
         </details>
       </li>
     
-      <li class="feature" id="requestvideoframecallback">
+      <li class="feature" id="request-video-frame-callback">
         <div class="metadata">
-          <h2><a href="#requestvideoframecallback">requestVideoFrameCallback()</a></h2>
+          <h2><a href="#request-video-frame-callback">requestVideoFrameCallback()</a></h2>
           
             
               <a href="https://wicg.github.io/video-rvfc/">Specification</a>
@@ -1523,7 +1521,7 @@
           
         </div>
         
-          <p class="description">The <code>HTMLVideoElement.requestVideoFrameCallback()</code> method registers a callback that runs in the rendering steps when a new video frame is sent to the compositor. This is intended to allow developers to perform efficient per-video-frame operations on video, such as video processing and painting to a canvas, video analysis, or synchronization with external audio sources.</p>
+          <p class="description">The <code>requestVideoFrameCallback()</code> method for <code>&#x3C;video></code> schedules a function that runs with the next video frame. It is similar to <code>requestAnimationFrame()</code>, but for video.</p>
         
         <div class="support">
           
@@ -1575,7 +1573,7 @@
             </ul>
           
           <div class="chart">
-            <canvas id="chart-requestvideoframecallback"></canvas>
+            <canvas id="chart-request-video-frame-callback"></canvas>
             <p class="chart-info">Number of passed subtests for requestVideoFrameCallback(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/video-rvfc?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
           </div>
         </details>
@@ -1680,7 +1678,7 @@
                 <td>99%</td>
                 <td>100%</td>
                 <td>91%</td>
-                <td>87%</td>
+                <td>85%</td>
               </tr>
             </tbody>
           </table>
@@ -1719,7 +1717,7 @@
     <li><code>q=!is:tentative</code> to ignore optional tests</li>
   </ul>
   <p>The results were retrieved by extracting the <strong>Subtest Total</strong> numbers displayed at the bottom of each result page. No custom scoring was applied to the results.</p>
-  <p>Last update: 2024-05-24.</p>
+  <p>Last update: 2024-05-30.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
