@@ -68,8 +68,8 @@
               </tr>
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
-                <td>92%</td>
-                <td>94%</td>
+                <td>91%</td>
+                <td>93%</td>
                 <td>37%</td>
                 <td>66%</td>
               </tr>
@@ -119,7 +119,7 @@
           
         </div>
         
-          <p class="description">The <code>object-view-box</code> CSS property defines the subset within an image that should be drawn in the content box of a replaced element. The property lets you create images with custom styles.</p>
+          <p class="description">The <code>object-view-box</code> CSS property crops and zooms to an inset area of an image.</p>
         
         <div class="support">
           
@@ -143,7 +143,7 @@
               </tr>
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
+                <td>98%</td>
                 <td>84%</td>
                 <td>11%</td>
                 <td>18%</td>
@@ -209,7 +209,7 @@
                 <td>100%</td>
                 <td>100%</td>
                 <td>72%</td>
-                <td>48%</td>
+                <td>51%</td>
               </tr>
             </tbody>
           </table>
@@ -375,9 +375,11 @@
             
               <a href="https://drafts.csswg.org/css-transitions-2/#defining-before-change-style">Specification</a>
             
-              <a href="https://drafts.csswg.org/css-transitions-2/#transition-behavior-property">Specification</a>
-            
               <a href="https://drafts.csswg.org/css-display-4/#display-animation">Specification</a>
+            
+              <a href="https://drafts.csswg.org/css-contain-3/#content-visibility-animation">Specification</a>
+            
+              <a href="https://drafts.csswg.org/css-transitions-2/#transition-behavior-property">Specification</a>
             
           
           
@@ -952,7 +954,7 @@
                 <td>96%</td>
                 <td>96%</td>
                 <td>10%</td>
-                <td>9%</td>
+                <td>10%</td>
               </tr>
             </tbody>
           </table>
@@ -1082,7 +1084,7 @@
                 <td>97%</td>
                 <td>97%</td>
                 <td>25%</td>
-                <td>78%</td>
+                <td>64%</td>
               </tr>
             </tbody>
           </table>
@@ -1301,7 +1303,7 @@
           <h2><a href="#document-caretpositionfrompoint">document.caretPositionFromPoint()</a></h2>
           
             
-              <a href="https://drafts.csswg.org/cssom-view/#dom-document-caretpositionfrompoint">Specification</a>
+              <a href="https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint">Specification</a>
             
           
           
@@ -1309,7 +1311,7 @@
           
         </div>
         
-          <p class="description">The <code>documentcaretPositionFromPoint(x, y)</code> method returns a DOM node and the text insertion point character offset within that node, given a point in the viewport.</p>
+          <p class="description">The <code>document.caretPositionFromPoint()</code> method finds an insertion point, represented by a DOM node and an offset within that node, for given coordinates in the viewport.</p>
         
         <div class="support">
           
@@ -1364,7 +1366,9 @@
           <h2><a href="#json-and-css-modules">JSON and CSS modules</a></h2>
           
             
-              <a href="https://tc39.es/proposal-import-attributes/">Specification</a>
+              <a href="https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script">Specification</a>
+            
+              <a href="https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script">Specification</a>
             
           
           
@@ -1372,7 +1376,7 @@
           
         </div>
         
-          <p class="description">JSON modules scripts are a way to import JSON in JavaScript by using the <code>import</code> statement. CSS module scripts are used to load CSS stylesheets by using the <code>import</code> statement. The imported stylesheets can then be applied to documents or shadow roots in the same manner as constructable stylesheets.</p>
+          <p class="description">Module <code>import ... with { type: "json" }</code> statements load JSON data. Also known as JSON module scripts and formerly known as import assertions.<br>Module `import ... with { type: "css" } statements load CSS modules as constructable stylesheets. Also known as CSS module scripts and formerly known as import assertions.</p>
         
         <div class="support">
           
@@ -1399,7 +1403,7 @@
                 <td>98%</td>
                 <td>98%</td>
                 <td>7%</td>
-                <td>66%</td>
+                <td>67%</td>
               </tr>
             </tbody>
           </table>
@@ -1466,7 +1470,7 @@
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
                 <td>99%</td>
-                <td>96%</td>
+                <td>97%</td>
                 <td>94%</td>
                 <td>94%</td>
               </tr>
@@ -1600,9 +1604,9 @@
               <tr class="wpt">
                 <th scope="row">Passing WPT subtests</th>
                 <td>79%</td>
-                <td>79%</td>
+                <td>100%</td>
                 <td>34%</td>
-                <td>76%</td>
+                <td>83%</td>
               </tr>
             </tbody>
           </table>
@@ -1674,7 +1678,7 @@
                 <th scope="row">Passing WPT subtests</th>
                 <td>92%</td>
                 <td>92%</td>
-                <td>18%</td>
+                <td>19%</td>
                 <td>91%</td>
               </tr>
             </tbody>
@@ -1779,7 +1783,7 @@
     <li><code>q=!is:tentative</code> to ignore optional tests</li>
   </ul>
   <p>The results were retrieved by extracting the <strong>Subtest Total</strong> numbers displayed at the bottom of each result page. No custom scoring was applied to the results.</p>
-  <p>Last update: 2024-06-19.</p>
+  <p>Last update: 2024-06-28.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
