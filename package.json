@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@mdn/browser-compat-data": "^5.5.51",
+    "copyfiles": "^2.4.1",
+    "playwright": "^1.47.0",
+    "rimraf": "^6.0.1",
+    "web-features": "next",
+    "compute-baseline": "^0.1.1"
+  },
+  "scripts": {
+    "generate": "node generate.js > site/_data/features.json",
+    "get-wpt-shas": "node get-historical-wpt-shas.js",
+    "update-wpt": "node scrape-wpt.js && node prepare-wpt-for-site.js",
+    "build-site": "npx rimraf build && npx @11ty/eleventy",
+    "serve-site": "npx @11ty/eleventy --serve"
+  }
+}

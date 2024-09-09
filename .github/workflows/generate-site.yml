@@ -1,0 +1,46 @@
+name: Generate data and build dashboard
+
+on:
+  schedule:
+    # Every Friday at midnight
+    - cron: '0 0 * * FRI'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check-out the repository
+        uses: actions/checkout@v4
+
+      - name: Update dependencies
+        run: |
+          npm update web-features
+          npx npm-check-updates -u
+          npm install
+          npx playwright install
+
+      - name: Compute feature data
+        run: npm run generate
+
+      - name: Retrieve latest WPT revision and results
+        run: |
+          npm run get-wpt-shas
+          npm run update-wpt
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.name "${{ github.actor }}"
+          git add .
+          git commit -m "Weekly regen" --allow-empty
+          git push origin main
+
+      - name: Generate site
+        run: npm run build-site
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs

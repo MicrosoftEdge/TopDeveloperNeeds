@@ -1,0 +1,328 @@
+[
+  {
+    "webFeaturesID": "view-transitions",
+    "rationale": [
+      {
+        "description": "Over the past decade, single-page web applications have become very popular, and JavaScript frameworks have been used to provide the ability to smoothly transition between UI states without full page reloads. The View Transitions API allows multi-page apps to achieve the same level of smoothness and interactivity without JavaScript"
+      },
+      {
+        "description": "The feature received more than 100 positive reactions on a proposal GitHub issue",
+        "link": "https://github.com/web-platform-tests/interop/issues/437"
+      },
+      {
+        "description": "The feature's announcement on X was positively received",
+        "link": "https://x.com/jaffathecake/status/1524782819431555074"
+      },
+      {
+        "description": "In preliminary results to the State of HTML 2023 survey, the View Transitions API was the third most common response that appeared in the Browser Interoperability section"
+      }
+    ],
+    "wpt": "/results/?q=feature:view-transitions"
+  },
+  {
+    "webFeaturesID": "object-view-box",
+    "wpt": "/results/css?q=object%20view%20box",
+    "rationale": [
+      {
+        "description": "The feature is a pre-requisite for the View Transitions API, which is a highly requested feature",
+        "link": "https://github.com/w3c/csswg-drafts/issues/7058"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "blocking-render",
+    "wpt": "/results/html/dom/render-blocking",
+    "rationale": [
+      {
+        "description": "The feature is a pre-requisite for the View Transitions API, which is a highly requested feature",
+        "link": "https://github.com/whatwg/html/issues/9332"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "scroll-driven-animations",
+    "rationale": [
+      {
+        "description": "This feature allows to create visually rich and interactive web experiences without requiring downloading, parsing, and running large JavaScript libraries"
+      },
+      {
+        "description": "The feature received more than 100 positive reactions on a proposal GitHub issue",
+        "link": "https://github.com/web-platform-tests/interop/issues/439"
+      }
+    ],
+    "wpt": "/results/?q=feature:scroll-driven-animations"
+  },
+  {
+    "webFeaturesID": "popover",
+    "rationale": [
+      {
+        "description": "In preliminary results to the State of HTML 2023 survey, the popover feature was the most common response that appeared in the Browser Interoperability section"
+      },
+      {
+        "description": "The feature received 80 positive reactions on a proposal GitHub issue",
+        "link": "https://github.com/web-platform-tests/interop/issues/423"
+      }
+    ],
+    "wpt": "/results/?q=feature:popover"
+  },
+  {
+    "name": "Top layer animations",
+    "description": "A set of CSS features which makes top layer elements, like `<dialog>` elements, or elements with the `popover` attribute, animatable as they enter and exit the top layer. The features include the `overlay` CSS property, the `@starting-style` at-rule, the `transition-behavior` CSS property, and support for animating the `display` and `content-visibility` CSS properties.",
+    "webFeaturesID": [
+      "overlay", "starting-style", "display-animation", "transition-behavior"
+    ],
+    "rationale": [
+      {
+        "description": "Top layer animations allow animating popovers, which is a highly requested feature"
+      }
+    ],
+    "wpt": "/results/?q=path:/css/css-position/overlay/ or path:/css/css-contain/content-visibility/content-visibility-interpolation.html or path:/css/css-display/animations/display-interpolation.html or (path:/css/css-transitions/parsing/ and transition-behavior) or (path:/css/ and starting-style)"
+  },
+  {
+    "webFeaturesID": "navigation",
+    "rationale": [
+      {
+        "description": "This feature was in 7th place in an MDN survey asking people to rank 20 web features",
+        "link": "https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey"
+      },
+      {
+        "description": "The feature received 67 positive reactions on a proposal GitHub issue",
+        "link": "https://github.com/web-platform-tests/interop/issues/435"
+      }
+    ],
+    "wpt": "/results/?q=feature:navigation"
+  },
+  {
+    "webFeaturesID": "anchor-positioning",
+    "rationale": [
+      {
+        "description": "Many JavaScript-based workarounds exist to position elements related to other elements. The anchor positioning polyfill also gets downloaded ~700 times a week, and its GitHub repository has more than 150 stars",
+        "link": "https://github.com/oddbird/css-anchor-positioning"
+      },
+      {
+        "description": "Anchor positioning is also a pre-requisite for the new OpenUI customizable `<select>` element, which appears as the 5th most common feature in preliminary results to the State of HTML 2023 survey, in the Browser Interoperability section"
+      }
+    ],
+    "wpt": "/results/?q=feature:anchor-positioning"
+  },
+  {
+    "webFeaturesID": "nesting",
+    "rationale": [
+      {
+        "description": "In the State of CSS 2023 survey, CSS Nesting was a very common answer to the question: \"Are there any existing CSS features that you have difficulties using (or avoid altogether) because of lack of support, or differences between browsers?\"",
+        "link": "https://github.com/web-platform-tests/interop/issues/452"
+      }
+    ],
+    "wpt": "/results/?q=feature:nesting"
+  },
+  {
+    "name": "Scrollbar styling",
+    "webFeaturesID": ["scrollbar-color", "scrollbar-gutter", "scrollbar-width"],
+    "wpt": "/results/css?q=path%3A%2Fcss%2Fcss-scrollbars%20or%20%28scrollbar-gutter%20and%20path%3A%2Fcss%2Fcss-overflow%29",
+    "rationale": [
+      {
+        "description": "Styling scrollbar ranked #5 in the State of CSS Survey 2023's browser incompatibilities question",
+        "link": "https://2023.stateofcss.com/en-US/usage/#css_interoperability_features"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "backdrop-filter",
+    "wpt": "/results/?q=feature:backdrop-filter%20and%20!path:%2Fcss%2Ffilter-effects%2Fanimation",
+    "rationale": [
+      {
+        "description": "In State of CSS 2021, `backdrop-filter` was the 6th most common answer to the question \"Are there any CSS features you have difficulties using because of differences between browsers?\"",
+        "link": "https://2021.stateofcss.com/en-US/opinions/#browser_interoperability_features"
+      },
+      {
+        "description": "In State of CSS 2022, `backdrop-filter` was a common responses the question about browser incompatibilities, mentioned in ~3% of responses.",
+        "link": "https://github.com/web-platform-tests/interop/issues/248"
+      },
+      {
+        "description": "In the MDN short survey on CSS & HTML, \"CSS backdrop-filter property\" was selected by ~21% of survey takers, putting it in the top third of the 20 options.",
+        "link": "https://github.com/web-platform-tests/interop/issues/245"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "declarative-shadow-dom",
+    "wpt": "/results/shadow-dom/declarative?q=not%20gethtml",
+    "rationale": [
+      {
+        "description": "In preliminary results to the State of HTML 2023 survey, Declarative Shadow DOM was a common response that appeared in the Browser Interoperability section. Also, it was among the features that respondents expressed the most interest for"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "customized-built-in-elements",
+    "caniuse": "custom-elementsv1",
+    "wpt": "/results/custom-elements/?q=path%3A%2Fcustom-elements%2Fbuiltin-coverage.html%20or%20path%3A%2Fcustom-elements%2Fcustomized-built-in-constructor-exceptions.html%20or%20path%3A%2Fcustom-elements%2FDocument-createElement-customized-builtins.html%20or%20path%3A%2Fcustom-elements%2FDocument-createElementNS-customized-builtins.html%20or%20path%3A%2Fcustom-elements%2FHTMLElement-constructor-customized-bulitins.html%20or%20path%3A%2Fcustom-elements%2Fpseudo-class-defined-customized-builtins.html",
+    "rationale": [
+      {
+        "description": "This GitHub issue about improving the `is` HTML attribute received a lot of attention and reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/509"
+      },
+      {
+        "description": "The Custom Elements polyfill is very popular",
+        "link": "https://github.com/ungap/custom-elements"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "trusted-types",
+    "wpt": "/results/?q=feature:trusted-types",
+    "rationale": [
+      {
+        "description": "Meta uses Trusted Types by default for new products, and rolls out Trusted Types enforcement in existing products. Microsoft uses Trusted Types for Edge integrated applications and Edge WebUI pages. Integration of Trusted Types is completed or ongoing for several libraries and frameworks",
+        "link": "https://github.com/web-platform-tests/interop/issues/500#issue-1917715289"
+      }
+    ]
+  },
+  {
+    "id": "asynchronously-iterable-streams",
+    "webFeaturesID": "async-iterable-streams",
+    "wpt": "/results/streams/readable-streams?q=async-iterator",
+    "rationale": [
+      {
+        "description": "The Chromium implementation bug has more than 50 votes",
+        "link": "https://issues.chromium.org/issues/40612900"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "scroll-to-text-fragment",
+    "wpt": "/results/scroll-to-text-fragment"
+  },
+  {
+    "webFeaturesID": "urlpattern",
+    "wpt": "/results/urlpattern",
+    "rationale": [
+      {
+        "description": "The URLPattern specification GitHub repository has ~150 stars",
+        "link": "https://github.com/whatwg/urlpattern"
+      },
+      {
+        "description": "Feedback received while testing the API with developers has been positive",
+        "link": "https://github.com/whatwg/urlpattern/blob/main/dev-trials-feedack.md"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "paint",
+    "rationale": [
+      {
+        "description": "The polyfill for this feature has more than 700 stars on GitHub",
+        "link": "https://github.com/GoogleChromeLabs/css-paint-polyfill"
+      }
+    ],
+    "wpt": "/results/css/css-paint-api"
+  },
+  {
+    "webFeaturesID": "webtransport",
+    "wpt": "/results/?q=feature:webtransport",
+    "rationale": [
+      {
+        "description": "The specification GitHub repository has 800 stars",
+        "link": "https://github.com/w3c/webtransport"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "document-caretpositionfrompoint",
+    "rationale": [
+      {
+        "description": "The Chromium implementation bug almost has 50 votes",
+        "link": "https://issues.chromium.org/issues/41117286"
+      }
+    ],
+    "wpt": "/results/css/cssom/?q=caretPositionFromPoint"
+  },
+  {
+    "name": "JSON and CSS modules",
+    "webFeaturesID": ["json-modules", "css-modules"],
+    "rationale": [
+      {
+        "description": "The GitHub issue which initially introduced the JSON module scripts idea received a lot of positive reactions",
+        "link": "https://github.com/whatwg/html/issues/4315"
+      },
+      {
+        "description": "The GitHub issue which initially introduced the CSS module scripts idea received more than 200 positive reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/759"
+      }
+    ],
+    "wpt": "/results/html/semantics/scripting-1/the-script-element?q=(import-attributes or css or json) and not assertions and not path:/html/semantics/scripting-1/the-script-element/module/dynamic-import/microtasks/"
+  },
+  {
+    "webFeaturesID": "font-size-adjust",
+    "rationale": [
+      {
+        "description": "The \"The little known font-size-adjust CSS3 property\" blog post received a lot of comments",
+        "link": "https://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/"
+      },
+      {
+        "description": "The chromium implementation bug has 29 votes",
+        "link": "https://issues.chromium.org/issues/40081245"
+      }
+    ],
+    "wpt": "/results/css/css-fonts?q=font-size-adjust"
+  },
+  {
+    "webFeaturesID": "highlight",
+    "wpt": "/results/css/css-highlight-api",
+    "rationale": [
+      {
+        "description": "Compelling use cases and positive reactions were received on the feature proposal on GitHub",
+        "link": "https://github.com/w3c/csswg-drafts/issues/4307"
+       },
+       {
+        "description": "Supportive comments were also received on the announcement CSS Tricks blog post",
+        "link": "https://css-tricks.com/css-custom-highlight-api-early-look/"
+       }
+    ]
+  },
+  {
+    "webFeaturesID": "request-video-frame-callback",
+    "wpt": "/results/video-rvfc",
+    "rationale": [
+      {
+        "description": "The specification GitHub repository has more than 50 stars",
+        "link": "https://github.com/WICG/video-rvfc"
+      },
+      {
+        "description": "Developer interest was expressed on the WICG Discourse forum",
+        "link": "https://discourse.wicg.io/t/proposal-video-requestanimationframe/3691/"
+      },
+      {
+        "description": "The Mozilla standards position entry for this feature received some developer interest",
+        "link": "https://github.com/mozilla/standards-positions/issues/250"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "scope",
+    "wpt": "/results/css/css-cascade?q=scope",
+    "bcdKeys": [
+      "css.at-rules.scope"
+    ],
+    "rationale": [
+      {
+        "description": "CSS scoping appears in the top 10 missing features in the State of CSS 2023 survey",
+        "link": "https://2023.stateofcss.com/en-US/usage/#css_missing_features"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "dir-pseudo",
+    "wpt": "/results/?q=path%3A%2Fhtml%2Fdom%2Felements%2Fglobal-attributes%2Fdir%20or%20path%3A%2Fcss%2Fselectors%2Fdir",
+    "rationale": [
+      {
+        "description": "The Chromium implementation bug for the `:dir()` pseudo-class has 35 votes",
+        "link": "https://issues.chromium.org/issues/40451997"
+      },
+      {
+        "description": "An interoperable implementation of the `:dir()` pseudo-class is needed to provide developers with a consistent way to style based on text directionality",
+        "link": "https://stackoverflow.com/questions/59876111/css-pseudo-dir-host-context-and-directionality-based-styling"
+      }
+    ]
+  }
+]

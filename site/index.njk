@@ -1,0 +1,126 @@
+---js
+{
+  layout: "layout.njk",
+  getLastWPTDate: function(wpt) {
+    return Object.keys(wpt).pop();
+  },
+  getLastWPTResultsFor: function(wpt, id) {
+    const lastDateStr = Object.keys(wpt).pop();
+    const featureResults = wpt[lastDateStr][id];
+    return {
+      edge: Math.floor(featureResults.e[0] * 100 / featureResults.e[1]),
+      chrome: Math.floor(featureResults.c[0] * 100 / featureResults.c[1]),
+      firefox: Math.floor(featureResults.f[0] * 100 / featureResults.f[1]),
+      safari: Math.floor(featureResults.s[0] * 100 / featureResults.s[1])
+    };
+  },
+  printCompat: function(compat) {
+    return !!compat
+      ? `<abbr class="support-icon yes" title="Fully supported in ${compat}">${compat}</abbr>`
+      : `<abbr class="support-icon no" title="Not supported"></abbr>`;
+  }
+}
+---
+
+<main>
+  <h1>{{ title }}</h1>
+
+  <p>As part of our commitment to the web platform, we continuously listen to developer signals and feedback. We leverage what we learn to implement the features that developers need to build great web experiences. We also know that developers need those features, especially those that can't be polyfilled, or which create new architectural opportunities, to be available across all browsers.</p>
+
+  <p>This dashboard represents our view of progress across the web ecosystem towards resolving top developer pain points and closing interoperability gaps.<br>
+  For each feature listed below, the relevant browser compatibility status, as well as the latest test results from the <a href="https://wpt.fyi/">Web Platform Tests</a> (WPT) project, are given.</p>
+  
+  <p>Note that the list isn't ranked in any particular order. If you'd like to influence these priorities, we encourage you to <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/782">send us feedback</a>. We're committed to continuing to listen and to drive progress on these priorities.</p>
+  
+  <p>We hope that this dashboard plays a positive role in improving the platform for everyone.</p>
+
+  <div class="main-chart">
+    <canvas id="main-chart"></canvas>
+    <p class="chart-info">Sum of passed subtests for all the features below. Test results from <a href="https://wpt.fyi">wpt.fyi</a>.</p>
+  </div>
+
+  <ul class="features">
+    {% for feature in features %}
+      <li class="feature" id="{{ feature.id }}">
+        <div class="metadata">
+          <h2><a href="#{{ feature.id }}">{{ feature.name }}</a></h2>
+          {% if feature.spec %}
+            {% for spec in feature.spec %}
+              <a href="{{ spec }}">Specification</a>
+            {% endfor %}
+          {% endif %}
+          {% if feature.caniuseLinks %}
+            {% for caniuseLink in feature.caniuseLinks %}
+              <a href="{{ caniuseLink }}">Can I Use</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if feature.description %}
+          <p class="description">{{ feature.description | safe }}</p>
+        {% endif %}
+        <div class="support">
+          {% set lastWpt = getLastWPTResultsFor(wpt, feature.id) %}
+          <table>
+            <thead>
+              <tr class="browsers">
+                <td></td>
+                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
+                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
+                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
+                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="compat">
+                <th scope="row">Compatibility</th>
+                <td>{{ printCompat(feature.support.edge) | safe }}</td>
+                <td>{{ printCompat(feature.support.chrome) | safe }}</td>
+                <td>{{ printCompat(feature.support.firefox) | safe }}</td>
+                <td>{{ printCompat(feature.support.safari) | safe }}</td>
+              </tr>
+              <tr class="wpt">
+                <th scope="row">Passing WPT subtests</th>
+                <td>{{ lastWpt.edge }}%</td>
+                <td>{{ lastWpt.chrome }}%</td>
+                <td>{{ lastWpt.firefox }}%</td>
+                <td>{{ lastWpt.safari }}%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <details>
+          <summary>More information</summary>
+          {% if feature.rationale.length > 0 %}
+            <ul class="rationale">
+              {% for rationale in feature.rationale %}
+                <li>
+                  {{ rationale.description | safe }}{% if rationale.link %} (<a href="{{ rationale.link }}">source</a>){% endif %}.
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+          <div class="chart">
+            <canvas id="chart-{{ feature.id }}"></canvas>
+            <p class="chart-info">Number of passed subtests for {{ feature.name}}. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="{{ feature.wptLink }}">latest results for this feature</a>.
+          </div>
+        </details>
+      </li>
+    {% endfor %}
+  </ul>
+</main>
+
+<footer>
+  <p>The charts on this page show the evolution, over time, of the number of WPT subtests for a given feature. The data for each feature was generated by going to <code>https://wpt.fyi/results/</code>, with specific test paths or search parameters to filter the results by feature, and with the below query parameters:</p>
+  <ul>
+    <li><code>sha=&lt;some revision id&gt;</code> to get the results for a specific date.</li>
+    <li><code>label=experimental</code> to limit the test results to experimental browser versions.</li>
+    <li><code>label=master</code> to limit the test results to only those that ran on the master branch.</li>
+    <li><code>q=!is:tentative</code> to ignore optional tests</li>
+  </ul>
+  <p>The results were retrieved by extracting the <strong>Subtest Total</strong> numbers displayed at the bottom of each result page. No custom scoring was applied to the results.</p>
+  <p>Last update: {{ getLastWPTDate(wpt) }}.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js" ></script>
+<script type="module" src="./assets/graphs.js" ></script>
