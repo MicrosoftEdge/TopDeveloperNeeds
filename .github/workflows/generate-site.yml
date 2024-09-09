@@ -8,7 +8,10 @@ on:
 
 jobs:
   build:
+    name: Generate & build dashboard
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Check-out the repository
