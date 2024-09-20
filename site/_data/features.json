@@ -29,7 +29,7 @@
       "chrome": "111",
       "edge": "111",
       "firefox": false,
-      "safari": false
+      "safari": "18"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Aview-transitions+%21is%3Atentative&label=experimental&label=master"
   },
@@ -281,7 +281,7 @@
       "chrome": "76",
       "edge": "79",
       "firefox": "103",
-      "safari": false
+      "safari": "18"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Abackdrop-filter+and+%21path%3A%2Fcss%2Ffilter-effects%2Fanimation+%21is%3Atentative&label=experimental&label=master"
   },
