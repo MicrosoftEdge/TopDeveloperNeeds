@@ -363,7 +363,7 @@
   {
     "id": "asynchronously-iterable-streams",
     "name": "Asynchronously iterable streams",
-    "description": "Asynchronous iteration of a stream allows you to use <code>for await...of</code> loops to iterate through a stream's incoming data.",
+    "description": "Asynchronous iteration of a stream allows you to use <code>for await … of</code> loops to iterate through a stream's incoming data.",
     "spec": [
       "https://streams.spec.whatwg.org/#rs-asynciterator"
     ],
@@ -500,7 +500,7 @@
   {
     "id": "json-and-css-modules",
     "name": "JSON and CSS modules",
-    "description": "Module <code>import ... with { type: \"json\" }</code> statements load JSON data. Also known as JSON module scripts and formerly known as import assertions.<br>Module `import ... with { type: \"css\" } statements load CSS modules as constructable stylesheets. Also known as CSS module scripts and formerly known as import assertions.",
+    "description": "Module <code>import … with { type: \"json\" }</code> statements load JSON data. Also known as JSON module scripts and formerly known as import assertions.<br>Module `import … with { type: \"css\" } statements load CSS modules as constructable stylesheets. Also known as CSS module scripts and formerly known as import assertions.",
     "spec": [
       "https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script",
       "https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script"
