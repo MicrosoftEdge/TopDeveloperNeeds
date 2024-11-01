@@ -155,7 +155,7 @@
   {
     "id": "navigation",
     "name": "Navigation API",
-    "description": "The <code>navigation</code> API provides mechanisms to initiate, intercept, and manage browser navigation actions.",
+    "description": "The <code>navigation</code> API initiates, intercepts, or modifies browser navigation actions. Not to be confused with the <code>navigator</code> API.",
     "spec": [
       "https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api"
     ],
