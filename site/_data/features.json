@@ -603,7 +603,7 @@
     "support": {
       "chrome": "83",
       "edge": "83",
-      "firefox": false,
+      "firefox": "132",
       "safari": "15.4"
     },
     "wptLink": "https://wpt.fyi/results/video-rvfc?label=experimental&label=master&q=+%21is%3Atentative"
