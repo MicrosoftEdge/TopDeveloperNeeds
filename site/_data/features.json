@@ -26,10 +26,10 @@
       "https://caniuse.com/view-transitions"
     ],
     "support": {
-      "chrome": "124",
-      "edge": "124",
+      "chrome": "111",
+      "edge": "111",
       "firefox": false,
-      "safari": "18.2"
+      "safari": "18"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Aview-transitions+%21is%3Atentative&label=experimental&label=master"
   },
