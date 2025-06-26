@@ -4,21 +4,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microsoft Edge - 2024 web platform top developer needs</title>
+    <title>Microsoft Edge - 2025 web platform top developer needs</title>
     <link rel="stylesheet" type="text/css" href="assets/styles.css">
     <link rel="icon" type="image/png" href="https://edgestatic.azureedge.net/welcome/static/favicon.png">
   </head>
   <body>
     
 <main>
-  <h1>Microsoft Edge - 2024 web platform top developer needs</h1>
+  <h1>Microsoft Edge - 2025 web platform top developer needs</h1>
 
-  <p>As part of our commitment to the web platform, we continuously listen to developer signals and feedback. We leverage what we learn to implement the features that developers need to build great web experiences. We also know that developers need those features, especially those that can't be polyfilled, or which create new architectural opportunities, to be available across all browsers.</p>
+  <p>As part of our commitment to the web platform, we continuously listen to developer signals and feedback and leverage what we learn to implement the features that developers need to build great web experiences. We also know that developers need features to be available across all browsers, especially those that can't be polyfilled, or those which create new architectural opportunities.</p>
 
   <p>This dashboard represents our view of progress across the web ecosystem towards resolving top developer pain points and closing interoperability gaps.<br>
-  For each feature listed below, the relevant browser compatibility status, as well as the latest test results from the <a href="https://wpt.fyi/">Web Platform Tests</a> (WPT) project, are given.</p>
+  For each feature listed below, the relevant browser compatibility status, as well as the most recent stable channel test results from the <a href="https://wpt.fyi/">Web Platform Tests</a> (WPT) project, are given.</p>
   
-  <p>Note that the list isn't ranked in any particular order. If you'd like to influence these priorities, we encourage you to <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/782">send us feedback</a>. We're committed to continuing to listen and to drive progress on these priorities.</p>
+  <p>Note that this list only contains features that have a reasonably stable specification and existing WPT tests. The features are listed in alphabetical order.</p>
+  
+  <p>If you'd like to influence these priorities, we encourage you to <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/1072">send us feedback</a>. We're committed to continuing to listen and to drive progress on these priorities.</p>
   
   <p>We hope that this dashboard plays a positive role in improving the platform for everyone.</p>
 
@@ -29,56 +31,359 @@
 
   <ul class="features">
     
-      <li class="feature" id="view-transitions">
-        <div class="metadata">
-          <h2><a href="#view-transitions">View transitions</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-view-transitions-1/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/view-transitions">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">View transitions allow you to create animated visual transitions between different states of a document.</p>
-        
+      <li class="feature" id="anchor-positioning">
+        <h2><a href="#anchor-positioning">Anchor positioning</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 111">111</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 111">111</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 18">18</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>96%</td>
-                <td>98%</td>
-                <td>51%</td>
-                <td>94%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 125">125</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 125">125</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
+        
+          <p class="description">Anchor positioning places an element based on the position of another element. For example, you can place a tooltip next to the content it references.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  This feature came out in first place in the list of features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
+                </li>
+              
+                <li>
+                  Many JavaScript-based workarounds exist to position elements related to other elements. The oddbird/css-anchor-positioning polyfill is downloaded 15000 times a week on NPM, and its GitHub repository has more than 350 stars (<a href="https://github.com/oddbird/css-anchor-positioning">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-anchor-positioning"></canvas>
+            <p class="chart-info">Number of passed subtests for Anchor positioning. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aanchor-positioning+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-anchor-position-1/#anchoring">https://drafts.csswg.org/css-anchor-position-1/#anchoring</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="backdrop-filter">
+        <h2><a href="#backdrop-filter">backdrop-filter</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 79">79</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 76">76</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 103">103</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 18">18</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>backdrop-filter</code> CSS property applies graphical effects such as blurring or color shifting to the area behind an element.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  In the State of CSS 2022 survey, <code>backdrop-filter</code> was a common response to the question about browser incompatibilities (<a href="https://2022.stateofcss.com/en-US/usage/#interoperability_features_freeform">source</a>).
+                </li>
+              
+                <li>
+                  The State of CSS 2023 survey shows a pattern of steadily growing use of the feature between 2020 and 2023 (<a href="https://2023.stateofcss.com/en-US/features/shapes-and-graphics/#backdrop_filter">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-backdrop-filter"></canvas>
+            <p class="chart-info">Number of passed subtests for backdrop-filter. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Abackdrop-filter+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="blocking-render">
+        <h2><a href="#blocking-render">blocking=&quot;render&quot;</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>blocking="render"</code> attribute for <code>&#x3C;link></code>, <code>&#x3C;script></code>, and <code>&#x3C;style></code> elements blocks rendering until the external script or stylesheet has been loaded. For <code>&#x3C;link rel="expect"></code>, rendering is blocked until a specific element is in the DOM.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Render blocking is a prerequisite for cross-document view transitions, which is a highly requested feature (<a href="https://github.com/whatwg/html/pull/9970">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-blocking-render"></canvas>
+            <p class="chart-info">Number of passed subtests for blocking=&quot;render&quot;. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ablocking-render+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://html.spec.whatwg.org/multipage/urls-and-fetching.html#blocking-attributes">https://html.spec.whatwg.org/multipage/urls-and-fetching.html#blocking-attributes</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="calc-size-and-interpolate-size">
+        <h2><a href="#calc-size-and-interpolate-size">calc-size() and interpolate-size()</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 129">129</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 129">129</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>calc-size()</code> CSS function computes mathematical expressions that include <code>height</code> and <code>width</code> keyword values, for example <code>calc-size(fit-content, size / 2)</code>. Not to be confused with the <code>calc()</code> CSS function, which cannot use keyword values.<br>The <code>interpolate-size</code> CSS property sets whether animations and transitions interpolate between a numeric value and a keyword value, such as from a fixed length to <code>auto</code> or <code>fit-content</code>.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Animating to and from auto heights is a very common use case in CSS. This feature makes it possible to animate between a fixed length and any other type of length which can be expressed in CSS. The Interop 2025 feature proposal received 67 positive reactions on GitHub (<a href="https://github.com/web-platform-tests/interop/issues/735">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-calc-size-and-interpolate-size"></canvas>
+            <p class="chart-info">Number of passed subtests for calc-size() and interpolate-size(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Acalc-size+or+feature%3Ainterpolate-size+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-values-5/#calc-size">https://drafts.csswg.org/css-values-5/#calc-size</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-values-5/#interpolate-size">https://drafts.csswg.org/css-values-5/#interpolate-size</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="container-size-and-style-queries">
+        <h2><a href="#container-size-and-style-queries">Container size and style queries</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 111">111</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 111">111</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 18">18</abbr>
+          </div>
+        </div>
+        
+          <p class="description">Container size queries with the <code>@container</code> at-rule apply styles to an element based on the dimensions of its container.<br>Container style queries with the <code>@container</code> at-rule apply styles to an element based on the values of custom properties of its container.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  In the State of CSS 2024 survey, container queries was the second-most common response to the browser incompatibilities question (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
+                </li>
+              
+                <li>
+                  In the State of CSS 2024 survey, container style queries was in the top 20 most common responses to the browser incompatibilities question (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-container-size-and-style-queries"></canvas>
+            <p class="chart-info">Number of passed subtests for Container size and style queries. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Acontainer-queries+or+feature%3Acontainer-style-queries+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-conditional-5/#container-queries">https://drafts.csswg.org/css-conditional-5/#container-queries</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-conditional-5/#style-container">https://drafts.csswg.org/css-conditional-5/#style-container</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="core-web-vitals">
+        <h2><a href="#core-web-vitals">Core Web Vitals</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 84">84</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 84">84</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>largest-contentful-paint</code> performance entry and the <code>LargestContentfulPaint</code> API measures  the time it takes for the largest image or text to appear. Largest contentful paint (LCP) is a common metric for perceived loading times.<br>The <code>layout-shift</code> performance entry and <code>LayoutShift</code> API measures the layout stability of web pages based on movements of the elements on the page.<br>The <code>event</code> and <code>first-input</code> performance entries and the <code>PerformanceEventTiming</code> API measures the latency of user input events, such as mouse clicks or keypresses, and the latency of the first user input. First Input Delay (FID) is a common metric for perceived responsiveness.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The Interop 2025 feature proposal received more than 120 positive reactions on GitHub (<a href="https://github.com/web-platform-tests/interop/issues/894">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-core-web-vitals"></canvas>
+            <p class="chart-info">Number of passed subtests for Core Web Vitals. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Alargest-contentful-paint+or+feature%3Alayout-instability+or+feature%3Aevent-timing+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://w3c.github.io/largest-contentful-paint/">https://w3c.github.io/largest-contentful-paint/</a></li>
+              
+                <li><a href="https://wicg.github.io/layout-instability/">https://wicg.github.io/layout-instability/</a></li>
+              
+                <li><a href="https://w3c.github.io/event-timing/">https://w3c.github.io/event-timing/</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="cross-document-view-transitions">
+        <h2><a href="#cross-document-view-transitions">Cross-document view transitions</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 126">126</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 126">126</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 18.2">18.2</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>@view-transition</code> CSS rule sets whether a document opts-in to transitions between documents in a multi-page application. Both the old and new document must opt-in for a transition to be triggered.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
@@ -86,1327 +391,482 @@
                 </li>
               
                 <li>
-                  The feature received more than 100 positive reactions on a proposal GitHub issue (<a href="https://github.com/web-platform-tests/interop/issues/437">source</a>).
-                </li>
-              
-                <li>
-                  The feature's announcement on X was positively received (<a href="https://x.com/jaffathecake/status/1524782819431555074">source</a>).
-                </li>
-              
-                <li>
-                  In preliminary results to the State of HTML 2023 survey, the View Transitions API was the third most common response that appeared in the Browser Interoperability section.
+                  View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-view-transitions"></canvas>
-            <p class="chart-info">Number of passed subtests for View transitions. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aview-transitions+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <canvas id="chart-cross-document-view-transitions"></canvas>
+            <p class="chart-info">Number of passed subtests for Cross-document view transitions. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Across-document-view-transitions+and+%21with-types+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-view-transitions-2/#cross-doc-opt-in">https://drafts.csswg.org/css-view-transitions-2/#cross-doc-opt-in</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
-      <li class="feature" id="object-view-box">
-        <div class="metadata">
-          <h2><a href="#object-view-box">object-view-box</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-images-5/#the-object-view-box">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>object-view-box</code> CSS property crops and zooms to an inset area of an image.</p>
-        
+      <li class="feature" id="highlight">
+        <h2><a href="#highlight">Custom highlights</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 104">104</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 104">104</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>84%</td>
-                <td>11%</td>
-                <td>18%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 17.2">17.2</abbr>
+          </div>
         </div>
+        
+          <p class="description">Custom highlights style arbitrary text ranges, without adding extra elements to the DOM.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  The feature is a pre-requisite for the View Transitions API, which is a highly requested feature (<a href="https://github.com/w3c/csswg-drafts/issues/7058">source</a>).
+                  The CSS Custom Highlight API was the 5th content-related feature with the most positive sentiments in the State of HTML 2024 survey (<a href="https://2024.stateofhtml.com/en-US/features/content/#content_features">source</a>).
+                </li>
+              
+                <li>
+                  Compelling use cases and positive reactions were received on the feature proposal on GitHub (<a href="https://github.com/w3c/csswg-drafts/issues/4307">source</a>).
+                </li>
+              
+                <li>
+                  Supportive comments were also received on the announcement css-tricks.com blog post (<a href="https://css-tricks.com/css-custom-highlight-api-early-look/">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-object-view-box"></canvas>
-            <p class="chart-info">Number of passed subtests for object-view-box. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css?q=object+view+box+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <canvas id="chart-highlight"></canvas>
+            <p class="chart-info">Number of passed subtests for Custom highlights. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-highlight-api?label=stable&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
           </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="blocking-render">
-        <div class="metadata">
-          <h2><a href="#blocking-render">blocking=&quot;render&quot;</a></h2>
           
-            
-              <a href="https://html.spec.whatwg.org/multipage/urls-and-fetching.html#blocking-attributes">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>blocking="render"</code> attribute for <code>&#x3C;link></code>, <code>&#x3C;script></code>, and <code>&#x3C;style></code> elements blocks rendering until the external script or stylesheet has been loaded. For <code>&#x3C;link rel="expect"></code>, rendering is blocked until a specific element is in the DOM.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 105">105</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 105">105</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>100%</td>
-                <td>100%</td>
-                <td>72%</td>
-                <td>89%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
+            <h3>Specifications</h3>
+            <ul class="specs">
               
-                <li>
-                  The feature is a pre-requisite for the View Transitions API, which is a highly requested feature (<a href="https://github.com/whatwg/html/issues/9332">source</a>).
-                </li>
+                <li><a href="https://drafts.csswg.org/css-highlight-api-1/">https://drafts.csswg.org/css-highlight-api-1/</a></li>
               
             </ul>
           
-          <div class="chart">
-            <canvas id="chart-blocking-render"></canvas>
-            <p class="chart-info">Number of passed subtests for blocking=&quot;render&quot;. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/html/dom/render-blocking?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="scroll-driven-animations">
-        <div class="metadata">
-          <h2><a href="#scroll-driven-animations">Scroll-driven animations</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/scroll-animations-1/">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>animation-timeline</code>, <code>scroll-timeline</code>, and <code>view-timeline</code> CSS properties advance animations based on the user's scroll position.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 115">115</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 115">115</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>98%</td>
-                <td>97%</td>
-                <td>54%</td>
-                <td>83%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  This feature allows to create visually rich and interactive web experiences without requiring downloading, parsing, and running large JavaScript libraries.
-                </li>
-              
-                <li>
-                  The feature received more than 100 positive reactions on a proposal GitHub issue (<a href="https://github.com/web-platform-tests/interop/issues/439">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-scroll-driven-animations"></canvas>
-            <p class="chart-info">Number of passed subtests for Scroll-driven animations. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ascroll-driven-animations+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="popover">
-        <div class="metadata">
-          <h2><a href="#popover">Popover</a></h2>
-          
-            
-              <a href="https://html.spec.whatwg.org/multipage/popover.html">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>popover</code> HTML attribute creates an overlay to display content on top of other page content. Popovers can be shown declaratively using HTML, or using the <code>showPopover()</code> method.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 116">116</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 116">116</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 125">125</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17">17</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>100%</td>
-                <td>100%</td>
-                <td>71%</td>
-                <td>71%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  In preliminary results to the State of HTML 2023 survey, the popover feature was the most common response that appeared in the Browser Interoperability section.
-                </li>
-              
-                <li>
-                  The feature received 80 positive reactions on a proposal GitHub issue (<a href="https://github.com/web-platform-tests/interop/issues/423">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-popover"></canvas>
-            <p class="chart-info">Number of passed subtests for Popover. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Apopover+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="top-layer-animations">
-        <div class="metadata">
-          <h2><a href="#top-layer-animations">Top layer animations</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-position-4/#overlay">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-transitions-2/#defining-before-change-style">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-display-4/#display-animation">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-contain-3/#content-visibility-animation">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-transitions-2/#transition-behavior-property">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">A set of CSS features which makes top layer elements, like <code>&lt;dialog></code> elements, or elements with the <code>popover</code> attribute, animatable as they enter and exit the top layer. The features include the <code>overlay</code> CSS property, the <code>@starting-style</code> at-rule, the <code>transition-behavior</code> CSS property, and support for animating the <code>display</code> and <code>content-visibility</code> CSS properties.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 117">117</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 117">117</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>95%</td>
-                <td>95%</td>
-                <td>67%</td>
-                <td>63%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  Top layer animations allow animating popovers, which is a highly requested feature.
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-top-layer-animations"></canvas>
-            <p class="chart-info">Number of passed subtests for Top layer animations. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=path%3A%2Fcss%2Fcss-position%2Foverlay%2F+or+path%3A%2Fcss%2Fcss-contain%2Fcontent-visibility%2Fcontent-visibility-interpolation.html+or+path%3A%2Fcss%2Fcss-display%2Fanimations%2Fdisplay-interpolation.html+or+%28path%3A%2Fcss%2Fcss-transitions%2Fparsing%2F+and+transition-behavior%29+or+%28path%3A%2Fcss%2F+and+starting-style%29+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="navigation">
-        <div class="metadata">
-          <h2><a href="#navigation">Navigation API</a></h2>
-          
-            
-              <a href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>navigation</code> API initiates, intercepts, or modifies browser navigation actions. Not to be confused with the <code>navigator</code> API.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 102">102</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 102">102</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>97%</td>
-                <td>98%</td>
-                <td>0%</td>
-                <td>0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  This feature was in 7th place in an MDN survey asking people to rank 20 web features (<a href="https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey">source</a>).
-                </li>
-              
-                <li>
-                  The feature received 67 positive reactions on a proposal GitHub issue (<a href="https://github.com/web-platform-tests/interop/issues/435">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-navigation"></canvas>
-            <p class="chart-info">Number of passed subtests for Navigation API. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="anchor-positioning">
-        <div class="metadata">
-          <h2><a href="#anchor-positioning">Anchor positioning</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-anchor-position-1/#anchoring">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-anchor-positioning">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">Anchor positioning places an element based on the position of another element. For example, you can place a tooltip next to the content it references.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 125">125</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 125">125</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>99%</td>
-                <td>14%</td>
-                <td>14%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  Many JavaScript-based workarounds exist to position elements related to other elements. The anchor positioning polyfill also gets downloaded ~700 times a week, and its GitHub repository has more than 150 stars (<a href="https://github.com/oddbird/css-anchor-positioning">source</a>).
-                </li>
-              
-                <li>
-                  Anchor positioning is also a pre-requisite for the new OpenUI customizable <code>&lt;select></code> element, which appears as the 5th most common feature in preliminary results to the State of HTML 2023 survey, in the Browser Interoperability section.
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-anchor-positioning"></canvas>
-            <p class="chart-info">Number of passed subtests for Anchor positioning. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aanchor-positioning+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="nesting">
-        <div class="metadata">
-          <h2><a href="#nesting">Nesting</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-nesting-1/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-nesting">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">CSS nesting allows for shorter selectors, easier reading, and more modularity by nesting rules inside others.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 120">120</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 120">120</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 117">117</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17.2">17.2</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>98%</td>
-                <td>98%</td>
-                <td>98%</td>
-                <td>96%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  In the State of CSS 2023 survey, CSS Nesting was a very common answer to the question: "Are there any existing CSS features that you have difficulties using (or avoid altogether) because of lack of support, or differences between browsers?" (<a href="https://github.com/web-platform-tests/interop/issues/452">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-nesting"></canvas>
-            <p class="chart-info">Number of passed subtests for Nesting. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Anesting+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="scrollbar-styling">
-        <div class="metadata">
-          <h2><a href="#scrollbar-styling">Scrollbar styling</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-scrollbars-1/#scrollbar-color">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-overflow-3/#scrollbar-gutter-property">Specification</a>
-            
-              <a href="https://drafts.csswg.org/css-scrollbars-1/#scrollbar-width">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>scrollbar-color</code> CSS property sets the color of the scrollbar track and thumb.<br>The <code>scrollbar-gutter</code> CSS property reserves space for the scrollbar, preventing unwanted layout changes as the scrollbar appears and disappears.<br>The <code>scrollbar-width</code> CSS property sets the width of the scrollbar.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 121">121</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 121">121</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 97">97</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>99%</td>
-                <td>99%</td>
-                <td>84%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  Styling scrollbar ranked #5 in the State of CSS Survey 2023's browser incompatibilities question (<a href="https://2023.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-scrollbar-styling"></canvas>
-            <p class="chart-info">Number of passed subtests for Scrollbar styling. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css?q=path%3A%2Fcss%2Fcss-scrollbars+or+%28scrollbar-gutter+and+path%3A%2Fcss%2Fcss-overflow%29+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="backdrop-filter">
-        <div class="metadata">
-          <h2><a href="#backdrop-filter">backdrop-filter</a></h2>
-          
-            
-              <a href="https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-backdrop-filter">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>backdrop-filter</code> CSS property applies graphical effects such as blurring or color shifting to the area behind an element.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 79">79</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 76">76</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 103">103</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 18">18</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>76%</td>
-                <td>97%</td>
-                <td>91%</td>
-                <td>90%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  In State of CSS 2021, <code>backdrop-filter</code> was the 6th most common answer to the question "Are there any CSS features you have difficulties using because of differences between browsers?" (<a href="https://2021.stateofcss.com/en-US/opinions/#browser_interoperability_features">source</a>).
-                </li>
-              
-                <li>
-                  In State of CSS 2022, <code>backdrop-filter</code> was a common responses the question about browser incompatibilities, mentioned in ~3% of responses. (<a href="https://github.com/web-platform-tests/interop/issues/248">source</a>).
-                </li>
-              
-                <li>
-                  In the MDN short survey on CSS & HTML, "CSS backdrop-filter property" was selected by ~21% of survey takers, putting it in the top third of the 20 options. (<a href="https://github.com/web-platform-tests/interop/issues/245">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-backdrop-filter"></canvas>
-            <p class="chart-info">Number of passed subtests for backdrop-filter. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Abackdrop-filter+and+%21path%3A%2Fcss%2Ffilter-effects%2Fanimation+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="declarative-shadow-dom">
-        <div class="metadata">
-          <h2><a href="#declarative-shadow-dom">Declarative shadow DOM</a></h2>
-          
-            
-              <a href="https://html.spec.whatwg.org/multipage/scripting.html#attr-template-shadowrootmode">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/declarative-shadow-dom">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>shadowrootmode</code> attribute on <code>&#x3C;template></code> creates a shadow root without the use of JavaScript. It is a declarative alternative to the <code>attachShadow()</code> method.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 111">111</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 111">111</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 123">123</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 16.4">16.4</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>100%</td>
-                <td>100%</td>
-                <td>100%</td>
-                <td>100%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  In preliminary results to the State of HTML 2023 survey, Declarative Shadow DOM was a common response that appeared in the Browser Interoperability section. Also, it was among the features that respondents expressed the most interest for.
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-declarative-shadow-dom"></canvas>
-            <p class="chart-info">Number of passed subtests for Declarative shadow DOM. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/shadow-dom/declarative?q=not+gethtml+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
         </details>
       </li>
     
       <li class="feature" id="customized-built-in-elements">
-        <div class="metadata">
-          <h2><a href="#customized-built-in-elements">Customized built-in elements</a></h2>
-          
-            
-              <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/custom-elementsv1">Can I Use</a>
-            
-          
+        <h2><a href="#customized-built-in-elements">Customized built-in elements</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 79">79</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 67">67</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 63">63</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
         
           <p class="description">Customized built-in elements are HTML elements that extend built-in elements using the <code>is</code> attribute, to add new behaviors that you define.</p>
         
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 79">79</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 67">67</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 63">63</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>99%</td>
-                <td>100%</td>
-                <td>33%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  This GitHub issue about improving the <code>is</code> HTML attribute received a lot of attention and reactions (<a href="https://github.com/WICG/webcomponents/issues/509">source</a>).
+                  The GitHub issue about improving the <code>is</code> HTML attribute received a lot of attention and reactions (<a href="https://github.com/WICG/webcomponents/issues/509">source</a>).
                 </li>
               
                 <li>
-                  The Custom Elements polyfill is very popular (<a href="https://github.com/ungap/custom-elements">source</a>).
+                  The Custom Elements polyfill is very popular, with more than 26000 weekly downloads on NPM, and 250 stars on GitHub (<a href="https://github.com/ungap/custom-elements">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
             <canvas id="chart-customized-built-in-elements"></canvas>
-            <p class="chart-info">Number of passed subtests for Customized built-in elements. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/custom-elements/?q=path%3A%2Fcustom-elements%2Fbuiltin-coverage.html+or+path%3A%2Fcustom-elements%2Fcustomized-built-in-constructor-exceptions.html+or+path%3A%2Fcustom-elements%2FDocument-createElement-customized-builtins.html+or+path%3A%2Fcustom-elements%2FDocument-createElementNS-customized-builtins.html+or+path%3A%2Fcustom-elements%2FHTMLElement-constructor-customized-bulitins.html+or+path%3A%2Fcustom-elements%2Fpseudo-class-defined-customized-builtins.html+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <p class="chart-info">Number of passed subtests for Customized built-in elements. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Acustomized-built-in-elements+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="trusted-types">
-        <div class="metadata">
-          <h2><a href="#trusted-types">Trusted types</a></h2>
           
-            
-              <a href="https://w3c.github.io/trusted-types/dist/spec/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/trusted-types">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">Trusted types allow you to lock down insecure parts of the DOM API and prevent client-side cross-site scripting (XSS) attacks.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 83">83</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 83">83</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>86%</td>
-                <td>86%</td>
-                <td>10%</td>
-                <td>10%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
+            <h3>Specifications</h3>
+            <ul class="specs">
               
-                <li>
-                  Meta uses Trusted Types by default for new products, and rolls out Trusted Types enforcement in existing products. Microsoft uses Trusted Types for Edge integrated applications and Edge WebUI pages. Integration of Trusted Types is completed or ongoing for several libraries and frameworks (<a href="https://github.com/web-platform-tests/interop/issues/500#issue-1917715289">source</a>).
-                </li>
+                <li><a href="https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element">https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element</a></li>
               
             </ul>
           
-          <div class="chart">
-            <canvas id="chart-trusted-types"></canvas>
-            <p class="chart-info">Number of passed subtests for Trusted types. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="asynchronously-iterable-streams">
-        <div class="metadata">
-          <h2><a href="#asynchronously-iterable-streams">Asynchronously iterable streams</a></h2>
-          
-            
-              <a href="https://streams.spec.whatwg.org/#rs-asynciterator">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">Asynchronous iteration of a stream allows you to use <code>for await … of</code> loops to iterate through a stream's incoming data.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 124">124</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 124">124</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 110">110</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>94%</td>
-                <td>94%</td>
-                <td>87%</td>
-                <td>0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  The Chromium implementation bug has more than 50 votes (<a href="https://issues.chromium.org/issues/40612900">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-asynchronously-iterable-streams"></canvas>
-            <p class="chart-info">Number of passed subtests for Asynchronously iterable streams. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/streams/readable-streams?q=async-iterator+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="scroll-to-text-fragment">
-        <div class="metadata">
-          <h2><a href="#scroll-to-text-fragment">Scroll to text fragment</a></h2>
-          
-            
-              <a href="https://wicg.github.io/scroll-to-text-fragment/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/url-scroll-to-text-fragment">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">Text fragments are URL fragments on the form <code>#:~:text=snippet</code> and link to a snippet of text within a page. The browser may scroll, highlight, or otherwise bring that text to the reader's attention.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 80">80</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 80">80</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 131">131</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 16.1">16.1</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>73%</td>
-                <td>73%</td>
-                <td>97%</td>
-                <td>82%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-          <div class="chart">
-            <canvas id="chart-scroll-to-text-fragment"></canvas>
-            <p class="chart-info">Number of passed subtests for Scroll to text fragment. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/scroll-to-text-fragment?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="urlpattern">
-        <div class="metadata">
-          <h2><a href="#urlpattern">URLPattern</a></h2>
-          
-            
-              <a href="https://urlpattern.spec.whatwg.org/">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>URLPattern</code> API creates patterns that can be matched against URLs or URL components.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 95">95</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 95">95</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>100%</td>
-                <td>100%</td>
-                <td>0%</td>
-                <td>0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  The URLPattern specification GitHub repository has ~150 stars (<a href="https://github.com/whatwg/urlpattern">source</a>).
-                </li>
-              
-                <li>
-                  Feedback received while testing the API with developers has been positive (<a href="https://github.com/whatwg/urlpattern/blob/main/dev-trials-feedack.md">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-urlpattern"></canvas>
-            <p class="chart-info">Number of passed subtests for URLPattern. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/urlpattern?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="paint">
-        <div class="metadata">
-          <h2><a href="#paint">paint()</a></h2>
-          
-            
-              <a href="https://drafts.css-houdini.org/css-paint-api-1/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-paint-api">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>paint()</code> CSS function creates a custom image, drawn using a paint worklet, for an element's background or border.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 79">79</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 65">65</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>97%</td>
-                <td>93%</td>
-                <td>14%</td>
-                <td>14%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  The polyfill for this feature has more than 700 stars on GitHub (<a href="https://github.com/GoogleChromeLabs/css-paint-polyfill">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-paint"></canvas>
-            <p class="chart-info">Number of passed subtests for paint(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-paint-api?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
-          </div>
-        </details>
-      </li>
-    
-      <li class="feature" id="webtransport">
-        <div class="metadata">
-          <h2><a href="#webtransport">WebTransport</a></h2>
-          
-            
-              <a href="https://w3c.github.io/webtransport/">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/webtransport">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>WebTransport</code> API transmits data between a client and a server, by using the HTTP/3 protocol.</p>
-        
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 97">97</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 97">97</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 114">114</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>69%</td>
-                <td>69%</td>
-                <td>77%</td>
-                <td>0%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <details>
-          <summary>More information</summary>
-          
-            <ul class="rationale">
-              
-                <li>
-                  The specification GitHub repository has 800 stars (<a href="https://github.com/w3c/webtransport">source</a>).
-                </li>
-              
-            </ul>
-          
-          <div class="chart">
-            <canvas id="chart-webtransport"></canvas>
-            <p class="chart-info">Number of passed subtests for WebTransport. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Awebtransport+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
-          </div>
         </details>
       </li>
     
       <li class="feature" id="document-caretpositionfrompoint">
-        <div class="metadata">
-          <h2><a href="#document-caretpositionfrompoint">document.caretPositionFromPoint()</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint">Specification</a>
-            
-          
-          
-            
-          
+        <h2><a href="#document-caretpositionfrompoint">document.caretPositionFromPoint()</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 128">128</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 128">128</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 20">20</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
         
           <p class="description">The <code>document.caretPositionFromPoint()</code> method finds an insertion point, represented by a DOM node and an offset within that node, for given coordinates in the viewport.</p>
         
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 128">128</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 128">128</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 23">23</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>100%</td>
-                <td>100%</td>
-                <td>100%</td>
-                <td>16%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  The Chromium implementation bug almost has 50 votes (<a href="https://issues.chromium.org/issues/41117286">source</a>).
+                  The Chromium implementation bug for <code>document.caretPositionFromPoint()</code> has more than 45 votes (<a href="https://issues.chromium.org/issues/41117286">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
             <canvas id="chart-document-caretpositionfrompoint"></canvas>
-            <p class="chart-info">Number of passed subtests for document.caretPositionFromPoint(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/cssom/?q=caretPositionFromPoint+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <p class="chart-info">Number of passed subtests for document.caretPositionFromPoint(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/cssom/?q=caretPositionFromPoint+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint">https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="fetch-request-streams">
+        <h2><a href="#fetch-request-streams">Fetch upload streams</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 105">105</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 11.1">11.1</abbr>
+          </div>
+        </div>
+        
+          <p class="description">A <code>fetch()</code> request uploads a stream of data to the server when a request's <code>body</code> property is a <code>ReadableStream</code> object.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The specification pull request for this feature received a lot of positive reactions (<a href="https://github.com/whatwg/fetch/pull/425">source</a>).
+                </li>
+              
+                <li>
+                  The Chromium implementation bug has more than 70 votes (<a href="https://issues.chromium.org/issues/40505032">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-fetch-request-streams"></canvas>
+            <p class="chart-info">Number of passed subtests for Fetch upload streams. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Afetch-request-streams+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://fetch.spec.whatwg.org/#concept-body-stream">https://fetch.spec.whatwg.org/#concept-body-stream</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="field-sizing">
+        <h2><a href="#field-sizing">field-sizing</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 123">123</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 123">123</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>field-sizing</code> CSS property allows form controls such as <code>&#x3C;textarea></code> to be sized based on their content.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The <code>field-sizing</code> property makes it possible to remove JavaScript-based workarounds for sizing form fields (<a href="https://polypane.app/blog/field-sizing-just-works/">source</a>).
+                </li>
+              
+                <li>
+                  The autosize NPM package, which automatically adjusts the height of textareas to fit their content, has more than 700,000 weekly downloads (<a href="https://www.npmjs.com/package/autosize">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-field-sizing"></canvas>
+            <p class="chart-info">Number of passed subtests for field-sizing. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Afield-sizing+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-ui-4/#field-sizing">https://drafts.csswg.org/css-ui-4/#field-sizing</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="has-slotted">
+        <h2><a href="#has-slotted">:has-slotted</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 134">134</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 134">134</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 136">136</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>:has-slotted</code> CSS pseudo-class matches <code>&#x3C;slot></code> elements where the fallback content is not shown. The pseudo-class matches any slotted content, including white space, text nodes, or elements.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The feature proposal issue on the Web Components specification GitHub repository received a lot of positive reactions (<a href="https://github.com/WICG/webcomponents/issues/936">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-has-slotted"></canvas>
+            <p class="chart-info">Number of passed subtests for :has-slotted. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ahas-slotted+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-scoping-1/#the-has-slotted-pseudo">https://drafts.csswg.org/css-scoping-1/#the-has-slotted-pseudo</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="intersection-observer-v2">
+        <h2><a href="#intersection-observer-v2">Intersection observer visibility tracking</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 79">79</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 74">74</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>trackVisibility</code> parameter for the <code>IntersectionObserver</code> constructor enables tracking the visibility of an element, to detect if it may be obscured by other content or visual effects. Also known as IntersectionObserver v2.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  In the 2022 APIs and JavaScript MDN short survey, more than 15% of respondents agreed that the Intersection Observer API needed to be improved across browsers (<a href="https://github.com/web-platform-tests/interop/issues/246">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-intersection-observer-v2"></canvas>
+            <p class="chart-info">Number of passed subtests for Intersection observer visibility tracking. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aintersection-observer-v2+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://w3c.github.io/IntersectionObserver/#calculate-visibility-algo">https://w3c.github.io/IntersectionObserver/#calculate-visibility-algo</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="jpegxl">
+        <h2><a href="#jpegxl">JPEG XL</a></h2>
+        <div class="support">
+          <div class="support-pill edge unsupported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill chrome unsupported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 17">17</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The JPEG XL image format is a raster graphics file format that supports animation, alpha transparency, and lossy as well as lossless compression.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The Interop 2025 feature proposal for JPEG XL received more than 600 positive reactions (<a href="https://github.com/web-platform-tests/interop/issues/700">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-jpegxl"></canvas>
+            <p class="chart-info">Number of passed subtests for JPEG XL. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ajpegxl+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://www.iso.org/standard/85253.html">https://www.iso.org/standard/85253.html</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
       <li class="feature" id="json-and-css-modules">
-        <div class="metadata">
-          <h2><a href="#json-and-css-modules">JSON and CSS modules</a></h2>
-          
-            
-              <a href="https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script">Specification</a>
-            
-              <a href="https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">Module <code>import … with { type: "json" }</code> statements load JSON data. Also known as JSON module scripts.<br>Module `import … with { type: "css" } statements load CSS modules as constructable stylesheets. Also known as CSS module scripts.</p>
-        
+        <h2><a href="#json-and-css-modules">JSON and CSS modules</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 123">123</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 123">123</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>98%</td>
-                <td>98%</td>
-                <td>7%</td>
-                <td>66%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 123">123</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 123">123</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
+        
+          <p class="description">Module <code>import … with { type: "json" }</code> statements load JSON data. Also known as JSON module scripts.<br>Module <code>import … with { type: "css" }</code> statements load CSS modules as constructable stylesheets. Also known as CSS module scripts.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
@@ -1419,351 +879,781 @@
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
             <canvas id="chart-json-and-css-modules"></canvas>
-            <p class="chart-info">Number of passed subtests for JSON and CSS modules. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/html/semantics/scripting-1/the-script-element?q=%28import-attributes+or+css+or+json%29+and+not+assertions+and+not+path%3A%2Fhtml%2Fsemantics%2Fscripting-1%2Fthe-script-element%2Fmodule%2Fdynamic-import%2Fmicrotasks%2F+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <p class="chart-info">Number of passed subtests for JSON and CSS modules. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/html/semantics/scripting-1/the-script-element?q=%28import-attributes+or+css+or+json%29+and+not+assertions+and+not+path%3A%2Fhtml%2Fsemantics%2Fscripting-1%2Fthe-script-element%2Fmodule%2Fdynamic-import%2Fmicrotasks%2F+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script">https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script</a></li>
+              
+                <li><a href="https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script">https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
-      <li class="feature" id="font-size-adjust">
-        <div class="metadata">
-          <h2><a href="#font-size-adjust">font-size-adjust</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-fonts-5/#font-size-adjust-prop">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/font-size-adjust">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>font-size-adjust</code> CSS property preserves apparent text size, regardless of the font used, by scaling fonts to the same size with respect to a specific metric, such as x-height. This can help make fallback fonts look the same size.</p>
-        
+      <li class="feature" id="marker">
+        <h2><a href="#marker">::marker</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 127">127</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 127">127</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 118">118</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17">17</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>97%</td>
-                <td>93%</td>
-                <td>99%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 86">86</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 86">86</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 80">80</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
+        
+          <p class="description">The <code>::marker</code> CSS pseudo-element selects list item markers for styling numbers or bullets.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  The "The little known font-size-adjust CSS3 property" blog post received a lot of comments (<a href="https://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/">source</a>).
+                  The Interop 2025 feature proposal received 25 positive reactions (<a href="https://github.com/web-platform-tests/interop/issues/729">source</a>).
                 </li>
               
                 <li>
-                  The chromium implementation bug has 29 votes (<a href="https://issues.chromium.org/issues/40081245">source</a>).
+                  Comments on the State of CSS 2023 survey indicate that developers want cross-browser support for this feature (<a href="https://2023.stateofcss.com/en-US/features/other-features/#marker">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-font-size-adjust"></canvas>
-            <p class="chart-info">Number of passed subtests for font-size-adjust. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-fonts?q=font-size-adjust+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <canvas id="chart-marker"></canvas>
+            <p class="chart-info">Number of passed subtests for ::marker. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Amarker+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-pseudo-4/#marker-pseudo">https://drafts.csswg.org/css-pseudo-4/#marker-pseudo</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
-      <li class="feature" id="highlight">
-        <div class="metadata">
-          <h2><a href="#highlight">Custom highlights</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-highlight-api-1/">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">Custom highlights style arbitrary text ranges, without adding extra elements to the DOM.</p>
-        
+      <li class="feature" id="navigation">
+        <h2><a href="#navigation">Navigation API</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 105">105</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 105">105</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17.2">17.2</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>94%</td>
-                <td>95%</td>
-                <td>73%</td>
-                <td>81%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 102">102</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 102">102</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
+        
+          <p class="description">The <code>navigation</code> API initiates, intercepts, or modifies browser navigation actions. Not to be confused with the <code>navigator</code> API.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  Compelling use cases and positive reactions were received on the feature proposal on GitHub (<a href="https://github.com/w3c/csswg-drafts/issues/4307">source</a>).
+                  This feature was in 7th place in an MDN short survey asking people to rank 20 web features (<a href="https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey">source</a>).
                 </li>
               
                 <li>
-                  Supportive comments were also received on the announcement CSS Tricks blog post (<a href="https://css-tricks.com/css-custom-highlight-api-early-look/">source</a>).
+                  The Interop 2025 feature proposal received 96 positive reactions (<a href="https://github.com/web-platform-tests/interop/issues/709">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-highlight"></canvas>
-            <p class="chart-info">Number of passed subtests for Custom highlights. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-highlight-api?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
+            <canvas id="chart-navigation"></canvas>
+            <p class="chart-info">Number of passed subtests for Navigation API. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api">https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
-      <li class="feature" id="request-video-frame-callback">
-        <div class="metadata">
-          <h2><a href="#request-video-frame-callback">requestVideoFrameCallback()</a></h2>
-          
-            
-              <a href="https://wicg.github.io/video-rvfc/">Specification</a>
-            
-          
-          
-            
-          
-        </div>
-        
-          <p class="description">The <code>requestVideoFrameCallback()</code> method for <code>&#x3C;video></code> schedules a function that runs with the next video frame. It is similar to <code>requestAnimationFrame()</code>, but for video.</p>
-        
+      <li class="feature" id="same-document-view-transitions">
+        <h2><a href="#same-document-view-transitions">Same-document view transitions</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 83">83</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 83">83</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 132">132</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 15.4">15.4</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>79%</td>
-                <td>79%</td>
-                <td>83%</td>
-                <td>83%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 125">125</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 125">125</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 18.2">18.2</abbr>
+          </div>
         </div>
+        
+          <p class="description">View transitions allow you to create animated visual transitions between different states of a document.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  The specification GitHub repository has more than 50 stars (<a href="https://github.com/WICG/video-rvfc">source</a>).
-                </li>
-              
-                <li>
-                  Developer interest was expressed on the WICG Discourse forum (<a href="https://discourse.wicg.io/t/proposal-video-requestanimationframe/3691/">source</a>).
-                </li>
-              
-                <li>
-                  The Mozilla standards position entry for this feature received some developer interest (<a href="https://github.com/mozilla/standards-positions/issues/250">source</a>).
+                  View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-request-video-frame-callback"></canvas>
-            <p class="chart-info">Number of passed subtests for requestVideoFrameCallback(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/video-rvfc?label=experimental&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
+            <canvas id="chart-same-document-view-transitions"></canvas>
+            <p class="chart-info">Number of passed subtests for Same-document view transitions. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-view-transitions?q=feature%3Aview-transitions+or+feature%3Aview-transition-class+or+types+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-view-transitions-1/">https://drafts.csswg.org/css-view-transitions-1/</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-view-transitions-2/#propdef-view-transition-class">https://drafts.csswg.org/css-view-transitions-2/#propdef-view-transition-class</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-view-transitions-2/#the-active-view-transition-pseudo">https://drafts.csswg.org/css-view-transitions-2/#the-active-view-transition-pseudo</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
       <li class="feature" id="scope">
-        <div class="metadata">
-          <h2><a href="#scope">@scope</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/css-cascade-6/#scope-atrule">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-cascade-scope">Can I Use</a>
-            
-          
+        <h2><a href="#scope">@scope</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 118">118</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 118">118</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari supported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 17.4">17.4</abbr>
+          </div>
         </div>
         
           <p class="description">The <code>@scope</code> CSS at-rule sets the scope for a group of rules.</p>
         
-        <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 118">118</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 118">118</abbr></td>
-                <td><abbr class="support-icon no" title="Not supported"></abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 17.4">17.4</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>100%</td>
-                <td>20%</td>
-                <td>84%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  CSS scoping appears in the top 10 missing features in the State of CSS 2023 survey (<a href="https://2023.stateofcss.com/en-US/usage/#css_missing_features">source</a>).
+                  CSS scoping appears in the top ten missing features in the State of CSS 2023 survey (<a href="https://2023.stateofcss.com/en-US/usage/#css_missing_features">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
             <canvas id="chart-scope"></canvas>
-            <p class="chart-info">Number of passed subtests for @scope. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-cascade?q=scope+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <p class="chart-info">Number of passed subtests for @scope. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ascope+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-cascade-6/#scope-atrule">https://drafts.csswg.org/css-cascade-6/#scope-atrule</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
-      <li class="feature" id="dir-pseudo">
-        <div class="metadata">
-          <h2><a href="#dir-pseudo">:dir()</a></h2>
-          
-            
-              <a href="https://drafts.csswg.org/selectors-4/#the-dir-pseudo">Specification</a>
-            
-          
-          
-            
-              <a href="https://caniuse.com/css-dir-pseudo">Can I Use</a>
-            
-          
-        </div>
-        
-          <p class="description">The <code>:dir()</code> CSS functional pseudo-class matches elements by text direction, either right to left (<code>rtl</code>) or left to right (<code>ltr</code>).</p>
-        
+      <li class="feature" id="scroll-driven-animations">
+        <h2><a href="#scroll-driven-animations">Scroll-driven animations</a></h2>
         <div class="support">
-          
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td><abbr class="support-icon yes" title="Fully supported in 120">120</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 120">120</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 49">49</abbr></td>
-                <td><abbr class="support-icon yes" title="Fully supported in 16.4">16.4</abbr></td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>99%</td>
-                <td>99%</td>
-                <td>100%</td>
-                <td>95%</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 115">115</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 115">115</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
         </div>
+        
+          <p class="description">The <code>animation-timeline</code>, <code>scroll-timeline</code>, and <code>view-timeline</code> CSS properties advance animations based on the user's scroll position.</p>
+        
         <details>
           <summary>More information</summary>
           
+            <h3>Rationale</h3>
             <ul class="rationale">
               
                 <li>
-                  The Chromium implementation bug for the <code>:dir()</code> pseudo-class has 35 votes (<a href="https://issues.chromium.org/issues/40451997">source</a>).
+                  This feature is in the top twenty features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
                 </li>
               
                 <li>
-                  An interoperable implementation of the <code>:dir()</code> pseudo-class is needed to provide developers with a consistent way to style based on text directionality (<a href="https://stackoverflow.com/questions/59876111/css-pseudo-dir-host-context-and-directionality-based-styling">source</a>).
+                  The Interop 2025 feature proposal received more than 50 positive reactions (<a href="https://github.com/web-platform-tests/interop/issues/736">source</a>).
                 </li>
               
             </ul>
           
+          <h3>WPT test results</h3>
           <div class="chart">
-            <canvas id="chart-dir-pseudo"></canvas>
-            <p class="chart-info">Number of passed subtests for :dir(). Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=path%3A%2Fhtml%2Fdom%2Felements%2Fglobal-attributes%2Fdir+or+path%3A%2Fcss%2Fselectors%2Fdir+%21is%3Atentative&amp;label=experimental&amp;label=master">latest results for this feature</a>.
+            <canvas id="chart-scroll-driven-animations"></canvas>
+            <p class="chart-info">Number of passed subtests for Scroll-driven animations. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ascroll-driven-animations+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
           </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/scroll-animations-1/">https://drafts.csswg.org/scroll-animations-1/</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="overflow-anchor">
+        <h2><a href="#overflow-anchor">Scroll anchoring</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 79">79</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 56">56</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 66">66</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">Scroll anchoring is a browser feature which automatically adjusts the scroll position to prevent visible jumps when content changes above the viewport. The <code>overflow-anchor</code> CSS property allows developers to opt-out of the scroll anchoring behavior for specific elements.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Many likes and retweets on the initial announcement of the scroll anchoring feature when it was implemented in Chrome (<a href="https://x.com/addyosmani/status/761297439764520960">source</a>).
+                </li>
+              
+                <li>
+                  Developer interest in the tracking implementation bug in WebKit (<a href="https://bugs.webkit.org/show_bug.cgi?id=171099">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-overflow-anchor"></canvas>
+            <p class="chart-info">Number of passed subtests for Scroll anchoring. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css/css-scroll-anchoring?label=stable&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-scroll-anchoring-1/#exclusion-api">https://drafts.csswg.org/css-scroll-anchoring-1/#exclusion-api</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="scrollbar-styling">
+        <h2><a href="#scrollbar-styling">Scrollbar styling</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 121">121</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 121">121</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 97">97</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>scrollbar-color</code> CSS property sets the color of the scrollbar track and thumb.<br>The <code>scrollbar-gutter</code> CSS property reserves space for the scrollbar, preventing unwanted layout changes as the scrollbar appears and disappears.<br>The <code>scrollbar-width</code> CSS property sets the width of the scrollbar.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  In the State of CSS 2024 survey, styling scrollbar ranked eighth in the browser incompatibilities question (<a href="https://2024.stateofcss.com/en-US/usage/#css_interoperability_features">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-scrollbar-styling"></canvas>
+            <p class="chart-info">Number of passed subtests for Scrollbar styling. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/css?q=path%3A%2Fcss%2Fcss-scrollbars+or+%28scrollbar-gutter+and+path%3A%2Fcss%2Fcss-overflow%29+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-scrollbars-1/#scrollbar-color">https://drafts.csswg.org/css-scrollbars-1/#scrollbar-color</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-overflow-3/#scrollbar-gutter-property">https://drafts.csswg.org/css-overflow-3/#scrollbar-gutter-property</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-scrollbars-1/#scrollbar-width">https://drafts.csswg.org/css-scrollbars-1/#scrollbar-width</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="scrollend">
+        <h2><a href="#scrollend">scrollend</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 114">114</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 114">114</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 109">109</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>scrollend</code> event fires when an element or document has finished scrolling.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The scrollend feature is used by more than 20% of page loads in Chrome, according to chromestatus.com (<a href="https://chromestatus.com/metrics/webfeature/timeline/popularity/58">source</a>).
+                </li>
+              
+                <li>
+                  In the 2021 Scroll Survey, 43% of respondents said that it was somewhat or extremely difficult to work with scrolling (<a href="https://web.dev/blog/2021-scroll-survey-report">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-scrollend"></canvas>
+            <p class="chart-info">Number of passed subtests for scrollend. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Ascrollend+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/cssom-view-1/#eventdef-document-scrollend">https://drafts.csswg.org/cssom-view-1/#eventdef-document-scrollend</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="speculation-rules">
+        <h2><a href="#speculation-rules">Speculation rules</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 109">109</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 109">109</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">Speculation rules are hints to the browser to proactively download pages in the background so they appear instantly when the user navigates to them.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Adoption on supporting browsers is growing rapidly (<a href="https://chromestatus.com/metrics/feature/timeline/popularity/3969">source</a>).
+                </li>
+              
+                <li>
+                  WordPress 6.8 uses speculation rules to improve performance (<a href="https://make.wordpress.org/core/2025/03/06/speculative-loading-in-6-8/">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-speculation-rules"></canvas>
+            <p class="chart-info">Number of passed subtests for Speculation rules. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aspeculation-rules+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://wicg.github.io/nav-speculation/speculation-rules.html">https://wicg.github.io/nav-speculation/speculation-rules.html</a></li>
+              
+                <li><a href="https://wicg.github.io/nav-speculation/prerendering.html">https://wicg.github.io/nav-speculation/prerendering.html</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="top-layer-animations">
+        <h2><a href="#top-layer-animations">Top layer animations</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 117">117</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 117">117</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">A set of CSS features which makes top layer elements, like <code>&lt;dialog></code> elements, or elements with the <code>popover</code> attribute, animatable as they enter and exit the top layer. The features include the <code>overlay</code> CSS property, the <code>@starting-style</code> at-rule, the <code>transition-behavior</code> CSS property, and support for animating the <code>display</code> and <code>content-visibility</code> CSS properties.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Top layer animations allow animating popovers, which is a highly requested feature.
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-top-layer-animations"></canvas>
+            <p class="chart-info">Number of passed subtests for Top layer animations. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Aoverlay+or+feature%3Astarting-style+or+feature%3Adisplay-animation+or+feature%3Atransition-behavior+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://drafts.csswg.org/css-position-4/#overlay">https://drafts.csswg.org/css-position-4/#overlay</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-transitions-2/#defining-before-change-style">https://drafts.csswg.org/css-transitions-2/#defining-before-change-style</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-display-4/#display-animation">https://drafts.csswg.org/css-display-4/#display-animation</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-contain-3/#content-visibility-animation">https://drafts.csswg.org/css-contain-3/#content-visibility-animation</a></li>
+              
+                <li><a href="https://drafts.csswg.org/css-transitions-2/#transition-behavior-property">https://drafts.csswg.org/css-transitions-2/#transition-behavior-property</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="trusted-types">
+        <h2><a href="#trusted-types">Trusted types</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 83">83</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 83">83</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">Trusted types allow you to lock down insecure parts of the DOM API and prevent client-side cross-site scripting (XSS) attacks.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  Interest from the community and adoption on supporting browsers is high (<a href="https://github.com/web-platform-tests/interop/issues/500">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-trusted-types"></canvas>
+            <p class="chart-info">Number of passed subtests for Trusted types. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://w3c.github.io/trusted-types/dist/spec/">https://w3c.github.io/trusted-types/dist/spec/</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="urlpattern">
+        <h2><a href="#urlpattern">URLPattern</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 95">95</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 95">95</abbr>
+          </div>
+          <div class="support-pill firefox unsupported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>URLPattern</code> API creates patterns that can be matched against URLs or URL components.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The URLPattern specification GitHub repository has more than 180 stars (<a href="https://github.com/whatwg/urlpattern">source</a>).
+                </li>
+              
+                <li>
+                  Feedback received while testing the API with developers has been positive (<a href="https://github.com/whatwg/urlpattern/blob/main/dev-trials-feedack.md">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-urlpattern"></canvas>
+            <p class="chart-info">Number of passed subtests for URLPattern. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/urlpattern?label=stable&amp;label=master&amp;q=+%21is%3Atentative">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://urlpattern.spec.whatwg.org/">https://urlpattern.spec.whatwg.org/</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="webdriver-bidi">
+        <h2><a href="#webdriver-bidi">WebDriver BiDi</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 106">106</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 106">106</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 102">102</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">WebDriver BiDi is a bidirectional protocol that allows a WebDriver client and a browser to communicate with each other.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The Interop 2025 feature proposal for WebDriver BiDi received more than 70 positive reactions (<a href="https://github.com/web-platform-tests/interop/issues/763">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-webdriver-bidi"></canvas>
+            <p class="chart-info">Number of passed subtests for WebDriver BiDi. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Awebdriver-bidi+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://w3c.github.io/webdriver-bidi/">https://w3c.github.io/webdriver-bidi/</a></li>
+              
+            </ul>
+          
+        </details>
+      </li>
+    
+      <li class="feature" id="webtransport">
+        <h2><a href="#webtransport">WebTransport</a></h2>
+        <div class="support">
+          <div class="support-pill edge supported">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 97">97</abbr>
+          </div>
+          <div class="support-pill chrome supported">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 97">97</abbr>
+          </div>
+          <div class="support-pill firefox supported">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            <abbr class="support-icon yes" title="The feature is fully supported starting with version 114">114</abbr>
+          </div>
+          <div class="support-pill safari unsupported">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            <abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>
+          </div>
+        </div>
+        
+          <p class="description">The <code>WebTransport</code> API transmits data between a client and a server, by using the HTTP/3 protocol.</p>
+        
+        <details>
+          <summary>More information</summary>
+          
+            <h3>Rationale</h3>
+            <ul class="rationale">
+              
+                <li>
+                  The specification GitHub repository has 900 stars (<a href="https://github.com/w3c/webtransport">source</a>).
+                </li>
+              
+            </ul>
+          
+          <h3>WPT test results</h3>
+          <div class="chart">
+            <canvas id="chart-webtransport"></canvas>
+            <p class="chart-info">Number of passed subtests for WebTransport. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="https://wpt.fyi/results/?q=feature%3Awebtransport+%21is%3Atentative&amp;label=stable&amp;label=master">latest results for this feature</a>.
+          </div>
+          
+            <h3>Specifications</h3>
+            <ul class="specs">
+              
+                <li><a href="https://w3c.github.io/webtransport/">https://w3c.github.io/webtransport/</a></li>
+              
+            </ul>
+          
         </details>
       </li>
     
@@ -1774,12 +1664,14 @@
   <p>The charts on this page show the evolution, over time, of the number of WPT subtests for a given feature. The data for each feature was generated by going to <code>https://wpt.fyi/results/</code>, with specific test paths or search parameters to filter the results by feature, and with the below query parameters:</p>
   <ul>
     <li><code>sha=&lt;some revision id&gt;</code> to get the results for a specific date.</li>
-    <li><code>label=experimental</code> to limit the test results to experimental browser versions.</li>
+    <li><code>label=stable</code> to limit the test results to stable browser versions.</li>
     <li><code>label=master</code> to limit the test results to only those that ran on the master branch.</li>
-    <li><code>q=!is:tentative</code> to ignore optional tests</li>
+    <li><code>q=!is:tentative</code> to ignore optional tests.</li>
   </ul>
   <p>The results were retrieved by extracting the <strong>Subtest Total</strong> numbers displayed at the bottom of each result page. No custom scoring was applied to the results.</p>
-  <p>Last update: 2025-02-03.</p>
+  <p>The feature names, descriptions, specification links, and browser compatibility data are from the WebDX's <a href="https://github.com/web-platform-dx/web-features/">web-features</a> project.</p>
+  <p>Last update: 2025-06-25.</p>
+  <p>Previous dashboards: <a href="./2024/">2024</a></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
