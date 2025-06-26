@@ -2,7 +2,7 @@ import fs from "fs/promises";
 
 import { WEEKS, BROWSERS, BROWSER_FLAVOR } from "./const.js";
 
-import existingSHAs from "./historical-shas.json" assert { type: "json" };
+import existingSHAs from "./historical-shas.json" with { type: "json" };
 
 function getURLFor(from, to) {
   // The URL to fetch the data from.

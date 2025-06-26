@@ -10,8 +10,8 @@ import fs from "fs/promises";
 
 import { BROWSERS, BROWSER_FLAVOR } from "./const.js";
 
-import features from "./site/_data/features.json" assert { type: "json" };
-import shaData from "./historical-shas.json" assert { type: "json" };
+import features from "./site/_data/features.json" with { type: "json" };
+import shaData from "./historical-shas.json" with { type: "json" };
 const shas = shaData[BROWSER_FLAVOR];
 
 // Output file where the data is stored.
@@ -121,6 +121,18 @@ async function main() {
     }
   }
 
+  // Sort the entire content by date and write it again to the file.
+  const sortedContent = Object.keys(newContent)
+    .sort((dateStrA, dateStrB) => {
+      const dateA = new Date(dateStrA);
+      const dateB = new Date(dateStrB);
+      return dateA - dateB;
+    })
+    .reduce((acc, key) => {
+      acc[key] = newContent[key];
+      return acc;
+    }, {});
+  await fs.writeFile(OUTPUT_FILE, JSON.stringify(sortedContent));
 }
 
 main();

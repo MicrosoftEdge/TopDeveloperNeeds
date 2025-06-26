@@ -1,62 +1,7 @@
 import { features as webFeatures } from "web-features";
-import { computeBaseline } from "compute-baseline";
-import bcd from '@mdn/browser-compat-data' with { type: 'json' };
-
-import data from "./features.json" assert { type: "json" };
+import data from "./features.json" with { type: "json" };
 
 import { BROWSERS, BROWSER_FLAVOR, WPT_BRANCH } from "./const.js";
-
-function extractVersionAdded(singleBrowserVersionData) {
-  if (
-    singleBrowserVersionData.flags ||
-    singleBrowserVersionData.version_removed ||
-    singleBrowserVersionData.version_added === "preview"
-  ) {
-    return false;
-  }
-
-  if (
-    singleBrowserVersionData.version_added &&
-    singleBrowserVersionData.version_added.startsWith("≤")
-  ) {
-    return singleBrowserVersionData.version_added.slice(1);
-  }
-
-  return singleBrowserVersionData.version_added;
-}
-
-function resolveBCDCompatData(bcdDataForFeature, key) {
-  if (
-    !bcdDataForFeature ||
-    !bcdDataForFeature.__compat ||
-    !bcdDataForFeature.__compat.support
-  ) {
-    throw new Error(`Invalid BCD data for feature ${key}`);
-  }
-  const data = bcdDataForFeature.__compat.support;
-  const resolved = {};
-
-  for (const browser in data) {
-    if (!BROWSERS.includes(browser)) {
-      continue;
-    }
-
-    const versionsAdded = Array.isArray(data[browser])
-      ? data[browser]
-      : [data[browser]];
-
-    resolved[browser] = versionsAdded
-      .map(extractVersionAdded)
-      .reduce((acc, curr) => {
-        if (curr) {
-          return Math.max(acc || 0, parseFloat(curr));
-        }
-        return acc;
-      }, false);
-  }
-
-  return resolved;
-}
 
 const idFromName = (name) => {
   return name
@@ -182,40 +127,49 @@ function getName(feature) {
   return feature.name || webFeatures[feature.webFeaturesID].name;
 }
 
-function getFeatureSupportForGroup(feature) {
-  let { webFeaturesID: ids } = feature;
-  
-  const allKeys = [];
-  for (const id of ids) {
-    const featureKeys = webFeatures[id].compat_features;
-    allKeys.push(...featureKeys);
-  }
+function getFeatureSupportForGroup(ids) {
+  const jointSupport = {};
 
-  const cbSupport = computeBaseline({ compatKeys: allKeys });
-  const support = {};
-  for (const [browser, release] of cbSupport.support) {
-    if (BROWSERS.includes(browser.id)) {
-      support[browser.id] = release ? release.version : false
+  for (const id of ids) {
+    const featureSupport = getFeatureSupportForSingleFeature(id);
+    for (const browser of BROWSERS) {
+      if (browser in jointSupport) {
+        if (jointSupport[browser] === false || featureSupport[browser] === false) {
+          // If either the overall feature is already not supported
+          // or the specific feature isn't, then the overall feature isn't supported.
+          jointSupport[browser] = false;
+        } else {
+          // Otherwise, that means both the overall feature is supported, and
+          // the specific feature is supported.
+          // Get the higher support value.
+          const overallSupport = parseFloat(jointSupport[browser]);
+          const featureSupportValue = parseFloat(featureSupport[browser]);
+          jointSupport[browser] = Math.max(overallSupport, featureSupportValue) + "";
+        }
+      } else {
+        jointSupport[browser] = featureSupport[browser];
+      }
     }
   }
 
+  return jointSupport;
+}
+
+function getFeatureSupportForSingleFeature(id) {
+  const support = {};
+  for (const browser of BROWSERS) {
+    support[browser] = webFeatures[id].status.support[browser] || false;
+  }
   return support;
 }
 
 function getFeatureSupport(feature) {
-  const isGroup = Array.isArray(feature.webFeaturesID);
+  const idOrIds = feature.webFeaturesID;
+  const isGroup = Array.isArray(idOrIds);
 
-  let support = {};
-
-  if (isGroup) {
-    support = getFeatureSupportForGroup(feature);
-  } else {
-    for (const browser of BROWSERS) {
-      support[browser] = webFeatures[feature.webFeaturesID].status.support[browser] || false;
-    }
-  }
-
-  return support;
+  return isGroup
+    ? getFeatureSupportForGroup(idOrIds)
+    : getFeatureSupportForSingleFeature(idOrIds);
 }
 
 function main() {
@@ -241,7 +195,11 @@ function main() {
       rationale,
       caniuseLinks,
       support,
-      wptLink
+      wptLink,
+      // If wptOverride is set to true, this causes scrape-wpt.js to
+      // get WPT results again, even if they are already in the JSON file.
+      // Useful for when the wpt URL has changed.
+      wptOverride: feature.wptOverride
     };
   });
 }
