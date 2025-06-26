@@ -1,8 +1,11 @@
-# Microsoft Edge - 2024 web platform top developer needs
+# Microsoft Edge - 2025 web platform top developer needs
 
-This repository contains the data and scripts that are used to generate the [Microsoft Edge - 2024 web platform top developer needs](https://microsoftedge.github.io/TopDeveloperNeeds/) dashboard.
+This repository contains the data and scripts that are used to generate the [Microsoft Edge - 2025 web platform top developer needs](https://microsoftedge.github.io/TopDeveloperNeeds/) dashboard.
 
-For more information about the dashboard, see [Introducing the Edge 2024 web platform top developer needs dashboard](https://blogs.windows.com/msedgedev/2024/04/18/2024-web-platform-top-developer-needs-dashboard/) oin the Microsoft Edge blog.
+For more information about the dashboard, see these articles on the Microsoft Edge blog:
+
+* [Introducing the Edge 2024 web platform top developer needs dashboard](https://blogs.windows.com/msedgedev/2024/04/18/2024-web-platform-top-developer-needs-dashboard/)
+* [The Edge 2025 web platform top developer needs dashboard](https://blogs.windows.com/msedgedev/2025/06/26/the-edge-2025-web-platform-top-developer-needs-dashboard)
 
 The rest of this README file explains how to update the dashboard data and site.
 
@@ -22,6 +25,8 @@ Features are based on the features part of the [web-features project](https://gi
 * `webFeaturesID`: the ID of the feature in the [web-features](https://github.com/web-platform-dx/web-features/) repo.
 * `rationale`: a list of reasons why this feature is important for our dashboard. Each reason is an object with the following string properties `{ description, link }`.
 * `wpt`: a string starting with `/results`, and including the optional request parameters that's used to retrieve WPT test results on the wpt.fyi site.
+
+**If you change the `wpt` URL after you've already generated the WPT results, set `wptOverride:true` on the feature object, then run `npm run generate` and `npm run update-wpt` again to update the WPT results for this feature. Later, remove the `wptOverride` field.**
 
 For example:
 
@@ -70,21 +75,9 @@ In addition, you can provide the following optional fields:
 
 1. Update the dependencies:
 
-   * `npm update web-features`
+   * `npm run bump`
      
-     This updates to the most recent version of web-features.
-
-   * `npx npm-check-updates -u`
-
-     This updates to the most recent version of browser-compat-data, and other dependencies, such as Playwright.
-
-   * `npm install`
-   
-     This installs the missing dependencies if new versions were found at the previous step.
-
-   * `npx playwright install`
-
-     This re-installs the Playwright executables, if needed.
+     This updates to the most recent version of web-features, BCD, and playwright, as well as other dependencies.
 
 1. To update the computed feature data file:
 

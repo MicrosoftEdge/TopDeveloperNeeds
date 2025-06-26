@@ -2,8 +2,11 @@ import fs from "fs/promises";
 
 import { rimraf }  from "rimraf";
 
-import wpt from "./site/_data/wpt.json" assert { type: "json" };
-import features from "./site/_data/features.json" assert { type: "json" };
+import { BROWSER_FLAVOR } from "./const.js";
+import wpt from "./site/_data/wpt.json" with { type: "json" };
+import features from "./site/_data/features.json" with { type: "json" };
+import shaData from "./historical-shas.json" with { type: "json" };
+const shas = shaData[BROWSER_FLAVOR];
 
 const GRAPH_DATA_DIR = "site/assets/wpt";
 const MAIN_GRAPH_OUTPUT_FILE = `${GRAPH_DATA_DIR}/all_tests.json`;
@@ -21,6 +24,11 @@ function generateMainGraphData() {
   const graphData = [];
 
   for (let dateStr in wpt) {
+    // Skip dates that are not in the SHA data.
+    if (!shas.some(sha => sha.date === dateStr)) {
+      continue;
+    }
+
     const dateData = wpt[dateStr];
 
     const totalPerBrowser = {};
@@ -66,6 +74,11 @@ function generateFeatureGraphData(featureID) {
   const graphData = [];
 
   for (let dateStr in wpt) {
+    // Skip dates that are not in the SHA data.
+    if (!shas.some(sha => sha.date === dateStr)) {
+      continue;
+    }
+
     const featureData = wpt[dateStr][featureID];
     
     const perBrowser = {

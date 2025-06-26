@@ -1,59 +1,59 @@
 [
   {
-    "id": "view-transitions",
-    "name": "View transitions",
-    "description": "View transitions allow you to create animated visual transitions between different states of a document.",
+    "id": "anchor-positioning",
+    "name": "Anchor positioning",
+    "description": "Anchor positioning places an element based on the position of another element. For example, you can place a tooltip next to the content it references.",
     "spec": [
-      "https://drafts.csswg.org/css-view-transitions-1/"
+      "https://drafts.csswg.org/css-anchor-position-1/#anchoring"
     ],
     "rationale": [
       {
-        "description": "Over the past decade, single-page web applications have become very popular, and JavaScript frameworks have been used to provide the ability to smoothly transition between UI states without full page reloads. The View Transitions API allows multi-page apps to achieve the same level of smoothness and interactivity without JavaScript"
+        "description": "This feature came out in first place in the list of features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
       },
       {
-        "description": "The feature received more than 100 positive reactions on a proposal GitHub issue",
-        "link": "https://github.com/web-platform-tests/interop/issues/437"
-      },
-      {
-        "description": "The feature's announcement on X was positively received",
-        "link": "https://x.com/jaffathecake/status/1524782819431555074"
-      },
-      {
-        "description": "In preliminary results to the State of HTML 2023 survey, the View Transitions API was the third most common response that appeared in the Browser Interoperability section"
+        "description": "Many JavaScript-based workarounds exist to position elements related to other elements. The oddbird/css-anchor-positioning polyfill is downloaded 15000 times a week on NPM, and its GitHub repository has more than 350 stars",
+        "link": "https://github.com/oddbird/css-anchor-positioning"
       }
     ],
     "caniuseLinks": [
-      "https://caniuse.com/view-transitions"
+      "https://caniuse.com/css-anchor-positioning"
     ],
     "support": {
-      "chrome": "111",
-      "edge": "111",
-      "firefox": false,
-      "safari": "18"
-    },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Aview-transitions+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "object-view-box",
-    "name": "object-view-box",
-    "description": "The <code>object-view-box</code> CSS property crops and zooms to an inset area of an image.",
-    "spec": [
-      "https://drafts.csswg.org/css-images-5/#the-object-view-box"
-    ],
-    "rationale": [
-      {
-        "description": "The feature is a pre-requisite for the View Transitions API, which is a highly requested feature",
-        "link": "https://github.com/w3c/csswg-drafts/issues/7058"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "104",
-      "edge": "104",
+      "chrome": "125",
+      "edge": "125",
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/css?q=object+view+box+%21is%3Atentative&label=experimental&label=master"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Aanchor-positioning+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "backdrop-filter",
+    "name": "backdrop-filter",
+    "description": "The <code>backdrop-filter</code> CSS property applies graphical effects such as blurring or color shifting to the area behind an element.",
+    "spec": [
+      "https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty"
+    ],
+    "rationale": [
+      {
+        "description": "In the State of CSS 2022 survey, <code>backdrop-filter</code> was a common response to the question about browser incompatibilities",
+        "link": "https://2022.stateofcss.com/en-US/usage/#interoperability_features_freeform"
+      },
+      {
+        "description": "The State of CSS 2023 survey shows a pattern of steadily growing use of the feature between 2020 and 2023",
+        "link": "https://2023.stateofcss.com/en-US/features/shapes-and-graphics/#backdrop_filter"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/css-backdrop-filter"
+    ],
+    "support": {
+      "chrome": "76",
+      "edge": "79",
+      "firefox": "103",
+      "safari": "18"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Abackdrop-filter+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "blocking-render",
@@ -64,8 +64,8 @@
     ],
     "rationale": [
       {
-        "description": "The feature is a pre-requisite for the View Transitions API, which is a highly requested feature",
-        "link": "https://github.com/whatwg/html/issues/9332"
+        "description": "Render blocking is a prerequisite for cross-document view transitions, which is a highly requested feature",
+        "link": "https://github.com/whatwg/html/pull/9970"
       }
     ],
     "caniuseLinks": [],
@@ -75,7 +75,442 @@
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/html/dom/render-blocking?label=experimental&label=master&q=+%21is%3Atentative"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ablocking-render+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "calc-size-and-interpolate-size",
+    "name": "calc-size() and interpolate-size()",
+    "description": "The <code>calc-size()</code> CSS function computes mathematical expressions that include <code>height</code> and <code>width</code> keyword values, for example <code>calc-size(fit-content, size / 2)</code>. Not to be confused with the <code>calc()</code> CSS function, which cannot use keyword values.<br>The <code>interpolate-size</code> CSS property sets whether animations and transitions interpolate between a numeric value and a keyword value, such as from a fixed length to <code>auto</code> or <code>fit-content</code>.",
+    "spec": [
+      "https://drafts.csswg.org/css-values-5/#calc-size",
+      "https://drafts.csswg.org/css-values-5/#interpolate-size"
+    ],
+    "rationale": [
+      {
+        "description": "Animating to and from auto heights is a very common use case in CSS. This feature makes it possible to animate between a fixed length and any other type of length which can be expressed in CSS. The Interop 2025 feature proposal received 67 positive reactions on GitHub",
+        "link": "https://github.com/web-platform-tests/interop/issues/735"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "129",
+      "edge": "129",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Acalc-size+or+feature%3Ainterpolate-size+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "container-size-and-style-queries",
+    "name": "Container size and style queries",
+    "description": "Container size queries with the <code>@container</code> at-rule apply styles to an element based on the dimensions of its container.<br>Container style queries with the <code>@container</code> at-rule apply styles to an element based on the values of custom properties of its container.",
+    "spec": [
+      "https://drafts.csswg.org/css-conditional-5/#container-queries",
+      "https://drafts.csswg.org/css-conditional-5/#style-container"
+    ],
+    "rationale": [
+      {
+        "description": "In the State of CSS 2024 survey, container queries was the second-most common response to the browser incompatibilities question",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+      },
+      {
+        "description": "In the State of CSS 2024 survey, container style queries was in the top 20 most common responses to the browser incompatibilities question",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/css-container-queries,css-container-query-units",
+      "https://caniuse.com/css-container-queries-style"
+    ],
+    "support": {
+      "chrome": "111",
+      "edge": "111",
+      "firefox": false,
+      "safari": "18"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Acontainer-queries+or+feature%3Acontainer-style-queries+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "core-web-vitals",
+    "name": "Core Web Vitals",
+    "description": "The <code>largest-contentful-paint</code> performance entry and the <code>LargestContentfulPaint</code> API measures  the time it takes for the largest image or text to appear. Largest contentful paint (LCP) is a common metric for perceived loading times.<br>The <code>layout-shift</code> performance entry and <code>LayoutShift</code> API measures the layout stability of web pages based on movements of the elements on the page.<br>The <code>event</code> and <code>first-input</code> performance entries and the <code>PerformanceEventTiming</code> API measures the latency of user input events, such as mouse clicks or keypresses, and the latency of the first user input. First Input Delay (FID) is a common metric for perceived responsiveness.",
+    "spec": [
+      "https://w3c.github.io/largest-contentful-paint/",
+      "https://wicg.github.io/layout-instability/",
+      "https://w3c.github.io/event-timing/"
+    ],
+    "rationale": [
+      {
+        "description": "The Interop 2025 feature proposal received more than 120 positive reactions on GitHub",
+        "link": "https://github.com/web-platform-tests/interop/issues/894"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "84",
+      "edge": "84",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Alargest-contentful-paint+or+feature%3Alayout-instability+or+feature%3Aevent-timing+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "cross-document-view-transitions",
+    "name": "Cross-document view transitions",
+    "description": "The <code>@view-transition</code> CSS rule sets whether a document opts-in to transitions between documents in a multi-page application. Both the old and new document must opt-in for a transition to be triggered.",
+    "spec": [
+      "https://drafts.csswg.org/css-view-transitions-2/#cross-doc-opt-in"
+    ],
+    "rationale": [
+      {
+        "description": "Over the past decade, single-page web applications have become very popular, and JavaScript frameworks have been used to provide the ability to smoothly transition between UI states without full page reloads. The View Transitions API allows multi-page apps to achieve the same level of smoothness and interactivity without JavaScript"
+      },
+      {
+        "description": "View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "126",
+      "edge": "126",
+      "firefox": false,
+      "safari": "18.2"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Across-document-view-transitions+and+%21with-types+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "highlight",
+    "name": "Custom highlights",
+    "description": "Custom highlights style arbitrary text ranges, without adding extra elements to the DOM.",
+    "spec": [
+      "https://drafts.csswg.org/css-highlight-api-1/"
+    ],
+    "rationale": [
+      {
+        "description": "The CSS Custom Highlight API was the 5th content-related feature with the most positive sentiments in the State of HTML 2024 survey",
+        "link": "https://2024.stateofhtml.com/en-US/features/content/#content_features"
+      },
+      {
+        "description": "Compelling use cases and positive reactions were received on the feature proposal on GitHub",
+        "link": "https://github.com/w3c/csswg-drafts/issues/4307"
+      },
+      {
+        "description": "Supportive comments were also received on the announcement css-tricks.com blog post",
+        "link": "https://css-tricks.com/css-custom-highlight-api-early-look/"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "105",
+      "edge": "105",
+      "firefox": false,
+      "safari": "17.2"
+    },
+    "wptLink": "https://wpt.fyi/results/css/css-highlight-api?label=stable&label=master&q=+%21is%3Atentative"
+  },
+  {
+    "id": "customized-built-in-elements",
+    "name": "Customized built-in elements",
+    "description": "Customized built-in elements are HTML elements that extend built-in elements using the <code>is</code> attribute, to add new behaviors that you define.",
+    "spec": [
+      "https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element"
+    ],
+    "rationale": [
+      {
+        "description": "The GitHub issue about improving the <code>is</code> HTML attribute received a lot of attention and reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/509"
+      },
+      {
+        "description": "The Custom Elements polyfill is very popular, with more than 26000 weekly downloads on NPM, and 250 stars on GitHub",
+        "link": "https://github.com/ungap/custom-elements"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/custom-elementsv1"
+    ],
+    "support": {
+      "chrome": "67",
+      "edge": "79",
+      "firefox": "63",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Acustomized-built-in-elements+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "document-caretpositionfrompoint",
+    "name": "document.caretPositionFromPoint()",
+    "description": "The <code>document.caretPositionFromPoint()</code> method finds an insertion point, represented by a DOM node and an offset within that node, for given coordinates in the viewport.",
+    "spec": [
+      "https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint"
+    ],
+    "rationale": [
+      {
+        "description": "The Chromium implementation bug for <code>document.caretPositionFromPoint()</code> has more than 45 votes",
+        "link": "https://issues.chromium.org/issues/41117286"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "128",
+      "edge": "128",
+      "firefox": "20",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/css/cssom/?q=caretPositionFromPoint+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "fetch-request-streams",
+    "name": "Fetch upload streams",
+    "description": "A <code>fetch()</code> request uploads a stream of data to the server when a request's <code>body</code> property is a <code>ReadableStream</code> object.",
+    "spec": [
+      "https://fetch.spec.whatwg.org/#concept-body-stream"
+    ],
+    "rationale": [
+      {
+        "description": "The specification pull request for this feature received a lot of positive reactions",
+        "link": "https://github.com/whatwg/fetch/pull/425"
+      },
+      {
+        "description": "The Chromium implementation bug has more than 70 votes",
+        "link": "https://issues.chromium.org/issues/40505032"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "105",
+      "edge": "105",
+      "firefox": false,
+      "safari": "11.1"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Afetch-request-streams+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "field-sizing",
+    "name": "field-sizing",
+    "description": "The <code>field-sizing</code> CSS property allows form controls such as <code>&#x3C;textarea></code> to be sized based on their content.",
+    "spec": [
+      "https://drafts.csswg.org/css-ui-4/#field-sizing"
+    ],
+    "rationale": [
+      {
+        "description": "The <code>field-sizing</code> property makes it possible to remove JavaScript-based workarounds for sizing form fields",
+        "link": "https://polypane.app/blog/field-sizing-just-works/"
+      },
+      {
+        "description": "The autosize NPM package, which automatically adjusts the height of textareas to fit their content, has more than 700,000 weekly downloads",
+        "link": "https://www.npmjs.com/package/autosize"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "123",
+      "edge": "123",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Afield-sizing+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "has-slotted",
+    "name": ":has-slotted",
+    "description": "The <code>:has-slotted</code> CSS pseudo-class matches <code>&#x3C;slot></code> elements where the fallback content is not shown. The pseudo-class matches any slotted content, including white space, text nodes, or elements.",
+    "spec": [
+      "https://drafts.csswg.org/css-scoping-1/#the-has-slotted-pseudo"
+    ],
+    "rationale": [
+      {
+        "description": "The feature proposal issue on the Web Components specification GitHub repository received a lot of positive reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/936"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "134",
+      "edge": "134",
+      "firefox": "136",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ahas-slotted+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "intersection-observer-v2",
+    "name": "Intersection observer visibility tracking",
+    "description": "The <code>trackVisibility</code> parameter for the <code>IntersectionObserver</code> constructor enables tracking the visibility of an element, to detect if it may be obscured by other content or visual effects. Also known as IntersectionObserver v2.",
+    "spec": [
+      "https://w3c.github.io/IntersectionObserver/#calculate-visibility-algo"
+    ],
+    "rationale": [
+      {
+        "description": "In the 2022 APIs and JavaScript MDN short survey, more than 15% of respondents agreed that the Intersection Observer API needed to be improved across browsers",
+        "link": "https://github.com/web-platform-tests/interop/issues/246"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/intersectionobserver-v2"
+    ],
+    "support": {
+      "chrome": "74",
+      "edge": "79",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Aintersection-observer-v2+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "jpegxl",
+    "name": "JPEG XL",
+    "description": "The JPEG XL image format is a raster graphics file format that supports animation, alpha transparency, and lossy as well as lossless compression.",
+    "spec": [
+      "https://www.iso.org/standard/85253.html"
+    ],
+    "rationale": [
+      {
+        "description": "The Interop 2025 feature proposal for JPEG XL received more than 600 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/700"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/jpegxl"
+    ],
+    "support": {
+      "chrome": false,
+      "edge": false,
+      "firefox": false,
+      "safari": "17"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ajpegxl+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "json-and-css-modules",
+    "name": "JSON and CSS modules",
+    "description": "Module <code>import … with { type: \"json\" }</code> statements load JSON data. Also known as JSON module scripts.<br>Module <code>import … with { type: \"css\" }</code> statements load CSS modules as constructable stylesheets. Also known as CSS module scripts.",
+    "spec": [
+      "https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script",
+      "https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script"
+    ],
+    "rationale": [
+      {
+        "description": "The GitHub issue which initially introduced the JSON module scripts idea received a lot of positive reactions",
+        "link": "https://github.com/whatwg/html/issues/4315"
+      },
+      {
+        "description": "The GitHub issue which initially introduced the CSS module scripts idea received more than 200 positive reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/759"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "123",
+      "edge": "123",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/html/semantics/scripting-1/the-script-element?q=%28import-attributes+or+css+or+json%29+and+not+assertions+and+not+path%3A%2Fhtml%2Fsemantics%2Fscripting-1%2Fthe-script-element%2Fmodule%2Fdynamic-import%2Fmicrotasks%2F+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "marker",
+    "name": "::marker",
+    "description": "The <code>::marker</code> CSS pseudo-element selects list item markers for styling numbers or bullets.",
+    "spec": [
+      "https://drafts.csswg.org/css-pseudo-4/#marker-pseudo"
+    ],
+    "rationale": [
+      {
+        "description": "The Interop 2025 feature proposal received 25 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/729"
+      },
+      {
+        "description": "Comments on the State of CSS 2023 survey indicate that developers want cross-browser support for this feature",
+        "link": "https://2023.stateofcss.com/en-US/features/other-features/#marker"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/css-marker-pseudo"
+    ],
+    "support": {
+      "chrome": "86",
+      "edge": "86",
+      "firefox": "80",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Amarker+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "navigation",
+    "name": "Navigation API",
+    "description": "The <code>navigation</code> API initiates, intercepts, or modifies browser navigation actions. Not to be confused with the <code>navigator</code> API.",
+    "spec": [
+      "https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api"
+    ],
+    "rationale": [
+      {
+        "description": "This feature was in 7th place in an MDN short survey asking people to rank 20 web features",
+        "link": "https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey"
+      },
+      {
+        "description": "The Interop 2025 feature proposal received 96 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/709"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "102",
+      "edge": "102",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "same-document-view-transitions",
+    "name": "Same-document view transitions",
+    "description": "View transitions allow you to create animated visual transitions between different states of a document.",
+    "spec": [
+      "https://drafts.csswg.org/css-view-transitions-1/",
+      "https://drafts.csswg.org/css-view-transitions-2/#propdef-view-transition-class",
+      "https://drafts.csswg.org/css-view-transitions-2/#the-active-view-transition-pseudo"
+    ],
+    "rationale": [
+      {
+        "description": "View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/view-transitions"
+    ],
+    "support": {
+      "chrome": "125",
+      "edge": "125",
+      "firefox": false,
+      "safari": "18.2"
+    },
+    "wptLink": "https://wpt.fyi/results/css/css-view-transitions?q=feature%3Aview-transitions+or+feature%3Aview-transition-class+or+types+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "scope",
+    "name": "@scope",
+    "description": "The <code>@scope</code> CSS at-rule sets the scope for a group of rules.",
+    "spec": [
+      "https://drafts.csswg.org/css-cascade-6/#scope-atrule"
+    ],
+    "rationale": [
+      {
+        "description": "CSS scoping appears in the top ten missing features in the State of CSS 2023 survey",
+        "link": "https://2023.stateofcss.com/en-US/usage/#css_missing_features"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/css-cascade-scope"
+    ],
+    "support": {
+      "chrome": "118",
+      "edge": "118",
+      "firefox": false,
+      "safari": "17.4"
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ascope+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "scroll-driven-animations",
@@ -86,11 +521,12 @@
     ],
     "rationale": [
       {
-        "description": "This feature allows to create visually rich and interactive web experiences without requiring downloading, parsing, and running large JavaScript libraries"
+        "description": "This feature is in the top twenty features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
       },
       {
-        "description": "The feature received more than 100 positive reactions on a proposal GitHub issue",
-        "link": "https://github.com/web-platform-tests/interop/issues/439"
+        "description": "The Interop 2025 feature proposal received more than 50 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/736"
       }
     ],
     "caniuseLinks": [],
@@ -100,32 +536,112 @@
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Ascroll-driven-animations+%21is%3Atentative&label=experimental&label=master"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ascroll-driven-animations+%21is%3Atentative&label=stable&label=master"
   },
   {
-    "id": "popover",
-    "name": "Popover",
-    "description": "The <code>popover</code> HTML attribute creates an overlay to display content on top of other page content. Popovers can be shown declaratively using HTML, or using the <code>showPopover()</code> method.",
+    "id": "overflow-anchor",
+    "name": "Scroll anchoring",
+    "description": "Scroll anchoring is a browser feature which automatically adjusts the scroll position to prevent visible jumps when content changes above the viewport. The <code>overflow-anchor</code> CSS property allows developers to opt-out of the scroll anchoring behavior for specific elements.",
     "spec": [
-      "https://html.spec.whatwg.org/multipage/popover.html"
+      "https://drafts.csswg.org/css-scroll-anchoring-1/#exclusion-api"
     ],
     "rationale": [
       {
-        "description": "In preliminary results to the State of HTML 2023 survey, the popover feature was the most common response that appeared in the Browser Interoperability section"
+        "description": "Many likes and retweets on the initial announcement of the scroll anchoring feature when it was implemented in Chrome",
+        "link": "https://x.com/addyosmani/status/761297439764520960"
       },
       {
-        "description": "The feature received 80 positive reactions on a proposal GitHub issue",
-        "link": "https://github.com/web-platform-tests/interop/issues/423"
+        "description": "Developer interest in the tracking implementation bug in WebKit",
+        "link": "https://bugs.webkit.org/show_bug.cgi?id=171099"
+      }
+    ],
+    "caniuseLinks": [
+      "https://caniuse.com/css-overflow-anchor"
+    ],
+    "support": {
+      "chrome": "56",
+      "edge": "79",
+      "firefox": "66",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/css/css-scroll-anchoring?label=stable&label=master&q=+%21is%3Atentative"
+  },
+  {
+    "id": "scrollbar-styling",
+    "name": "Scrollbar styling",
+    "description": "The <code>scrollbar-color</code> CSS property sets the color of the scrollbar track and thumb.<br>The <code>scrollbar-gutter</code> CSS property reserves space for the scrollbar, preventing unwanted layout changes as the scrollbar appears and disappears.<br>The <code>scrollbar-width</code> CSS property sets the width of the scrollbar.",
+    "spec": [
+      "https://drafts.csswg.org/css-scrollbars-1/#scrollbar-color",
+      "https://drafts.csswg.org/css-overflow-3/#scrollbar-gutter-property",
+      "https://drafts.csswg.org/css-scrollbars-1/#scrollbar-width"
+    ],
+    "rationale": [
+      {
+        "description": "In the State of CSS 2024 survey, styling scrollbar ranked eighth in the browser incompatibilities question",
+        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
       }
     ],
     "caniuseLinks": [],
     "support": {
-      "chrome": "116",
-      "edge": "116",
-      "firefox": "125",
-      "safari": "17"
+      "chrome": "121",
+      "edge": "121",
+      "firefox": "97",
+      "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Apopover+%21is%3Atentative&label=experimental&label=master"
+    "wptLink": "https://wpt.fyi/results/css?q=path%3A%2Fcss%2Fcss-scrollbars+or+%28scrollbar-gutter+and+path%3A%2Fcss%2Fcss-overflow%29+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "scrollend",
+    "name": "scrollend",
+    "description": "The <code>scrollend</code> event fires when an element or document has finished scrolling.",
+    "spec": [
+      "https://drafts.csswg.org/cssom-view-1/#eventdef-document-scrollend"
+    ],
+    "rationale": [
+      {
+        "description": "The scrollend feature is used by more than 20% of page loads in Chrome, according to chromestatus.com",
+        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/58"
+      },
+      {
+        "description": "In the 2021 Scroll Survey, 43% of respondents said that it was somewhat or extremely difficult to work with scrolling",
+        "link": "https://web.dev/blog/2021-scroll-survey-report"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "114",
+      "edge": "114",
+      "firefox": "109",
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Ascrollend+%21is%3Atentative&label=stable&label=master"
+  },
+  {
+    "id": "speculation-rules",
+    "name": "Speculation rules",
+    "description": "Speculation rules are hints to the browser to proactively download pages in the background so they appear instantly when the user navigates to them.",
+    "spec": [
+      "https://wicg.github.io/nav-speculation/speculation-rules.html",
+      "https://wicg.github.io/nav-speculation/prerendering.html"
+    ],
+    "rationale": [
+      {
+        "description": "Adoption on supporting browsers is growing rapidly",
+        "link": "https://chromestatus.com/metrics/feature/timeline/popularity/3969"
+      },
+      {
+        "description": "WordPress 6.8 uses speculation rules to improve performance",
+        "link": "https://make.wordpress.org/core/2025/03/06/speculative-loading-in-6-8/"
+      }
+    ],
+    "caniuseLinks": [],
+    "support": {
+      "chrome": "109",
+      "edge": "109",
+      "firefox": false,
+      "safari": false
+    },
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Aspeculation-rules+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "top-layer-animations",
@@ -150,191 +666,7 @@
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/?q=path%3A%2Fcss%2Fcss-position%2Foverlay%2F+or+path%3A%2Fcss%2Fcss-contain%2Fcontent-visibility%2Fcontent-visibility-interpolation.html+or+path%3A%2Fcss%2Fcss-display%2Fanimations%2Fdisplay-interpolation.html+or+%28path%3A%2Fcss%2Fcss-transitions%2Fparsing%2F+and+transition-behavior%29+or+%28path%3A%2Fcss%2F+and+starting-style%29+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "navigation",
-    "name": "Navigation API",
-    "description": "The <code>navigation</code> API initiates, intercepts, or modifies browser navigation actions. Not to be confused with the <code>navigator</code> API.",
-    "spec": [
-      "https://html.spec.whatwg.org/multipage/nav-history-apis.html#navigation-api"
-    ],
-    "rationale": [
-      {
-        "description": "This feature was in 7th place in an MDN survey asking people to rank 20 web features",
-        "link": "https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey"
-      },
-      {
-        "description": "The feature received 67 positive reactions on a proposal GitHub issue",
-        "link": "https://github.com/web-platform-tests/interop/issues/435"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "102",
-      "edge": "102",
-      "firefox": false,
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "anchor-positioning",
-    "name": "Anchor positioning",
-    "description": "Anchor positioning places an element based on the position of another element. For example, you can place a tooltip next to the content it references.",
-    "spec": [
-      "https://drafts.csswg.org/css-anchor-position-1/#anchoring"
-    ],
-    "rationale": [
-      {
-        "description": "Many JavaScript-based workarounds exist to position elements related to other elements. The anchor positioning polyfill also gets downloaded ~700 times a week, and its GitHub repository has more than 150 stars",
-        "link": "https://github.com/oddbird/css-anchor-positioning"
-      },
-      {
-        "description": "Anchor positioning is also a pre-requisite for the new OpenUI customizable <code>&lt;select></code> element, which appears as the 5th most common feature in preliminary results to the State of HTML 2023 survey, in the Browser Interoperability section"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-anchor-positioning"
-    ],
-    "support": {
-      "chrome": "125",
-      "edge": "125",
-      "firefox": false,
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Aanchor-positioning+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "nesting",
-    "name": "Nesting",
-    "description": "CSS nesting allows for shorter selectors, easier reading, and more modularity by nesting rules inside others.",
-    "spec": [
-      "https://drafts.csswg.org/css-nesting-1/"
-    ],
-    "rationale": [
-      {
-        "description": "In the State of CSS 2023 survey, CSS Nesting was a very common answer to the question: \"Are there any existing CSS features that you have difficulties using (or avoid altogether) because of lack of support, or differences between browsers?\"",
-        "link": "https://github.com/web-platform-tests/interop/issues/452"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-nesting"
-    ],
-    "support": {
-      "chrome": "120",
-      "edge": "120",
-      "firefox": "117",
-      "safari": "17.2"
-    },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Anesting+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "scrollbar-styling",
-    "name": "Scrollbar styling",
-    "description": "The <code>scrollbar-color</code> CSS property sets the color of the scrollbar track and thumb.<br>The <code>scrollbar-gutter</code> CSS property reserves space for the scrollbar, preventing unwanted layout changes as the scrollbar appears and disappears.<br>The <code>scrollbar-width</code> CSS property sets the width of the scrollbar.",
-    "spec": [
-      "https://drafts.csswg.org/css-scrollbars-1/#scrollbar-color",
-      "https://drafts.csswg.org/css-overflow-3/#scrollbar-gutter-property",
-      "https://drafts.csswg.org/css-scrollbars-1/#scrollbar-width"
-    ],
-    "rationale": [
-      {
-        "description": "Styling scrollbar ranked #5 in the State of CSS Survey 2023's browser incompatibilities question",
-        "link": "https://2023.stateofcss.com/en-US/usage/#css_interoperability_features"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "121",
-      "edge": "121",
-      "firefox": "97",
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/css?q=path%3A%2Fcss%2Fcss-scrollbars+or+%28scrollbar-gutter+and+path%3A%2Fcss%2Fcss-overflow%29+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "backdrop-filter",
-    "name": "backdrop-filter",
-    "description": "The <code>backdrop-filter</code> CSS property applies graphical effects such as blurring or color shifting to the area behind an element.",
-    "spec": [
-      "https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty"
-    ],
-    "rationale": [
-      {
-        "description": "In State of CSS 2021, <code>backdrop-filter</code> was the 6th most common answer to the question \"Are there any CSS features you have difficulties using because of differences between browsers?\"",
-        "link": "https://2021.stateofcss.com/en-US/opinions/#browser_interoperability_features"
-      },
-      {
-        "description": "In State of CSS 2022, <code>backdrop-filter</code> was a common responses the question about browser incompatibilities, mentioned in ~3% of responses.",
-        "link": "https://github.com/web-platform-tests/interop/issues/248"
-      },
-      {
-        "description": "In the MDN short survey on CSS & HTML, \"CSS backdrop-filter property\" was selected by ~21% of survey takers, putting it in the top third of the 20 options.",
-        "link": "https://github.com/web-platform-tests/interop/issues/245"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-backdrop-filter"
-    ],
-    "support": {
-      "chrome": "76",
-      "edge": "79",
-      "firefox": "103",
-      "safari": "18"
-    },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Abackdrop-filter+and+%21path%3A%2Fcss%2Ffilter-effects%2Fanimation+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "declarative-shadow-dom",
-    "name": "Declarative shadow DOM",
-    "description": "The <code>shadowrootmode</code> attribute on <code>&#x3C;template></code> creates a shadow root without the use of JavaScript. It is a declarative alternative to the <code>attachShadow()</code> method.",
-    "spec": [
-      "https://html.spec.whatwg.org/multipage/scripting.html#attr-template-shadowrootmode"
-    ],
-    "rationale": [
-      {
-        "description": "In preliminary results to the State of HTML 2023 survey, Declarative Shadow DOM was a common response that appeared in the Browser Interoperability section. Also, it was among the features that respondents expressed the most interest for"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/declarative-shadow-dom"
-    ],
-    "support": {
-      "chrome": "111",
-      "edge": "111",
-      "firefox": "123",
-      "safari": "16.4"
-    },
-    "wptLink": "https://wpt.fyi/results/shadow-dom/declarative?q=not+gethtml+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "customized-built-in-elements",
-    "name": "Customized built-in elements",
-    "description": "Customized built-in elements are HTML elements that extend built-in elements using the <code>is</code> attribute, to add new behaviors that you define.",
-    "spec": [
-      "https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element"
-    ],
-    "rationale": [
-      {
-        "description": "This GitHub issue about improving the <code>is</code> HTML attribute received a lot of attention and reactions",
-        "link": "https://github.com/WICG/webcomponents/issues/509"
-      },
-      {
-        "description": "The Custom Elements polyfill is very popular",
-        "link": "https://github.com/ungap/custom-elements"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/custom-elementsv1"
-    ],
-    "support": {
-      "chrome": "67",
-      "edge": "79",
-      "firefox": "63",
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/custom-elements/?q=path%3A%2Fcustom-elements%2Fbuiltin-coverage.html+or+path%3A%2Fcustom-elements%2Fcustomized-built-in-constructor-exceptions.html+or+path%3A%2Fcustom-elements%2FDocument-createElement-customized-builtins.html+or+path%3A%2Fcustom-elements%2FDocument-createElementNS-customized-builtins.html+or+path%3A%2Fcustom-elements%2FHTMLElement-constructor-customized-bulitins.html+or+path%3A%2Fcustom-elements%2Fpseudo-class-defined-customized-builtins.html+%21is%3Atentative&label=experimental&label=master"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Aoverlay+or+feature%3Astarting-style+or+feature%3Adisplay-animation+or+feature%3Atransition-behavior+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "trusted-types",
@@ -345,8 +677,8 @@
     ],
     "rationale": [
       {
-        "description": "Meta uses Trusted Types by default for new products, and rolls out Trusted Types enforcement in existing products. Microsoft uses Trusted Types for Edge integrated applications and Edge WebUI pages. Integration of Trusted Types is completed or ongoing for several libraries and frameworks",
-        "link": "https://github.com/web-platform-tests/interop/issues/500#issue-1917715289"
+        "description": "Interest from the community and adoption on supporting browsers is high",
+        "link": "https://github.com/web-platform-tests/interop/issues/500"
       }
     ],
     "caniuseLinks": [
@@ -358,48 +690,7 @@
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "asynchronously-iterable-streams",
-    "name": "Asynchronously iterable streams",
-    "description": "Asynchronous iteration of a stream allows you to use <code>for await … of</code> loops to iterate through a stream's incoming data.",
-    "spec": [
-      "https://streams.spec.whatwg.org/#rs-asynciterator"
-    ],
-    "rationale": [
-      {
-        "description": "The Chromium implementation bug has more than 50 votes",
-        "link": "https://issues.chromium.org/issues/40612900"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "124",
-      "edge": "124",
-      "firefox": "110",
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/streams/readable-streams?q=async-iterator+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "scroll-to-text-fragment",
-    "name": "Scroll to text fragment",
-    "description": "Text fragments are URL fragments on the form <code>#:~:text=snippet</code> and link to a snippet of text within a page. The browser may scroll, highlight, or otherwise bring that text to the reader's attention.",
-    "spec": [
-      "https://wicg.github.io/scroll-to-text-fragment/"
-    ],
-    "rationale": [],
-    "caniuseLinks": [
-      "https://caniuse.com/url-scroll-to-text-fragment"
-    ],
-    "support": {
-      "chrome": "80",
-      "edge": "80",
-      "firefox": "131",
-      "safari": "16.1"
-    },
-    "wptLink": "https://wpt.fyi/results/scroll-to-text-fragment?label=experimental&label=master&q=+%21is%3Atentative"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "urlpattern",
@@ -410,7 +701,7 @@
     ],
     "rationale": [
       {
-        "description": "The URLPattern specification GitHub repository has ~150 stars",
+        "description": "The URLPattern specification GitHub repository has more than 180 stars",
         "link": "https://github.com/whatwg/urlpattern"
       },
       {
@@ -425,31 +716,29 @@
       "firefox": false,
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/urlpattern?label=experimental&label=master&q=+%21is%3Atentative"
+    "wptLink": "https://wpt.fyi/results/urlpattern?label=stable&label=master&q=+%21is%3Atentative"
   },
   {
-    "id": "paint",
-    "name": "paint()",
-    "description": "The <code>paint()</code> CSS function creates a custom image, drawn using a paint worklet, for an element's background or border.",
+    "id": "webdriver-bidi",
+    "name": "WebDriver BiDi",
+    "description": "WebDriver BiDi is a bidirectional protocol that allows a WebDriver client and a browser to communicate with each other.",
     "spec": [
-      "https://drafts.css-houdini.org/css-paint-api-1/"
+      "https://w3c.github.io/webdriver-bidi/"
     ],
     "rationale": [
       {
-        "description": "The polyfill for this feature has more than 700 stars on GitHub",
-        "link": "https://github.com/GoogleChromeLabs/css-paint-polyfill"
+        "description": "The Interop 2025 feature proposal for WebDriver BiDi received more than 70 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/763"
       }
     ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-paint-api"
-    ],
+    "caniuseLinks": [],
     "support": {
-      "chrome": "65",
-      "edge": "79",
-      "firefox": false,
+      "chrome": "106",
+      "edge": "106",
+      "firefox": "102",
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/css/css-paint-api?label=experimental&label=master&q=+%21is%3Atentative"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Awebdriver-bidi+%21is%3Atentative&label=stable&label=master"
   },
   {
     "id": "webtransport",
@@ -460,7 +749,7 @@
     ],
     "rationale": [
       {
-        "description": "The specification GitHub repository has 800 stars",
+        "description": "The specification GitHub repository has 900 stars",
         "link": "https://github.com/w3c/webtransport"
       }
     ],
@@ -473,191 +762,6 @@
       "firefox": "114",
       "safari": false
     },
-    "wptLink": "https://wpt.fyi/results/?q=feature%3Awebtransport+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "document-caretpositionfrompoint",
-    "name": "document.caretPositionFromPoint()",
-    "description": "The <code>document.caretPositionFromPoint()</code> method finds an insertion point, represented by a DOM node and an offset within that node, for given coordinates in the viewport.",
-    "spec": [
-      "https://drafts.csswg.org/cssom-view-1/#dom-document-caretpositionfrompoint"
-    ],
-    "rationale": [
-      {
-        "description": "The Chromium implementation bug almost has 50 votes",
-        "link": "https://issues.chromium.org/issues/41117286"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "128",
-      "edge": "128",
-      "firefox": "23",
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/css/cssom/?q=caretPositionFromPoint+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "json-and-css-modules",
-    "name": "JSON and CSS modules",
-    "description": "Module <code>import … with { type: \"json\" }</code> statements load JSON data. Also known as JSON module scripts.<br>Module `import … with { type: \"css\" } statements load CSS modules as constructable stylesheets. Also known as CSS module scripts.",
-    "spec": [
-      "https://html.spec.whatwg.org/multipage/webappapis.html#json-module-script",
-      "https://html.spec.whatwg.org/multipage/webappapis.html#css-module-script"
-    ],
-    "rationale": [
-      {
-        "description": "The GitHub issue which initially introduced the JSON module scripts idea received a lot of positive reactions",
-        "link": "https://github.com/whatwg/html/issues/4315"
-      },
-      {
-        "description": "The GitHub issue which initially introduced the CSS module scripts idea received more than 200 positive reactions",
-        "link": "https://github.com/WICG/webcomponents/issues/759"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "123",
-      "edge": "123",
-      "firefox": false,
-      "safari": false
-    },
-    "wptLink": "https://wpt.fyi/results/html/semantics/scripting-1/the-script-element?q=%28import-attributes+or+css+or+json%29+and+not+assertions+and+not+path%3A%2Fhtml%2Fsemantics%2Fscripting-1%2Fthe-script-element%2Fmodule%2Fdynamic-import%2Fmicrotasks%2F+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "font-size-adjust",
-    "name": "font-size-adjust",
-    "description": "The <code>font-size-adjust</code> CSS property preserves apparent text size, regardless of the font used, by scaling fonts to the same size with respect to a specific metric, such as x-height. This can help make fallback fonts look the same size.",
-    "spec": [
-      "https://drafts.csswg.org/css-fonts-5/#font-size-adjust-prop"
-    ],
-    "rationale": [
-      {
-        "description": "The \"The little known font-size-adjust CSS3 property\" blog post received a lot of comments",
-        "link": "https://webdesignernotebook.com/css/the-little-known-font-size-adjust-css3-property/"
-      },
-      {
-        "description": "The chromium implementation bug has 29 votes",
-        "link": "https://issues.chromium.org/issues/40081245"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/font-size-adjust"
-    ],
-    "support": {
-      "chrome": "127",
-      "edge": "127",
-      "firefox": "118",
-      "safari": "17"
-    },
-    "wptLink": "https://wpt.fyi/results/css/css-fonts?q=font-size-adjust+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "highlight",
-    "name": "Custom highlights",
-    "description": "Custom highlights style arbitrary text ranges, without adding extra elements to the DOM.",
-    "spec": [
-      "https://drafts.csswg.org/css-highlight-api-1/"
-    ],
-    "rationale": [
-      {
-        "description": "Compelling use cases and positive reactions were received on the feature proposal on GitHub",
-        "link": "https://github.com/w3c/csswg-drafts/issues/4307"
-      },
-      {
-        "description": "Supportive comments were also received on the announcement CSS Tricks blog post",
-        "link": "https://css-tricks.com/css-custom-highlight-api-early-look/"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "105",
-      "edge": "105",
-      "firefox": false,
-      "safari": "17.2"
-    },
-    "wptLink": "https://wpt.fyi/results/css/css-highlight-api?label=experimental&label=master&q=+%21is%3Atentative"
-  },
-  {
-    "id": "request-video-frame-callback",
-    "name": "requestVideoFrameCallback()",
-    "description": "The <code>requestVideoFrameCallback()</code> method for <code>&#x3C;video></code> schedules a function that runs with the next video frame. It is similar to <code>requestAnimationFrame()</code>, but for video.",
-    "spec": [
-      "https://wicg.github.io/video-rvfc/"
-    ],
-    "rationale": [
-      {
-        "description": "The specification GitHub repository has more than 50 stars",
-        "link": "https://github.com/WICG/video-rvfc"
-      },
-      {
-        "description": "Developer interest was expressed on the WICG Discourse forum",
-        "link": "https://discourse.wicg.io/t/proposal-video-requestanimationframe/3691/"
-      },
-      {
-        "description": "The Mozilla standards position entry for this feature received some developer interest",
-        "link": "https://github.com/mozilla/standards-positions/issues/250"
-      }
-    ],
-    "caniuseLinks": [],
-    "support": {
-      "chrome": "83",
-      "edge": "83",
-      "firefox": "132",
-      "safari": "15.4"
-    },
-    "wptLink": "https://wpt.fyi/results/video-rvfc?label=experimental&label=master&q=+%21is%3Atentative"
-  },
-  {
-    "id": "scope",
-    "name": "@scope",
-    "description": "The <code>@scope</code> CSS at-rule sets the scope for a group of rules.",
-    "spec": [
-      "https://drafts.csswg.org/css-cascade-6/#scope-atrule"
-    ],
-    "rationale": [
-      {
-        "description": "CSS scoping appears in the top 10 missing features in the State of CSS 2023 survey",
-        "link": "https://2023.stateofcss.com/en-US/usage/#css_missing_features"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-cascade-scope"
-    ],
-    "support": {
-      "chrome": "118",
-      "edge": "118",
-      "firefox": false,
-      "safari": "17.4"
-    },
-    "wptLink": "https://wpt.fyi/results/css/css-cascade?q=scope+%21is%3Atentative&label=experimental&label=master"
-  },
-  {
-    "id": "dir-pseudo",
-    "name": ":dir()",
-    "description": "The <code>:dir()</code> CSS functional pseudo-class matches elements by text direction, either right to left (<code>rtl</code>) or left to right (<code>ltr</code>).",
-    "spec": [
-      "https://drafts.csswg.org/selectors-4/#the-dir-pseudo"
-    ],
-    "rationale": [
-      {
-        "description": "The Chromium implementation bug for the <code>:dir()</code> pseudo-class has 35 votes",
-        "link": "https://issues.chromium.org/issues/40451997"
-      },
-      {
-        "description": "An interoperable implementation of the <code>:dir()</code> pseudo-class is needed to provide developers with a consistent way to style based on text directionality",
-        "link": "https://stackoverflow.com/questions/59876111/css-pseudo-dir-host-context-and-directionality-based-styling"
-      }
-    ],
-    "caniuseLinks": [
-      "https://caniuse.com/css-dir-pseudo"
-    ],
-    "support": {
-      "chrome": "120",
-      "edge": "120",
-      "firefox": "49",
-      "safari": "16.4"
-    },
-    "wptLink": "https://wpt.fyi/results/?q=path%3A%2Fhtml%2Fdom%2Felements%2Fglobal-attributes%2Fdir+or+path%3A%2Fcss%2Fselectors%2Fdir+%21is%3Atentative&label=experimental&label=master"
+    "wptLink": "https://wpt.fyi/results/?q=feature%3Awebtransport+%21is%3Atentative&label=stable&label=master"
   }
 ]

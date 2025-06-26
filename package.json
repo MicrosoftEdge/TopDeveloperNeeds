@@ -1,15 +1,15 @@
 {
   "type": "module",
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@mdn/browser-compat-data": "^5.6.36",
+    "@11ty/eleventy": "^3.1.2",
+    "@mdn/browser-compat-data": "^6.0.26",
     "copyfiles": "^2.4.1",
-    "playwright": "^1.50.1",
+    "playwright": "^1.53.1",
     "rimraf": "^6.0.1",
-    "web-features": "next",
-    "compute-baseline": "^0.1.1"
+    "web-features": "next"
   },
   "scripts": {
+    "bump": "npm update web-features && npx npm-check-updates -ui && npm install && npx playwright install",
     "generate": "node generate.js > site/_data/features.json",
     "get-wpt-shas": "node get-historical-wpt-shas.js",
     "update-wpt": "node scrape-wpt.js && node prepare-wpt-for-site.js",

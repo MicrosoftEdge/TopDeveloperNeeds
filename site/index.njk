@@ -4,20 +4,10 @@
   getLastWPTDate: function(wpt) {
     return Object.keys(wpt).pop();
   },
-  getLastWPTResultsFor: function(wpt, id) {
-    const lastDateStr = Object.keys(wpt).pop();
-    const featureResults = wpt[lastDateStr][id];
-    return {
-      edge: Math.floor(featureResults.e[0] * 100 / featureResults.e[1]),
-      chrome: Math.floor(featureResults.c[0] * 100 / featureResults.c[1]),
-      firefox: Math.floor(featureResults.f[0] * 100 / featureResults.f[1]),
-      safari: Math.floor(featureResults.s[0] * 100 / featureResults.s[1])
-    };
-  },
   printCompat: function(compat) {
     return !!compat
-      ? `<abbr class="support-icon yes" title="Fully supported in ${compat}">${compat}</abbr>`
-      : `<abbr class="support-icon no" title="Not supported"></abbr>`;
+      ? `<abbr class="support-icon yes" title="The feature is fully supported starting with version ${compat}">${compat}</abbr>`
+      : `<abbr class="support-icon no" title="The feature is not yet fully supported">✕</abbr>`;
   }
 }
 ---
@@ -25,12 +15,14 @@
 <main>
   <h1>{{ title }}</h1>
 
-  <p>As part of our commitment to the web platform, we continuously listen to developer signals and feedback. We leverage what we learn to implement the features that developers need to build great web experiences. We also know that developers need those features, especially those that can't be polyfilled, or which create new architectural opportunities, to be available across all browsers.</p>
+  <p>As part of our commitment to the web platform, we continuously listen to developer signals and feedback and leverage what we learn to implement the features that developers need to build great web experiences. We also know that developers need features to be available across all browsers, especially those that can't be polyfilled, or those which create new architectural opportunities.</p>
 
   <p>This dashboard represents our view of progress across the web ecosystem towards resolving top developer pain points and closing interoperability gaps.<br>
-  For each feature listed below, the relevant browser compatibility status, as well as the latest test results from the <a href="https://wpt.fyi/">Web Platform Tests</a> (WPT) project, are given.</p>
+  For each feature listed below, the relevant browser compatibility status, as well as the most recent {{ browserFlavor }} channel test results from the <a href="https://wpt.fyi/">Web Platform Tests</a> (WPT) project, are given.</p>
   
-  <p>Note that the list isn't ranked in any particular order. If you'd like to influence these priorities, we encourage you to <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/782">send us feedback</a>. We're committed to continuing to listen and to drive progress on these priorities.</p>
+  <p>Note that this list only contains features that have a reasonably stable specification and existing WPT tests. The features are listed in alphabetical order.</p>
+  
+  <p>If you'd like to influence these priorities, we encourage you to <a href="https://github.com/MicrosoftEdge/MSEdgeExplainers/issues/1072">send us feedback</a>. We're committed to continuing to listen and to drive progress on these priorities.</p>
   
   <p>We hope that this dashboard plays a positive role in improving the platform for everyone.</p>
 
@@ -42,55 +34,32 @@
   <ul class="features">
     {% for feature in features %}
       <li class="feature" id="{{ feature.id }}">
-        <div class="metadata">
-          <h2><a href="#{{ feature.id }}">{{ feature.name }}</a></h2>
-          {% if feature.spec %}
-            {% for spec in feature.spec %}
-              <a href="{{ spec }}">Specification</a>
-            {% endfor %}
-          {% endif %}
-          {% if feature.caniuseLinks %}
-            {% for caniuseLink in feature.caniuseLinks %}
-              <a href="{{ caniuseLink }}">Can I Use</a>
-            {% endfor %}
-          {% endif %}
+        <h2><a href="#{{ feature.id }}">{{ feature.name }}</a></h2>
+        <div class="support">
+          <div class="support-pill edge{% if feature.support.edge %} supported{% else %} unsupported{% endif %}">
+            <abbr class="browser-icon" title="Edge"><span>Edge</span></abbr>
+            {{ printCompat(feature.support.edge) | safe }}
+          </div>
+          <div class="support-pill chrome{% if feature.support.chrome %} supported{% else %} unsupported{% endif %}">
+            <abbr class="browser-icon" title="Chrome"><span>Chrome</span></abbr>
+            {{ printCompat(feature.support.chrome) | safe }}
+          </div>
+          <div class="support-pill firefox{% if feature.support.firefox %} supported{% else %} unsupported{% endif %}">
+            <abbr class="browser-icon" title="Firefox"><span>Firefox</span></abbr>
+            {{ printCompat(feature.support.firefox) | safe }}
+          </div>
+          <div class="support-pill safari{% if feature.support.safari %} supported{% else %} unsupported{% endif %}">
+            <abbr class="browser-icon" title="Safari"><span>Safari</span></abbr>
+            {{ printCompat(feature.support.safari) | safe }}
+          </div>
         </div>
         {% if feature.description %}
           <p class="description">{{ feature.description | safe }}</p>
         {% endif %}
-        <div class="support">
-          {% set lastWpt = getLastWPTResultsFor(wpt, feature.id) %}
-          <table>
-            <thead>
-              <tr class="browsers">
-                <td></td>
-                <th class="edge"><abbr title="Edge"><span>Edge</span></abbr></th>
-                <th class="chrome"><abbr title="Chrome"><span>Chrome</span></abbr></th>
-                <th class="firefox"><abbr title="Firefox"><span>Firefox</span></abbr></th>
-                <th class="safari"><abbr title="Safari"><span>Safari</span></abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="compat">
-                <th scope="row">Compatibility</th>
-                <td>{{ printCompat(feature.support.edge) | safe }}</td>
-                <td>{{ printCompat(feature.support.chrome) | safe }}</td>
-                <td>{{ printCompat(feature.support.firefox) | safe }}</td>
-                <td>{{ printCompat(feature.support.safari) | safe }}</td>
-              </tr>
-              <tr class="wpt">
-                <th scope="row">Passing WPT subtests</th>
-                <td>{{ lastWpt.edge }}%</td>
-                <td>{{ lastWpt.chrome }}%</td>
-                <td>{{ lastWpt.firefox }}%</td>
-                <td>{{ lastWpt.safari }}%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
         <details>
           <summary>More information</summary>
           {% if feature.rationale.length > 0 %}
+            <h3>Rationale</h3>
             <ul class="rationale">
               {% for rationale in feature.rationale %}
                 <li>
@@ -99,10 +68,19 @@
               {% endfor %}
             </ul>
           {% endif %}
+          <h3>WPT test results</h3>
           <div class="chart">
             <canvas id="chart-{{ feature.id }}"></canvas>
             <p class="chart-info">Number of passed subtests for {{ feature.name}}. Test results from <a href="https://wpt.fyi">wpt.fyi</a>. View the <a href="{{ feature.wptLink }}">latest results for this feature</a>.
           </div>
+          {% if feature.spec %}
+            <h3>Specifications</h3>
+            <ul class="specs">
+              {% for spec in feature.spec %}
+                <li><a href="{{ spec }}">{{ spec }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </details>
       </li>
     {% endfor %}
@@ -113,12 +91,14 @@
   <p>The charts on this page show the evolution, over time, of the number of WPT subtests for a given feature. The data for each feature was generated by going to <code>https://wpt.fyi/results/</code>, with specific test paths or search parameters to filter the results by feature, and with the below query parameters:</p>
   <ul>
     <li><code>sha=&lt;some revision id&gt;</code> to get the results for a specific date.</li>
-    <li><code>label=experimental</code> to limit the test results to experimental browser versions.</li>
-    <li><code>label=master</code> to limit the test results to only those that ran on the master branch.</li>
-    <li><code>q=!is:tentative</code> to ignore optional tests</li>
+    <li><code>label={{ browserFlavor }}</code> to limit the test results to {{ browserFlavor }} browser versions.</li>
+    <li><code>label={{ wptBranch }}</code> to limit the test results to only those that ran on the {{ wptBranch }} branch.</li>
+    <li><code>q=!is:tentative</code> to ignore optional tests.</li>
   </ul>
   <p>The results were retrieved by extracting the <strong>Subtest Total</strong> numbers displayed at the bottom of each result page. No custom scoring was applied to the results.</p>
+  <p>The feature names, descriptions, specification links, and browser compatibility data are from the WebDX's <a href="https://github.com/web-platform-dx/web-features/">web-features</a> project.</p>
   <p>Last update: {{ getLastWPTDate(wpt) }}.</p>
+  <p>Previous dashboards: <a href="./2024/">2024</a></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js" ></script>
