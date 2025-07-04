@@ -73,7 +73,7 @@
       "chrome": "105",
       "edge": "105",
       "firefox": false,
-      "safari": false
+      "safari": "18.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Ablocking-render+%21is%3Atentative&label=stable&label=master"
   },
