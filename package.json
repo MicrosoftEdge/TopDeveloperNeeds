@@ -2,9 +2,9 @@
   "type": "module",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@mdn/browser-compat-data": "^6.0.36",
+    "@mdn/browser-compat-data": "^6.1.0",
     "copyfiles": "^2.4.1",
-    "playwright": "^1.54.1",
+    "playwright": "^1.54.2",
     "rimraf": "^6.0.1",
     "web-features": "next"
   },
