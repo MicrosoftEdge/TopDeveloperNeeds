@@ -713,7 +713,7 @@
     "support": {
       "chrome": "95",
       "edge": "95",
-      "firefox": false,
+      "firefox": "142",
       "safari": false
     },
     "wptLink": "https://wpt.fyi/results/urlpattern?label=stable&label=master&q=+%21is%3Atentative"
