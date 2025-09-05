@@ -170,7 +170,9 @@
         "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
       }
     ],
-    "caniuseLinks": [],
+    "caniuseLinks": [
+      "https://caniuse.com/cross-document-view-transitions"
+    ],
     "support": {
       "chrome": "126",
       "edge": "126",
