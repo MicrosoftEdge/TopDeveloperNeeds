@@ -23,7 +23,7 @@
       "chrome": "125",
       "edge": "125",
       "firefox": false,
-      "safari": false
+      "safari": "26"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Aanchor-positioning+%21is%3Atentative&label=stable&label=master"
   },
@@ -536,7 +536,7 @@
       "chrome": "115",
       "edge": "115",
       "firefox": false,
-      "safari": false
+      "safari": "26"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Ascroll-driven-animations+%21is%3Atentative&label=stable&label=master"
   },
@@ -690,7 +690,7 @@
       "chrome": "83",
       "edge": "83",
       "firefox": false,
-      "safari": false
+      "safari": "26"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&label=stable&label=master"
   },
@@ -716,7 +716,7 @@
       "chrome": "95",
       "edge": "95",
       "firefox": "142",
-      "safari": false
+      "safari": "26"
     },
     "wptLink": "https://wpt.fyi/results/urlpattern?label=stable&label=master&q=+%21is%3Atentative"
   },
