@@ -509,7 +509,7 @@
     "support": {
       "chrome": "118",
       "edge": "118",
-      "firefox": false,
+      "firefox": "146",
       "safari": "17.4"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Ascope+%21is%3Atentative&label=stable&label=master"
