@@ -257,7 +257,7 @@
       "chrome": "128",
       "edge": "128",
       "firefox": "20",
-      "safari": false
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/css/cssom/?q=caretPositionFromPoint+%21is%3Atentative&label=stable&label=master"
   },
@@ -309,7 +309,7 @@
       "chrome": "123",
       "edge": "123",
       "firefox": false,
-      "safari": false
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Afield-sizing+%21is%3Atentative&label=stable&label=master"
   },
@@ -460,7 +460,7 @@
       "chrome": "102",
       "edge": "102",
       "firefox": false,
-      "safari": false
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&label=stable&label=master"
   },
@@ -588,7 +588,7 @@
       "chrome": "121",
       "edge": "121",
       "firefox": "97",
-      "safari": false
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/css?q=path%3A%2Fcss%2Fcss-scrollbars+or+%28scrollbar-gutter+and+path%3A%2Fcss%2Fcss-overflow%29+%21is%3Atentative&label=stable&label=master"
   },
@@ -614,7 +614,7 @@
       "chrome": "114",
       "edge": "114",
       "firefox": "109",
-      "safari": false
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Ascrollend+%21is%3Atentative&label=stable&label=master"
   },
