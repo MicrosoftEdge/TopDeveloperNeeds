@@ -32,7 +32,7 @@
     "name": "backdrop-filter",
     "description": "The <code>backdrop-filter</code> CSS property applies graphical effects such as blurring or color shifting to the area behind an element.",
     "spec": [
-      "https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty"
+      "https://drafts.csswg.org/filter-effects-2/#BackdropFilterProperty"
     ],
     "rationale": [
       {
