@@ -117,6 +117,7 @@ async function main() {
 
       // We write to the file at each step of the way
       // to avoid losing data if the script crashes.
+      console.log(`Writing data for ${feature.id} at ${sha} (${date}) to ${OUTPUT_FILE} ...`);
       await fs.writeFile(OUTPUT_FILE, JSON.stringify(newContent));
     }
   }
@@ -132,6 +133,7 @@ async function main() {
       acc[key] = newContent[key];
       return acc;
     }, {});
+  console.log(`\nWriting sorted data to ${OUTPUT_FILE} ...`);
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(sortedContent));
 }
 

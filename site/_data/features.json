@@ -405,7 +405,7 @@
     "support": {
       "chrome": "123",
       "edge": "123",
-      "firefox": false,
+      "firefox": "147",
       "safari": false
     },
     "wptLink": "https://wpt.fyi/results/html/semantics/scripting-1/the-script-element?q=%28import-attributes+or+css+or+json%29+and+not+assertions+and+not+path%3A%2Fhtml%2Fsemantics%2Fscripting-1%2Fthe-script-element%2Fmodule%2Fdynamic-import%2Fmicrotasks%2F+%21is%3Atentative&label=stable&label=master"
@@ -459,7 +459,7 @@
     "support": {
       "chrome": "102",
       "edge": "102",
-      "firefox": false,
+      "firefox": "147",
       "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Anavigation+%21is%3Atentative&label=stable&label=master"
@@ -485,7 +485,7 @@
     "support": {
       "chrome": "125",
       "edge": "125",
-      "firefox": false,
+      "firefox": "147",
       "safari": "18.2"
     },
     "wptLink": "https://wpt.fyi/results/css/css-view-transitions?q=feature%3Aview-transitions+or+feature%3Aview-transition-class+or+types+%21is%3Atentative&label=stable&label=master"
