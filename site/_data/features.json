@@ -507,10 +507,10 @@
       "https://caniuse.com/css-cascade-scope"
     ],
     "support": {
-      "chrome": "118",
-      "edge": "118",
+      "chrome": "143",
+      "edge": "143",
       "firefox": "146",
-      "safari": "17.4"
+      "safari": "26.2"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Ascope+%21is%3Atentative&label=stable&label=master"
   },
