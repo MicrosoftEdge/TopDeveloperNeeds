@@ -2,17 +2,17 @@
   "type": "module",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "@mdn/browser-compat-data": "^7.2.5",
+    "@mdn/browser-compat-data": "^7.3.5",
     "copyfiles": "^2.4.1",
-    "playwright": "^1.58.0",
-    "rimraf": "^6.1.2",
+    "playwright": "^1.58.2",
+    "rimraf": "^6.1.3",
     "web-features": "next"
   },
   "scripts": {
     "bump": "npm update web-features && npx npm-check-updates -ui && npm install && npx playwright install",
     "generate": "node generate.js > site/_data/features.json",
-    "get-wpt-shas": "node get-historical-wpt-shas.js",
-    "update-wpt": "node scrape-wpt.js && node prepare-wpt-for-site.js",
+    "update-dates": "node get-wpt-shas.js && node get-test262-dates.js",
+    "fetch-results": "node fetch-test-results.js && node process-test-results-for-site.js",
     "build-site": "npx rimraf build && npx @11ty/eleventy",
     "serve-site": "npx @11ty/eleventy --serve"
   }

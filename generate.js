@@ -1,7 +1,7 @@
 import { features as webFeatures } from "web-features";
 import data from "./features.json" with { type: "json" };
 
-import { BROWSERS, BROWSER_FLAVOR, WPT_BRANCH } from "./const.js";
+import { BROWSERS, BROWSER_FLAVOR, WPT_BRANCH, INCLUDE_TENTATIVE } from "./const.js";
 
 const idFromName = (name) => {
   return name
@@ -23,40 +23,21 @@ function getID(feature) {
   return idFromName(feature.name);
 }
 
-function getWPTURL(feature) {
+function getWPTTestResultURL(feature) {
+  if (!feature.wpt) {
+    return undefined;
+  }
+
   const wptPath = feature.wpt;
   const wptUrl = new URL(`https://wpt.fyi${wptPath}`);
   wptUrl.searchParams.append("label", BROWSER_FLAVOR);
   wptUrl.searchParams.append("label", WPT_BRANCH);
-  const qParams = [wptUrl.searchParams.get("q") || "", "!is:tentative"];
+  const qParams = [wptUrl.searchParams.get("q") || ""];
+  if (!INCLUDE_TENTATIVE) {
+    qParams.push("!is:tentative");
+  }
   wptUrl.searchParams.set("q", qParams.join(" "));
   return wptUrl.toString();
-}
-
-function getCanIUseURLs(feature) {
-  const { caniuse, webFeaturesID: id } = feature;
-
-  if (caniuse) {
-    return [`https://caniuse.com/${caniuse}`];
-  }
-
-  if (id) {
-    if (Array.isArray(id)) {
-      return id
-        .map((childId) => {
-          return webFeatures[childId].caniuse
-            ? `https://caniuse.com/${webFeatures[childId].caniuse}`
-            : null;
-        })
-        .filter((url) => !!url);
-    } else {
-      return webFeatures[id].caniuse
-        ? [`https://caniuse.com/${webFeatures[id].caniuse}`]
-        : [];
-    }
-  }
-
-  return [];
 }
 
 function getSpecURLs(feature) {
@@ -87,16 +68,12 @@ function getSpecURLs(feature) {
   return [];
 }
 
-const htmlify = (str) => {
-  return str.replace(/</g, "&lt;").replace(/`([^`]+)`/g, "<code>$1</code>");
-};
-
 function formatRationale(feature) {
   const { rationale } = feature;
 
   return (rationale || []).map((r) => {
     return {
-      description: htmlify(r.description),
+      description: r.description,
       link: r.link,
     };
   });
@@ -105,9 +82,9 @@ function formatRationale(feature) {
 function getDescription(feature) {
   // If a description is provided, just use it.
   if (feature.description) {
-    return htmlify(feature.description);
+    return feature.description;
   }
-  
+
   const id = feature.webFeaturesID;
   if (!id) {
     return null;
@@ -165,9 +142,15 @@ function getFeatureSupportForSingleFeature(id) {
 
 function getFeatureSupport(feature) {
   const idOrIds = feature.webFeaturesID;
-  const isGroup = Array.isArray(idOrIds);
+  if (!idOrIds) {
+    const noSupport = {};
+    for (const browser of BROWSERS) {
+      noSupport[browser] = false;
+    }
+    return noSupport;
+  }
 
-  return isGroup
+  return Array.isArray(idOrIds)
     ? getFeatureSupportForGroup(idOrIds)
     : getFeatureSupportForSingleFeature(idOrIds);
 }
@@ -177,8 +160,7 @@ function main() {
   return data.map((feature) => {
     // Get the feature's metadata.
     const id = getID(feature);
-    const caniuseLinks = getCanIUseURLs(feature);
-    const wptLink = getWPTURL(feature);
+    const wptURL = getWPTTestResultURL(feature);
     const spec = getSpecURLs(feature);
     const rationale = formatRationale(feature);
     const description = getDescription(feature);
@@ -193,14 +175,19 @@ function main() {
       description,
       spec,
       rationale,
-      caniuseLinks,
       support,
-      wptLink,
-      // If wptOverride is set to true, this causes scrape-wpt.js to
+      graphNote: feature.graphNote,
+      wpt: feature.wpt,
+      wptURL,
+      test262: feature.test262,
+      // If forceUpdateResults is set to true, this causes fetch-test-results.js to
       // get WPT results again, even if they are already in the JSON file.
       // Useful for when the wpt URL has changed.
-      wptOverride: feature.wptOverride
+      forceUpdateResults: feature.forceUpdateResults
     };
+  }).sort((a, b) => {
+    // Sort features alphabetically by name.
+    return a.name.localeCompare(b.name);
   });
 }
 

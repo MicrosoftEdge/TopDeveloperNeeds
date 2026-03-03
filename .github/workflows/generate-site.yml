@@ -27,15 +27,16 @@ jobs:
       - name: Compute feature data
         run: npm run generate
 
-      - name: Retrieve latest WPT revision and results
+      - name: Retrieve latest WPT and Test262 runs and fetch test results
         run: |
           npm run get-wpt-shas
-          npm run update-wpt
+          npm run get-test262-dates
+          npm run fetch-results
 
       - name: Commit changes
         run: |
-          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
-          git config --local user.name "${{ github.actor }}"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "Weekly regen" --allow-empty
           git push origin main

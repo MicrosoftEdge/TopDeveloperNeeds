@@ -13,6 +13,26 @@ const lineColors = {
   Safari: "#8A4695",
 };
 
+const darkModeLineColors = {
+  "All subtests": "#ffffff",
+  Edge: "#39ABD7",
+  Chrome: "#F9BC30",
+  Firefox: "#7BE1D9",
+  Safari: "#8A4695",
+};
+
+function isDarkMode() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+function getLineColors() {
+  return isDarkMode() ? darkModeLineColors : lineColors;
+}
+
+function getGridColor() {
+  return isDarkMode() ? "#555" : "#ccc";
+}
+
 function onChartResize(chart) {
   const viewportAspectRatio = window.innerWidth / window.innerHeight;
   if (viewportAspectRatio < 0.8 && chart.aspectRatio !== 1.5) {
@@ -55,9 +75,10 @@ const chartPlugins = {
       legend.chart.update();
     },
     onLeave: function (event, item, legend) {
+      const colors = getLineColors();
       for (let index = 0; index < legend.chart.data.datasets.length; index++) {
         legend.chart.data.datasets[index].borderColor =
-          lineColors[legend.chart.data.datasets[index].label];
+          colors[legend.chart.data.datasets[index].label];
         legend.chart.data.datasets[index].borderWidth = 2;
       }
       legend.chart.update();
@@ -78,6 +99,9 @@ const chartOptions = {
   scales: {
     y: {
       beginAtZero: true,
+      grid: {
+        color: getGridColor(),
+      },
     },
     x: {
       type: "time",
@@ -93,28 +117,15 @@ const chartOptions = {
         maxRotation: 90,
         minRotation: 90,
       },
+      grid: {
+        color: getGridColor(),
+      },
     },
   },
 };
 
-// Experimental WPT test runs don't always have all browsers.
-// This utility method "smoothese" over missing data points to avoid gaps in the charts.
-function fixMissingDataPoint(data, dataItem, index, browser, totalOrPassed) {
-  if (dataItem[browser] && dataItem[browser][totalOrPassed] !== 0) {
-    // The data point exists for this browser in this test run, and is not 0.
-    return dataItem[browser][totalOrPassed];
-  } else {
-    // The data point is either missing or is 0.
-    // Look at previous non-null/non-0 data points for this browser.
-    for (let i = index - 1; i >= 0; i--) {
-      if (data[i][browser] && data[i][browser][totalOrPassed] !== 0) {
-        return data[i][browser][totalOrPassed];
-      }
-    }
-  }
-}
-
 function drawChart(canvas, data) {
+  const colors = getLineColors();
   new Chart(canvas, {
     type: "line",
     data: {
@@ -124,38 +135,38 @@ function drawChart(canvas, data) {
           label: "All subtests",
           data: data.map((d, i) =>
             Math.max(
-              fixMissingDataPoint(data, d, i, "chrome", "total"),
-              fixMissingDataPoint(data, d, i, "safari", "total"),
-              fixMissingDataPoint(data, d, i, "firefox", "total"),
-              fixMissingDataPoint(data, d, i, "edge", "total")
+              d.chrome.total,
+              d.safari.total,
+              d.firefox.total,
+              d.edge.total
             )
           ),
           borderWidth: 2,
-          borderColor: lineColors["All subtests"],
+          borderColor: colors["All subtests"],
         },
         {
           label: "Edge",
-          data: data.map((d, i) => fixMissingDataPoint(data, d, i, "edge", "passed")),
+          data: data.map((d, i) => d.edge.passed),
           borderWidth: 2,
-          borderColor: lineColors.Edge,
+          borderColor: colors.Edge,
         },
         {
           label: "Chrome",
-          data: data.map((d, i) => fixMissingDataPoint(data, d, i, "chrome", "passed")),
+          data: data.map((d, i) => d.chrome.passed),
           borderWidth: 2,
-          borderColor: lineColors.Chrome,
+          borderColor: colors.Chrome,
         },
         {
           label: "Firefox",
-          data: data.map((d, i) => fixMissingDataPoint(data, d, i, "firefox", "passed")),
+          data: data.map((d, i) => d.firefox.passed),
           borderWidth: 2,
-          borderColor: lineColors.Firefox,
+          borderColor: colors.Firefox,
         },
         {
           label: "Safari",
-          data: data.map((d, i) => fixMissingDataPoint(data, d, i, "safari", "passed")),
+          data: data.map((d, i) => d.safari.passed),
           borderWidth: 2,
-          borderColor: lineColors.Safari,
+          borderColor: colors.Safari,
         },
       ],
     },

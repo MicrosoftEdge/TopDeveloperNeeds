@@ -1,6 +1,6 @@
-# Microsoft Edge - 2025 web platform top developer needs
+# Microsoft Edge - 2026 web platform top developer needs
 
-This repository contains the data and scripts that are used to generate the [Microsoft Edge - 2025 web platform top developer needs](https://microsoftedge.github.io/TopDeveloperNeeds/) dashboard.
+This repository contains the data and scripts that are used to generate the [Microsoft Edge - 2026 web platform top developer needs](https://microsoftedge.github.io/TopDeveloperNeeds/) dashboard.
 
 For more information about the dashboard, see these articles on the Microsoft Edge blog:
 
@@ -24,9 +24,11 @@ Features are based on the features part of the [web-features project](https://gi
 
 * `webFeaturesID`: the ID of the feature in the [web-features](https://github.com/web-platform-dx/web-features/) repo.
 * `rationale`: a list of reasons why this feature is important for our dashboard. Each reason is an object with the following string properties `{ description, link }`.
-* `wpt`: a string starting with `/results`, and including the optional request parameters that's used to retrieve WPT test results on the wpt.fyi site.
+* One test source field:
+  * `wpt`: a string starting with `/results`, and including optional request parameters, used to retrieve WPT test results from wpt.fyi.
+  * or `test262`: for features tracked in Test262 instead of WPT. Set this to the feature name as returned by the https://data.test262.fyi/features.json API (for example: `Temporal`).
 
-**If you change the `wpt` URL after you've already generated the WPT results, set `wptOverride:true` on the feature object, then run `npm run generate` and `npm run update-wpt` again to update the WPT results for this feature. Later, remove the `wptOverride` field.**
+**If you change the `wpt` URL after you've already generated the WPT results, set `forceUpdateResults:true` on the feature object, then run `npm run generate` and `npm run fetch-results` again to update the WPT results for this feature. Later, remove the `forceUpdateResults` field.**
 
 For example:
 
@@ -43,10 +45,25 @@ For example:
 }
 ```
 
+For a feature tracked in Test262 instead of WPT, use `test262` (and omit `wpt`):
+
+```json
+{
+  "webFeaturesID": "temporal",
+  "test262": "Temporal",
+  "rationale": [
+    {
+      "description": "Temporal is highly requested by developers",
+      "link": "https://github.com/web-platform-dx/developer-signals/issues/291"
+    }
+  ]
+}
+```
+
 If the feature corresponds to a group of features from the web-features repo, make the following changes:
 
 * `name`: define a name for the group of features.
-* `webFeaturesIDs`: change this field's type to an array of the IDs of the features in the web-features repo.
+* `webFeaturesID`: change this field's type to an array of the IDs of the features in the web-features repo.
 
 For example, the Scrollbar styling group below is a group of three different web-features:
 
@@ -70,37 +87,38 @@ In addition, you can provide the following optional fields:
 * `name`: to override the name coming from the web-features repo.
 * `description`: to override the description coming from the web-features repo.
 * `spec`: to override the spec (or specs) coming from the web-features repo.
+* `graphNote`: a string that will be shown as a note below the graph for this feature on the dashboard. This can be used to provide additional context about the data shown in the graph.
 
 ## Generating the dashboard data
 
 1. Update the dependencies:
 
    * `npm run bump`
-     
+
      This updates to the most recent version of web-features, BCD, and playwright, as well as other dependencies.
 
 1. To update the computed feature data file:
 
    * `npm run generate`
-   
+
    This re-generates `site/_data/features.json` based on `features.json`.
 
-1. To retrieve the latest WPT revision for this week:
+1. To retrieve the latest WPT revisions and test262 run dates for the dates we care about:
 
-   * `npm run get-wpt-shas`
-   
-     This adds more entries into the `historical-shas.json` file, which is needed to retrieve WPT test results.
+   * `npm run update-dates`
 
-1. To retrieve the WPT test results:
+     This updates the `wpt-shas.json` and `test262-dates.json` files, which are then needed to retrieve WPT and test262 test results.
 
-   * `npm run update-wpt`
-   
-     This fetches the missing WPT results for our features based on the `historical-shas.json` file, and puts them in `site/_data/wpt.json` as well as generates front-end files in `site/assets/`.
+1. To retrieve the test results:
+
+   * `npm run fetch-results`
+
+     This fetches the missing WPT and Test262 results for our features based on what's in `wpt-shas.json` and `test262-dates.json`, and puts them in `site/_data/testResults.json` as well as generates front-end files in `site/assets/`.
 
 1. To build the site
 
    * `npm run build-site`
-   
+
      This generates the dashboard website in the `docs` directory.
 
 ## Testing the dashboard

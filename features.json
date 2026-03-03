@@ -1,43 +1,5 @@
 [
   {
-    "webFeaturesID": "anchor-positioning",
-    "rationale": [
-      {
-        "description": "This feature came out in first place in the list of features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
-      },
-      {
-        "description": "Many JavaScript-based workarounds exist to position elements related to other elements. The oddbird/css-anchor-positioning polyfill is downloaded 15000 times a week on NPM, and its GitHub repository has more than 350 stars",
-        "link": "https://github.com/oddbird/css-anchor-positioning"
-      }
-    ],
-    "wpt": "/results/?q=feature:anchor-positioning"
-  },
-  {
-    "webFeaturesID": "backdrop-filter",
-    "wpt": "/results/?q=feature:backdrop-filter",
-    "rationale": [
-      {
-        "description": "In the State of CSS 2022 survey, `backdrop-filter` was a common response to the question about browser incompatibilities",
-        "link": "https://2022.stateofcss.com/en-US/usage/#interoperability_features_freeform"
-      },
-      {
-        "description": "The State of CSS 2023 survey shows a pattern of steadily growing use of the feature between 2020 and 2023",
-        "link": "https://2023.stateofcss.com/en-US/features/shapes-and-graphics/#backdrop_filter"
-      }
-    ]
-  },
-  {
-    "webFeaturesID": "blocking-render",
-    "rationale": [
-      {
-        "description": "Render blocking is a prerequisite for cross-document view transitions, which is a highly requested feature",
-        "link": "https://github.com/whatwg/html/pull/9970"
-      }
-    ],
-    "wpt": "/results/?q=feature:blocking-render"
-  },
-  {
     "name": "calc-size() and interpolate-size()",
     "webFeaturesID": [
       "calc-size",
@@ -48,339 +10,172 @@
       {
         "description": "Animating to and from auto heights is a very common use case in CSS. This feature makes it possible to animate between a fixed length and any other type of length which can be expressed in CSS. The Interop 2025 feature proposal received 67 positive reactions on GitHub",
         "link": "https://github.com/web-platform-tests/interop/issues/735"
-      }
-    ]
-  },
-  {
-    "name": "Container size and style queries",
-    "webFeaturesID": [
-      "container-queries",
-      "container-style-queries"
-    ],
-    "wpt": "/results/?q=feature:container-queries or feature:container-style-queries",
-    "rationale": [
-      {
-        "description": "In the State of CSS 2024 survey, container queries was the second-most common response to the browser incompatibilities question",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
       },
       {
-        "description": "In the State of CSS 2024 survey, container style queries was in the top 20 most common responses to the browser incompatibilities question",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+        "description": "<code>calc-size</code> was the 2nd most saved reading-list item in State of CSS 2025 survey",
+        "link": "https://2025.stateofcss.com/en-US/features/#reading_list"
+      },
+      {
+        "description": "The webkit's standards-position issue for these features has more than 100 positive reactions",
+        "link": "https://github.com/WebKit/standards-positions/issues/348"
+      },
+      {
+        "description": "Developer upvotes and use cases demonstrate strong demand for animating to/from auto sizes in CSS",
+        "link": "https://github.com/web-platform-dx/developer-signals/issues/253#issuecomment-3660444907"
       }
     ]
   },
   {
-    "name": "Core Web Vitals",
+    "name": "Core Web Vitals: CLS and LoAF",
     "webFeaturesID": [
-      "largest-contentful-paint",
       "layout-instability",
-      "event-timing"
+      "long-animation-frames"
     ],
-    "wpt": "/results/?q=feature:largest-contentful-paint or feature:layout-instability or feature:event-timing",
+    "wpt": "/results/?q=feature:layout-instability or feature:long-animation-frames",
     "rationale": [
       {
-        "description": "The Interop 2025 feature proposal received more than 120 positive reactions on GitHub",
-        "link": "https://github.com/web-platform-tests/interop/issues/894"
+        "description": "The results to the State of HTML 2025 survey indicate that developers very often run into issues that can be measured using Core Web Vitals metrics, particularly Cumulative Layout Shift (CLS)",
+        "link": "https://github.com/web-platform-tests/interop/issues/1173#issuecomment-3470809670"
+      },
+      {
+        "description": "Cummulative Layout Shift and Long Animation Frames are part of RUMVision's Interop 2026 top requested features",
+        "link": "https://www.rumvision.com/blog/interop-2026-key-apis-for-sitespeed-and-rum/"
+      },
+      {
+        "description": "Cummulative Layout Shift and Long Animation Frames are also part of Shopify's Interop 2026 top requested features",
+        "link": "https://docs.google.com/document/d/1ICqlNtdRXlhIlRuXFr1BRgy68R6Q5AwPv2b4hsIWUMY/edit?tab=t.0#heading=h.y4617k72nzy0"
       }
     ]
   },
   {
-    "webFeaturesID": "cross-document-view-transitions",
+    "webFeaturesID": "corner-shape",
+    "wpt": "/results/css/css-borders/corner-shape",
     "rationale": [
       {
-        "description": "Over the past decade, single-page web applications have become very popular, and JavaScript frameworks have been used to provide the ability to smoothly transition between UI states without full page reloads. The View Transitions API allows multi-page apps to achieve the same level of smoothness and interactivity without JavaScript"
+        "description": "The Interop 2026 feature proposal received more than 90 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/1048"
       },
       {
-        "description": "View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
-      }
-    ],
-    "wpt": "/results/?q=feature:cross-document-view-transitions and !with-types"
-  },
-  {
-    "webFeaturesID": "highlight",
-    "wpt": "/results/css/css-highlight-api",
-    "rationale": [
-      {
-        "description": "The CSS Custom Highlight API was the 5th content-related feature with the most positive sentiments in the State of HTML 2024 survey",
-        "link": "https://2024.stateofhtml.com/en-US/features/content/#content_features"
-      },
-      {
-        "description": "Compelling use cases and positive reactions were received on the feature proposal on GitHub",
-        "link": "https://github.com/w3c/csswg-drafts/issues/4307"
-      },
-      {
-        "description": "Supportive comments were also received on the announcement css-tricks.com blog post",
-        "link": "https://css-tricks.com/css-custom-highlight-api-early-look/"
+        "description": "The developer signals issue about <code>corner-shape</code> has received more than 50 votes",
+        "link": "https://github.com/web-platform-dx/developer-signals/issues/398"
       }
     ]
   },
   {
     "webFeaturesID": "customized-built-in-elements",
-    "caniuse": "custom-elementsv1",
     "wpt": "/results/?q=feature:customized-built-in-elements",
     "rationale": [
       {
-        "description": "The GitHub issue about improving the `is` HTML attribute received a lot of attention and reactions",
-        "link": "https://github.com/WICG/webcomponents/issues/509"
+        "description": "In the State of HTML 2025 survey, customizing and wrapping built-in elements came up in 3rd place based on the number of times this was mentioned as a freeform pain point across the entire survey",
+        "link": "https://github.com/web-platform-tests/interop/issues/1152#issuecomment-3417030768"
       },
       {
-        "description": "The Custom Elements polyfill is very popular, with more than 26000 weekly downloads on NPM, and 250 stars on GitHub",
-        "link": "https://github.com/ungap/custom-elements"
+        "description": "In the same survey, extending native elements was ranked in 4th place in a multiple-choice question about web component pain points",
+        "link": "https://2025.stateofhtml.com/en-US/features/web_components/#web_components_common_pain_points"
+      },
+      {
+        "description": "Multiple polyfills have been built for customized built-in elements, showing developer interest in the feature",
+        "link": "https://github.com/ungap/custom-elements-builtin"
+      },
+      {
+        "description": "Many blog posts and articles have been written in favor of customized built-ins",
+        "link": "https://webreflection.medium.com/in-favor-of-custom-elements-built-ins-bae3f40f27d5"
       }
     ]
   },
   {
-    "webFeaturesID": "document-caretpositionfrompoint",
+    "webFeaturesID": "customizable-select",
+    "wpt": "/results/html/semantics/forms/the-select-element/customizable-select",
     "rationale": [
       {
-        "description": "The Chromium implementation bug for `document.caretPositionFromPoint()` has more than 45 votes",
-        "link": "https://issues.chromium.org/issues/41117286"
-      }
-    ],
-    "wpt": "/results/css/cssom/?q=caretPositionFromPoint"
-  },
-  {
-    "webFeaturesID": "fetch-request-streams",
-    "wpt": "/results/?q=feature:fetch-request-streams",
-    "rationale": [
-      {
-        "description": "The specification pull request for this feature received a lot of positive reactions",
-        "link": "https://github.com/whatwg/fetch/pull/425"
+        "description": "In the State of HTML 2025 survey, customizable &lt;select&gt; was the second-most voted feature which developers are unable to use because of lack of support",
+        "link": "https://2025.stateofhtml.com/en-US/usage/#html_interoperability_features_features_only"
       },
       {
-        "description": "The Chromium implementation bug has more than 70 votes",
-        "link": "https://issues.chromium.org/issues/40505032"
+        "description": "In the same survey, customizable &lt;select&gt; was also the most voted feature which developers are unable to use because of other reasons",
+        "link": "https://2025.stateofhtml.com/en-US/usage/#html_functionality_features_features_only"
+      },
+      {
+        "description": "Also in the same survey, &lt;select&gt; was the most voted HTML element which developers struggle to style or customize",
+        "link": "https://2025.stateofhtml.com/en-US/usage/#html_styling_issues"
       }
     ]
   },
   {
     "webFeaturesID": "field-sizing",
+    "wpt": "/results/?q=feature:field-sizing",
     "rationale": [
       {
-        "description": "The `field-sizing` property makes it possible to remove JavaScript-based workarounds for sizing form fields",
-        "link": "https://polypane.app/blog/field-sizing-just-works/"
+        "description": "The <code>field-sizing</code> property was the 3rd-most popular reading list item in the State of CSS 2025 survey, showing a lot of interest from participants in learning more about it",
+        "link": "https://2025.stateofcss.com/en-US/features/#reading_list"
       },
       {
-        "description": "The autosize NPM package, which automatically adjusts the height of textareas to fit their content, has more than 700,000 weekly downloads",
+        "description": "Styling and customization was, by far, the first response to the State of HTML 2024 question about HTML form pain points (58%), followed by Input element issues (27%), where an entire sub-category of answers is dedicated to auto-growing textareas",
+        "link": "https://2024.stateofhtml.com/en-US/features/forms/#forms_pain_points"
+      },
+      {
+        "description": "The autosize NPM package, which automatically adjusts the height of textareas to fit their content, has more than 650,000 weekly downloads",
         "link": "https://www.npmjs.com/package/autosize"
-      }
-    ],
-    "wpt": "/results/?q=feature:field-sizing"
-  },
-  {
-    "webFeaturesID": "has-slotted",
-    "rationale": [
+      },
       {
-        "description": "The feature proposal issue on the Web Components specification GitHub repository received a lot of positive reactions",
-        "link": "https://github.com/WICG/webcomponents/issues/936"
-      }
-    ],
-    "wpt": "/results/?q=feature:has-slotted"
-  },
-  {
-    "webFeaturesID": "intersection-observer-v2",
-    "rationale": [
-      {
-        "description": "In the 2022 APIs and JavaScript MDN short survey, more than 15% of respondents agreed that the Intersection Observer API needed to be improved across browsers",
-        "link": "https://github.com/web-platform-tests/interop/issues/246"
-      }
-    ],
-    "wpt": "/results/?q=feature:intersection-observer-v2"
-  },
-  {
-    "webFeaturesID": "jpegxl",
-    "caniuse": "jpegxl",
-    "wpt": "/results/?q=feature:jpegxl",
-    "rationale": [
-      {
-        "description": "The Interop 2025 feature proposal for JPEG XL received more than 600 positive reactions",
-        "link": "https://github.com/web-platform-tests/interop/issues/700"
+        "description": "The react-textarea-autosize NPM package is downloaded 4.6M times per week",
+        "link": "https://www.npmjs.com/package/react-textarea-autosize"
       }
     ]
   },
   {
-    "name": "JSON and CSS modules",
-    "webFeaturesID": [
-      "json-modules",
-      "css-modules"
-    ],
+    "webFeaturesID": "reading-flow",
+    "wpt": "/results/?q=feature:reading-flow",
     "rationale": [
       {
-        "description": "The GitHub issue which initially introduced the JSON module scripts idea received a lot of positive reactions",
-        "link": "https://github.com/whatwg/html/issues/4315"
+        "description": "The impact of changing the visual order of items in a layout, in a way that's disconnected from the tabbing/source order has been documented extensively over the years, showing that the <code>reading-flow</code> property solves a real problem"
       },
       {
-        "description": "The GitHub issue which initially introduced the CSS module scripts idea received more than 200 positive reactions",
-        "link": "https://github.com/WICG/webcomponents/issues/759"
-      }
-    ],
-    "wpt": "/results/html/semantics/scripting-1/the-script-element?q=(import-attributes or css or json) and not assertions and not path:/html/semantics/scripting-1/the-script-element/module/dynamic-import/microtasks/"
-  },
-  {
-    "webFeaturesID": "marker",
-    "rationale": [
-      {
-        "description": "The Interop 2025 feature proposal received 25 positive reactions",
-        "link": "https://github.com/web-platform-tests/interop/issues/729"
+        "description": "See <a href='https://developer.mozilla.org/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items#the_order_property_and_accessibility'>The order property and accessibility</a>, on MDN"
       },
       {
-        "description": "Comments on the State of CSS 2023 survey indicate that developers want cross-browser support for this feature",
-        "link": "https://2023.stateofcss.com/en-US/features/other-features/#marker"
-      }
-    ],
-    "wpt": "/results/?q=feature:marker"
-  },
-  {
-    "webFeaturesID": "navigation",
-    "rationale": [
-      {
-        "description": "This feature was in 7th place in an MDN short survey asking people to rank 20 web features",
-        "link": "https://github.com/web-platform-dx/developer-research/blob/main/mdn-short-surveys/2022-11-08-interop-2023/interpretation.md#results-of-mdn-apis--javascript-survey"
+        "description": "See <a href='https://tink.uk/flexbox-the-keyboard-navigation-disconnect/'>Flexbox & the keyboard navigation disconnect</a>, by Léonie Watson"
       },
       {
-        "description": "The Interop 2025 feature proposal received 96 positive reactions",
-        "link": "https://github.com/web-platform-tests/interop/issues/709"
-      }
-    ],
-    "wpt": "/results/?q=feature:navigation"
-  },
-  {
-    "name": "Same-document view transitions",
-    "description": "View transitions allow you to create animated visual transitions between different states of a document.",
-    "webFeaturesID": [
-      "view-transitions",
-      "view-transition-class",
-      "active-view-transition"
-    ],
-    "rationale": [
+        "description": "See <a href='https://adrianroselli.com/2015/10/html-source-order-vs-css-display-order.html'>HTML Source Order vs CSS Display Order</a>, by Adrian Roselli"
+      },
       {
-        "description": "View transitions is the 5th most requested feature in the browser incompatibilities question in the State of CSS 2024 survey",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
-      }
-    ],
-    "wpt": "/results/css/css-view-transitions?q=feature:view-transitions or feature:view-transition-class or types"
-  },
-  {
-    "webFeaturesID": "scope",
-    "wpt": "/results/?q=feature:scope",
-    "rationale": [
-      {
-        "description": "CSS scoping appears in the top ten missing features in the State of CSS 2023 survey",
-        "link": "https://2023.stateofcss.com/en-US/usage/#css_missing_features"
+        "description": "See <a href='https://developer.chrome.com/blog/reading-order'>Solving the CSS layout and source order disconnect</a>, by Rachel Andrew"
       }
     ]
   },
   {
-    "webFeaturesID": "scroll-driven-animations",
+    "webFeaturesID": "sibling-count",
+    "wpt": "/results?q=feature:sibling-count",
     "rationale": [
       {
-        "description": "This feature is in the top twenty features which developers said they had difficulties using because of lack of support or differences between browsers in the State of CSS 2024 survey",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+        "description": "The <code>sibling-count()</code> and <code>sibling-index()</code> functions were the 11th and 13th most-saved reading list items in the State of CSS 2025 survey",
+        "link": "https://2025.stateofcss.com/en-US/features/#reading_list"
       },
       {
-        "description": "The Interop 2025 feature proposal received more than 50 positive reactions",
-        "link": "https://github.com/web-platform-tests/interop/issues/736"
-      }
-    ],
-    "wpt": "/results/?q=feature:scroll-driven-animations"
-  },
-  {
-    "name": "Scroll anchoring",
-    "description": "Scroll anchoring is a browser feature which automatically adjusts the scroll position to prevent visible jumps when content changes above the viewport. The `overflow-anchor` CSS property allows developers to opt-out of the scroll anchoring behavior for specific elements.",
-    "webFeaturesID": "overflow-anchor",
-    "rationale": [
-      {
-        "description": "Many likes and retweets on the initial announcement of the scroll anchoring feature when it was implemented in Chrome",
-        "link": "https://x.com/addyosmani/status/761297439764520960"
-      },
-      {
-        "description": "Developer interest in the tracking implementation bug in WebKit",
-        "link": "https://bugs.webkit.org/show_bug.cgi?id=171099"
-      }
-    ],
-    "wpt": "/results/css/css-scroll-anchoring"
-  },
-  {
-    "name": "Scrollbar styling",
-    "webFeaturesID": [
-      "scrollbar-color",
-      "scrollbar-gutter",
-      "scrollbar-width"
-    ],
-    "wpt": "/results/css?q=path%3A%2Fcss%2Fcss-scrollbars%20or%20%28scrollbar-gutter%20and%20path%3A%2Fcss%2Fcss-overflow%29",
-    "rationale": [
-      {
-        "description": "In the State of CSS 2024 survey, styling scrollbar ranked eighth in the browser incompatibilities question",
-        "link": "https://2024.stateofcss.com/en-US/usage/#css_interoperability_features"
+        "description": "The developer signals issue about <code>sibling-count</code> and <code>sibling-index</code> has received more than 60 votes",
+        "link": "https://github.com/web-platform-dx/developer-signals/issues/361"
       }
     ]
   },
   {
-    "webFeaturesID": "scrollend",
+    "webFeaturesID": "fedcm",
+    "wpt": "/results?q=feature:fedcm",
     "rationale": [
       {
-        "description": "The scrollend feature is used by more than 20% of page loads in Chrome, according to chromestatus.com",
-        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/58"
+        "description": "FedCM is crucial for helping our industry move away from third-party cookies"
       },
       {
-        "description": "In the 2021 Scroll Survey, 43% of respondents said that it was somewhat or extremely difficult to work with scrolling",
-        "link": "https://web.dev/blog/2021-scroll-survey-report"
-      }
-    ],
-    "wpt": "/results/?q=feature:scrollend"
-  },
-  {
-    "webFeaturesID": "speculation-rules",
-    "rationale": [
-      {
-        "description": "Adoption on supporting browsers is growing rapidly",
-        "link": "https://chromestatus.com/metrics/feature/timeline/popularity/3969"
+        "description": "The FedCM specification repository has over 400 stars and 90 forks, showing interest in the technology",
+        "link": "https://github.com/w3c-fedid/FedCM"
       },
       {
-        "description": "WordPress 6.8 uses speculation rules to improve performance",
-        "link": "https://make.wordpress.org/core/2025/03/06/speculative-loading-in-6-8/"
-      }
-    ],
-    "wpt": "/results/?q=feature:speculation-rules"
-  },
-  {
-    "name": "Top layer animations",
-    "description": "A set of CSS features which makes top layer elements, like `<dialog>` elements, or elements with the `popover` attribute, animatable as they enter and exit the top layer. The features include the `overlay` CSS property, the `@starting-style` at-rule, the `transition-behavior` CSS property, and support for animating the `display` and `content-visibility` CSS properties.",
-    "webFeaturesID": [
-      "overlay",
-      "starting-style",
-      "display-animation",
-      "transition-behavior"
-    ],
-    "rationale": [
-      {
-        "description": "Top layer animations allow animating popovers, which is a highly requested feature"
-      }
-    ],
-    "wpt": "/results/?q=feature:overlay or feature:starting-style or feature:display-animation or feature:transition-behavior"
-  },
-  {
-    "webFeaturesID": "trusted-types",
-    "wpt": "/results/?q=feature:trusted-types",
-    "rationale": [
-      {
-        "description": "Interest from the community and adoption on supporting browsers is high",
-        "link": "https://github.com/web-platform-tests/interop/issues/500"
-      }
-    ]
-  },
-  {
-    "webFeaturesID": "urlpattern",
-    "wpt": "/results/urlpattern",
-    "rationale": [
-      {
-        "description": "The URLPattern specification GitHub repository has more than 180 stars",
-        "link": "https://github.com/whatwg/urlpattern"
+        "description": "According to Chrome's useCounters, usage of the feature is above 2% of all page loads in Chrome, despite the feature only being available in Chrome and Edge",
+        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/247"
       },
       {
-        "description": "Feedback received while testing the API with developers has been positive",
-        "link": "https://github.com/whatwg/urlpattern/blob/main/dev-trials-feedack.md"
+        "description": "The feature is part of Shopify's Interop 2026 top requested features as it enables their merchants to offer personalized, one-tap sign-in experiences for their storefronts, but also improves retention and has other benefits",
+        "link": "https://docs.google.com/document/d/1ICqlNtdRXlhIlRuXFr1BRgy68R6Q5AwPv2b4hsIWUMY/edit?tab=t.0#heading=h.kr8sxf22j441"
       }
     ]
   },
@@ -391,16 +186,251 @@
       {
         "description": "The Interop 2025 feature proposal for WebDriver BiDi received more than 70 positive reactions",
         "link": "https://github.com/web-platform-tests/interop/issues/763"
+      },
+      {
+        "description": "Industry-wide surveys such as the <a href='https://mdn.dev/archives/insights/'>MDN Web Developer Needs Assessment</a> and the <a href='https://mdn.dev/archives/insights/reports/pdf/MDN-Web-Testing-Report-2021.pdf'>MDN Web Testing Report</a> have identified cross-browser testing as one of the top developer pain points"
       }
     ]
   },
   {
-    "webFeaturesID": "webtransport",
-    "wpt": "/results/?q=feature:webtransport",
+    "webFeaturesID": "sizes-auto",
+    "wpt": "/results?q=feature:sizes-auto",
     "rationale": [
       {
-        "description": "The specification GitHub repository has 900 stars",
-        "link": "https://github.com/w3c/webtransport"
+        "description": "The feature is on Shopify's top requested features for Interop 2026, and they have created a polyfill for it",
+        "link": "https://docs.google.com/document/d/1ICqlNtdRXlhIlRuXFr1BRgy68R6Q5AwPv2b4hsIWUMY/edit?tab=t.0#heading=h.3nxscaqybha"
+      },
+      {
+        "description": "The <code>sizes=auto</code> attribute is used by WordPress to improve image lazy loading",
+        "link": "https://core.trac.wordpress.org/changeset/59008"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "intersection-observer-v2",
+    "wpt": "/results/?q=feature:intersection-observer-v2",
+    "rationale": [
+      {
+        "description": "In the 2022 APIs and JavaScript MDN short survey, more than 15% of respondents agreed that the Intersection Observer API needed to be improved across browsers",
+        "link": "https://github.com/web-platform-tests/interop/issues/246"
+      },
+      {
+        "description": "According to Chrome's useCounters, usage of the feature is above 9% of all page loads in Chrome",
+        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/44"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "justify-self-block",
+    "wpt": "/results/css/css-align/blocks?q=justify-self%7Cjustify-items",
+    "rationale": [
+      {
+        "description": "Major sites have started relying on this feature, causing web compatibility issues in non-supporting browsers",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=1993292"
+      },
+      {
+        "description": "The proposal for the inclusion of this feature in Interop 2026 received more than 20 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/1037"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "css-modules",
+    "name": "CSS module scripts",
+    "description": "CSS module scripts can be loaded as constructable stylesheets by using <code>import … with { type: \"css\" }</code> statements.",
+    "wpt": "/results?q=feature:css-modules",
+    "rationale": [
+      {
+        "description": "Many JavaScript frameworks and libraries have explored this space, showing a clear need for CSS modules"
+      },
+      {
+        "description": "The GitHub issue which initially introduced the CSS module scripts idea received more than 200 positive reactions",
+        "link": "https://github.com/WICG/webcomponents/issues/759"
+      },
+      {
+        "description": "Recent positive sentiment from developers, see <a href='https://frontendmasters.com/blog/architecture-through-component-colocation/'>A Nice Vanilla App Architecture Using Web Components and CSS Module Scripts</a>, by Chris Coyer"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "move-before",
+    "wpt": "/results/?q=feature:move-before",
+    "rationale": [
+      {
+        "description": "The Microsoft Office online team shared their strong interest for this feature",
+        "link": "https://github.com/web-platform-tests/interop/issues/1034#issuecomment-3349394362"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "scheduler",
+    "wpt": "/results?q=feature:scheduler",
+    "rationale": [
+      {
+        "description": "Chrome's useCounters report a usage that's above 10% of all page loads in Chrome, and growing, even though the feature isn't yet supported in all major browsers",
+        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/118"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "requestidlecallback",
+    "wpt": "/results?q=feature:requestidlecallback",
+    "rationale": [
+      {
+        "description": "The requestIdleCallback shim is downloaded 520,000 times per week on NPM",
+        "link": "https://www.npmjs.com/package/requestidlecallback"
+      },
+      {
+        "description": "Chrome's useCounters report that the method is used on 45% of page loads in Chrome",
+        "link": "https://chromestatus.com/metrics/webfeature/timeline/popularity/338"
+      },
+      {
+        "description": "The feature is part of RUMVision's Interop 2026 top requested features, because it helps keep the main thread free, reducing input blocking and jank",
+        "link": "https://www.rumvision.com/blog/interop-2026-key-apis-for-sitespeed-and-rum/"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "speculation-rules",
+    "wpt": "/results/?q=feature:speculation-rules",
+    "rationale": [
+      {
+        "description": "According to Chrome's useCounters, Speculation Rules prefetches are used on more than 10% of page loads in Chrome, and growing",
+        "link": "https://chromestatus.com/metrics/feature/timeline/popularity/4828"
+      },
+      {
+        "description": "The google.com search results page uses Speculation Rules to prefetch links",
+        "link": "https://developer.chrome.com/blog/search-speculation-rules"
+      },
+      {
+        "description": "WordPress 6.8 uses speculation rules to improve performance",
+        "link": "https://make.wordpress.org/core/2025/03/06/speculative-loading-in-6-8/"
+      },
+      {
+        "description": "The feature is part of RUMVision's Interop 2026 top requested features, because it speeds up the user-perceived navigation time without relying on heavy JavaScript",
+        "link": "https://www.rumvision.com/blog/interop-2026-key-apis-for-sitespeed-and-rum/"
+      },
+      {
+        "description": "The feature is also part of Shopify's Interop 2026 top requested features. They deployed the feature across all merchant storefronts and observed significant benefits, such as 130ms to 180ms improvements in same-origin navigation across all loading metrics and all percentiles",
+        "link": "https://performance.shopify.com/blogs/blog/speculation-rules-at-shopify"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "text-wrap-pretty",
+    "wpt": "/results?q=feature:text-wrap-pretty",
+    "rationale": [
+      {
+        "description": "<code>text-wrap:pretty</code> is already used on more than 1.5% of all page loads in Chrome and growing, according to Chrome's useCounters",
+        "link": "https://chromestatus.com/metrics/feature/timeline/popularity/4674"
+      },
+      {
+        "description": "The CSS property received positive developer sentiment",
+        "link": "https://kilianvalkhof.com/2025/css-html/my-pick-of-the-year-for-the-state-of-css-survey/"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "trusted-types",
+    "wpt": "/results/?q=feature:trusted-types",
+    "rationale": [
+      {
+        "description": "According to Chrome's useCounters, Trusted Types policies are created in more than 65% of page loads in Chrome",
+        "link": "https://chromestatus.com/metrics/feature/timeline/popularity/3279"
+      },
+      {
+        "description": "Salesforce strongly supports the feature",
+        "link": "https://github.com/mozilla/standards-positions/issues/20#issuecomment-1836947936"
+      },
+      {
+        "description": "The integration of Trusted Types is either completed or ongoing in several libraries and frameworks",
+        "link": "https://github.com/vercel/next.js/pulls?q=is%3Apr+author%3Ajgoping"
+      },
+      {
+        "description": "Interest from the community and adoption on supporting browsers is high",
+        "link": "https://github.com/web-platform-tests/interop/issues/500"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "web-bluetooth",
+    "wpt": "/results?q=feature:web-bluetooth",
+    "graphNote": "Tests are failing for Chrome in the graph above because Chrome is tested by WPT on Linux and <a href='https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/platform/runtime_enabled_features.json5;l=6040;drc=60f52fb1a1edfed1307dcc525e889d96db5e520d'>the Web Bluetooth feature isn't currently enabled on Chrome for Linux</a>.",
+    "rationale": [
+      {
+        "description": "In the State of HTML 2025 survey, the 2nd-most voted system capabilities-related pain point was related to specific platform APIs and capabilities, which includes Web Bluetooth",
+        "link": "https://2025.stateofhtml.com/en-US/features/system-capabilities/#system_capabilities_pain_points"
+      },
+      {
+        "description": "Production sites have started to use Web Bluetooth, causing web compatibility issues in non-supporting browsers",
+        "link": "https://bugzilla.mozilla.org/show_bug.cgi?id=1940456"
+      },
+      {
+        "description": "The Espruino project has now shipped over 50,000 devices, which their customers are relying on Web Bluetooth to communicate with",
+        "link": "https://github.com/web-platform-tests/interop/issues/1001#issuecomment-3431053955"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "virtual-keyboard",
+    "wpt": "/results?q=feature:virtual-keyboard",
+    "rationale": [
+      {
+        "description": "The Virtual Keyboard API solves a common developer problem that's illustrated by the existence of many questions related to detecting the on-screen keyboard on StackOverflow",
+        "link": "https://stackoverflow.com/questions/47841986/detecting-the-opening-or-closing-of-a-virtual-keyboard-on-a-touchscreen-device"
+      },
+      {
+        "description": "Ahmad Shadeed described the problem and how the VirtualKeyboard API solves it in a detailed article",
+        "link": "https://ishadeed.com/article/virtual-keyboard-api/"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "temporal",
+    "test262": "Temporal",
+    "rationale": [
+      {
+        "description": "The feature gathered a lot of positive developer signals",
+        "link": "https://github.com/web-platform-dx/developer-signals/issues/291/"
+      },
+      {
+        "description": "Moment.js, the de-factor standard library to parse, validate, manipulate, and format dates, is downloaded nearly 28,000,000 times per week on MPM",
+        "link": "https://www.npmjs.com/package/moment"
+      },
+      {
+        "description": "In the State of JS 2025 survey, Temporal is the most wished-for JavaScript proposal",
+        "link": "https://2025.stateofjs.com/en-US/features/#js_new_features"
+      }
+    ]
+  },
+  {
+    "id": "decorators",
+    "name": "Decorators",
+    "description": "Decorators are functions called on JavaScript classes, class elements, or other JavaScript syntax forms, when they are defined.",
+    "spec": "https://github.com/tc39/proposal-decorators",
+    "test262": "decorators",
+    "rationale": [
+      {
+        "description": "Out of seven TC39 proposals that were tested by the TC39 proposals Short Survey, 40% of the respondents selected Decorators as their top choice, far ahead of the other proposals.",
+        "link": "https://github.com/web-platform-dx/developer-research/tree/main/mdn-short-surveys/2025-04-16-tc39-proposals"
+      }
+    ]
+  },
+  {
+    "webFeaturesID": "jpegxl",
+    "wpt": "/results?q=feature:jpegxl",
+    "rationale": [
+      {
+        "description": "The proposal to include JPEG XL in Interop 2026 received more than 500 positive reactions",
+        "link": "https://github.com/web-platform-tests/interop/issues/994"
+      },
+      {
+        "description": "The JPEG XL developer signals issue has more than 400 positive reactions",
+        "link": "https://github.com/web-platform-dx/developer-signals/issues/215"
+      },
+      {
+        "description": "The Chromium issue about adding JPEG XL support in Blink has more than 1000 upvotes",
+        "link": "https://issues.chromium.org/issues/40168998"
       }
     ]
   }
