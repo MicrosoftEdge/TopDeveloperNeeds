@@ -125,15 +125,21 @@ const chartOptions = {
 };
 
 function drawChart(canvas, data) {
+  // Filter data to only show up to 1 week in the future
+  const oneWeekFromNow = new Date();
+  oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+  
+  const filteredData = data.filter((d) => new Date(d.date) <= oneWeekFromNow);
+  
   const colors = getLineColors();
   new Chart(canvas, {
     type: "line",
     data: {
-      labels: data.map((d) => new Date(d.date)),
+      labels: filteredData.map((d) => new Date(d.date)),
       datasets: [
         {
           label: "All subtests",
-          data: data.map((d, i) =>
+          data: filteredData.map((d, i) =>
             Math.max(
               d.chrome.total,
               d.safari.total,
@@ -146,25 +152,25 @@ function drawChart(canvas, data) {
         },
         {
           label: "Edge",
-          data: data.map((d, i) => d.edge.passed),
+          data: filteredData.map((d, i) => d.edge.passed),
           borderWidth: 2,
           borderColor: colors.Edge,
         },
         {
           label: "Chrome",
-          data: data.map((d, i) => d.chrome.passed),
+          data: filteredData.map((d, i) => d.chrome.passed),
           borderWidth: 2,
           borderColor: colors.Chrome,
         },
         {
           label: "Firefox",
-          data: data.map((d, i) => d.firefox.passed),
+          data: filteredData.map((d, i) => d.firefox.passed),
           borderWidth: 2,
           borderColor: colors.Firefox,
         },
         {
           label: "Safari",
-          data: data.map((d, i) => d.safari.passed),
+          data: filteredData.map((d, i) => d.safari.passed),
           borderWidth: 2,
           borderColor: colors.Safari,
         },
