@@ -689,7 +689,7 @@
     "support": {
       "chrome": "83",
       "edge": "83",
-      "firefox": false,
+      "firefox": "148",
       "safari": "26"
     },
     "wptLink": "https://wpt.fyi/results/?q=feature%3Atrusted-types+%21is%3Atentative&label=stable&label=master"
