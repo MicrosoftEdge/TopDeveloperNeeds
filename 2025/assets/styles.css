@@ -1,0 +1,274 @@
+/* Theme */
+
+:root {
+  --back: white;
+  --text: black;
+  --link: #0078d4;
+  --border: #ccc;
+  --highlight: rgb(247, 247, 254);
+  --code: #eee;
+  --browser-support-back: #d3ffd5;
+  --browser-support-text: #045f2d;
+  --browser-nosupport-back: #f3c5d1;
+  --browser-nosupport-text: #7a0c29;
+
+  --margin: 4rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --back: black;
+    --text: white;
+    --link: #00a8e8;
+    --border: #333;
+    --highlight: rgb(34, 38, 40);
+    --code: #333;
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    --margin: 2rem;
+  }
+}
+
+/* Page layout */
+
+html {
+  font-family: "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body {
+  margin: var(--margin);
+  background: var(--back);
+  color: var(--text);
+}
+
+main,
+footer {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+h1 {
+  margin: var(--margin) 0;
+  font-weight: normal;
+  background-image: url(edge-logo.png);
+  background-repeat: no-repeat;
+  background-position: left .5rem;
+  background-size: 2rem;
+  padding-inline-start: 3rem;
+}
+
+body>p {
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link);
+}
+
+/* Footer */
+
+footer {
+  font-size: smaller;
+  margin-block-start: var(--margin);
+  border-block-start: 1px solid var(--border);
+  padding: var(--margin) 2rem 0 2rem;
+  line-height: 1.5;
+}
+
+/* Chart styles */
+
+.main-chart {
+  margin: var(--margin) 0;
+  padding-block-end: var(--margin);
+  border-block-end: 1px solid var(--border);
+}
+
+.chart-info {
+  text-align: center;
+  font-size: smaller;
+}
+
+/* List of features */
+
+.features {
+  margin: calc(var(--margin) / 2) 0;
+  padding: 0 calc(var(--margin) / 2);
+  display: grid;
+  gap: var(--margin);
+}
+
+/* Feature style */
+
+.feature {
+  list-style-type: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 1.5rem;
+}
+
+.feature h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  word-break: break-word;
+}
+
+.feature h2 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.feature h2 a::after {
+  content: "#";
+  font-size: smaller;
+  margin-inline-start: .25rem;
+  color: transparent;
+}
+
+.feature h2 a:hover::after {
+  color: var(--text);
+}
+
+.feature .description {
+  margin: 0;
+  grid-column: span 2;
+}
+
+.feature .support {
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.feature details {
+  background: var(--highlight);
+  border-radius: .5rem;
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .feature .description, .feature details {
+    grid-column: span 1;
+  }
+}
+
+/* More info box */
+
+.feature details summary {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.feature details h3 {
+  border-block-start: 1px solid var(--border);
+  font-weight: normal;
+  padding: 1rem 1rem 0 1rem;
+  margin: 0;
+}
+
+.feature details .rationale,
+.feature details .chart {
+  padding-inline: 1rem;
+}
+
+.feature details .chart {
+  margin-block-start: 1rem;
+}
+
+.feature details .rationale li {
+  margin: 1rem 0;
+  list-style: none;
+}
+
+.feature details .specs {
+  font-size: smaller;
+  margin: 1rem;
+  padding: 0;
+  list-style: none;
+  word-break: break-word;
+}
+
+/* Browser support */
+
+.support {
+  font-size: small;
+  cursor: default;
+}
+
+.support .support-pill {
+  border-radius: 100vw;
+  padding: .25rem .5rem;
+  display: flex;
+  gap: .25rem;
+}
+
+.support .support-pill.supported {
+  background-color: var(--browser-support-back);
+}
+
+.support .support-pill.unsupported {
+  background-color: var(--browser-nosupport-back);
+}
+
+.support abbr span {
+  display: none;
+}
+
+.support .browser-icon {
+  width: 1rem;
+  height: 1.3rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.support .firefox .browser-icon {
+  background-image: url(firefox.svg);
+}
+
+.support .edge .browser-icon {
+  background-image: url(edge.svg);
+}
+
+.support .chrome .browser-icon {
+  background-image: url(chrome.svg);
+}
+
+.support .safari .browser-icon {
+  background-image: url(safari.svg);
+}
+
+.support .support-icon {
+  text-decoration: none;
+}
+
+.support .supported .support-icon {
+  color: var(--browser-support-text);
+}
+
+.support .unsupported .support-icon {
+  color: var(--browser-nosupport-text);
+}
+
+/* Code snippets */
+
+code {
+  word-break: break-all;
+  background: var(--code);
+  padding: .125rem .25rem;
+  border-radius: .25rem;
+}
