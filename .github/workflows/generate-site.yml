@@ -18,19 +18,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update dependencies
-        run: |
-          npm update web-features
-          npx npm-check-updates -u
-          npm install
-          npx playwright install
+        run: npm run bump
 
       - name: Compute feature data
         run: npm run generate
 
       - name: Retrieve latest WPT and Test262 runs and fetch test results
         run: |
-          npm run get-wpt-shas
-          npm run get-test262-dates
+          npm run update-dates
           npm run fetch-results
 
       - name: Commit changes
