@@ -160,7 +160,13 @@ async function main() {
   // a deep copy.
   const newContent = JSON.parse(JSON.stringify(existingTestResultsData));
 
+  const today = new Date();
+
   for (const week of WEEKS) {
+    if (new Date(week.to) >= today) {
+      break;
+    }
+
     console.log("");
     console.log(`--- Getting results for week ${week.from} to ${week.to} ---`);
 
@@ -171,7 +177,9 @@ async function main() {
       console.log("");
       console.log(`--- Feature: ${feature.id} ---`);
 
-      if (existingTestResultsData[indexDate] && existingTestResultsData[indexDate][feature.id] && !feature.forceUpdateResults) {
+      const existingResult = existingTestResultsData[indexDate]?.[feature.id];
+      const hasBeenFetched = existingResult && (existingResult.sha != null || existingResult.date != null);
+      if (hasBeenFetched && !feature.forceUpdateResults) {
         console.log(`Already have data for ${feature.id} for this date. Skipping.`);
         continue;
       }
@@ -191,6 +199,17 @@ async function main() {
       // to avoid losing data if the script crashes.
       console.log(`Writing data for ${feature.id} (${indexDate}) to ${OUTPUT_FILE} ...`);
       await fs.writeFile(OUTPUT_FILE, JSON.stringify(newContent, null, 2));
+    }
+  }
+
+  // Remove entries for features that are no longer tracked.
+  const featureIds = new Set(features.map(f => f.id));
+  for (const date of Object.keys(newContent)) {
+    for (const featureId of Object.keys(newContent[date])) {
+      if (!featureIds.has(featureId)) {
+        console.log(`Removing stale feature "${featureId}" from ${date}`);
+        delete newContent[date][featureId];
+      }
     }
   }
 
