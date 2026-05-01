@@ -19,7 +19,7 @@
     "support": {
       "chrome": "126",
       "edge": "126",
-      "firefox": false,
+      "firefox": "150",
       "safari": false
     },
     "wpt": "/results?q=feature:sizes-auto",
