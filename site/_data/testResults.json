@@ -17862,5 +17862,480 @@
         3842
       ]
     }
+  },
+  "2026-05-07": {
+    "sizes-auto": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        102,
+        106
+      ],
+      "edge": [
+        102,
+        106
+      ],
+      "firefox": [
+        105,
+        106
+      ],
+      "safari": [
+        52,
+        106
+      ]
+    },
+    "calc-size-and-interpolate-size": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        4407,
+        4409
+      ],
+      "edge": [
+        4407,
+        4409
+      ],
+      "firefox": [
+        969,
+        4409
+      ],
+      "safari": [
+        973,
+        4409
+      ]
+    },
+    "core-web-vitals--cls-and-loaf": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        199,
+        241
+      ],
+      "edge": [
+        199,
+        241
+      ],
+      "firefox": [
+        4,
+        158
+      ],
+      "safari": [
+        4,
+        158
+      ]
+    },
+    "corner-shape": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        936,
+        974
+      ],
+      "edge": [
+        943,
+        974
+      ],
+      "firefox": [
+        118,
+        974
+      ],
+      "safari": [
+        117,
+        974
+      ]
+    },
+    "css-modules": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        48,
+        48
+      ],
+      "edge": [
+        48,
+        48
+      ],
+      "firefox": [
+        48,
+        48
+      ],
+      "safari": [
+        5,
+        32
+      ]
+    },
+    "customizable-select": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        233,
+        263
+      ],
+      "edge": [
+        230,
+        263
+      ],
+      "firefox": [
+        65,
+        255
+      ],
+      "safari": [
+        56,
+        255
+      ]
+    },
+    "customized-built-in-elements": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        700,
+        708
+      ],
+      "edge": [
+        700,
+        708
+      ],
+      "firefox": [
+        708,
+        708
+      ],
+      "safari": [
+        168,
+        708
+      ]
+    },
+    "decorators": {
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
+    },
+    "fedcm": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        125,
+        192
+      ],
+      "edge": [
+        119,
+        197
+      ],
+      "firefox": [
+        4,
+        180
+      ],
+      "safari": [
+        1,
+        180
+      ]
+    },
+    "field-sizing": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        93,
+        93
+      ],
+      "edge": [
+        93,
+        93
+      ],
+      "firefox": [
+        27,
+        93
+      ],
+      "safari": [
+        92,
+        93
+      ]
+    },
+    "intersection-observer-v2": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        36,
+        51
+      ],
+      "edge": [
+        35,
+        51
+      ],
+      "firefox": [
+        15,
+        52
+      ],
+      "safari": [
+        15,
+        52
+      ]
+    },
+    "jpegxl": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        1,
+        48
+      ],
+      "edge": [
+        1,
+        48
+      ],
+      "firefox": [
+        1,
+        48
+      ],
+      "safari": [
+        23,
+        48
+      ]
+    },
+    "justify-self-block": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        373,
+        373
+      ],
+      "edge": [
+        373,
+        373
+      ],
+      "firefox": [
+        111,
+        373
+      ],
+      "safari": [
+        111,
+        373
+      ]
+    },
+    "move-before": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        108,
+        118
+      ],
+      "edge": [
+        115,
+        118
+      ],
+      "firefox": [
+        108,
+        118
+      ],
+      "safari": [
+        6,
+        118
+      ]
+    },
+    "reading-flow": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        83,
+        92
+      ],
+      "edge": [
+        83,
+        92
+      ],
+      "firefox": [
+        21,
+        92
+      ],
+      "safari": [
+        18,
+        92
+      ]
+    },
+    "requestidlecallback": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        55,
+        58
+      ],
+      "edge": [
+        56,
+        58
+      ],
+      "firefox": [
+        57,
+        58
+      ],
+      "safari": [
+        10,
+        62
+      ]
+    },
+    "scheduler": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        307,
+        307
+      ],
+      "edge": [
+        307,
+        307
+      ],
+      "firefox": [
+        305,
+        307
+      ],
+      "safari": [
+        2,
+        203
+      ]
+    },
+    "sibling-count": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        89,
+        92
+      ],
+      "edge": [
+        89,
+        92
+      ],
+      "firefox": [
+        20,
+        92
+      ],
+      "safari": [
+        53,
+        92
+      ]
+    },
+    "speculation-rules": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        489,
+        728
+      ],
+      "edge": [
+        590,
+        709
+      ],
+      "firefox": [
+        1,
+        554
+      ],
+      "safari": [
+        105,
+        654
+      ]
+    },
+    "temporal": {
+      "chrome": [
+        6657,
+        6674
+      ],
+      "edge": [
+        6657,
+        6674
+      ],
+      "firefox": [
+        6666,
+        6674
+      ],
+      "safari": [
+        2,
+        6674
+      ]
+    },
+    "text-wrap-pretty": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        14,
+        14
+      ],
+      "edge": [
+        14,
+        14
+      ],
+      "firefox": [
+        2,
+        14
+      ],
+      "safari": [
+        14,
+        14
+      ]
+    },
+    "trusted-types": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        3561,
+        3673
+      ],
+      "edge": [
+        3561,
+        3673
+      ],
+      "firefox": [
+        3650,
+        3675
+      ],
+      "safari": [
+        3526,
+        3674
+      ]
+    },
+    "virtual-keyboard": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        43,
+        43
+      ],
+      "edge": [
+        43,
+        43
+      ],
+      "firefox": [
+        15,
+        43
+      ],
+      "safari": [
+        15,
+        43
+      ]
+    },
+    "web-bluetooth": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        24,
+        377
+      ],
+      "edge": [
+        142,
+        377
+      ],
+      "firefox": [
+        24,
+        377
+      ],
+      "safari": [
+        24,
+        377
+      ]
+    },
+    "webdriver-bidi": {
+      "sha": "4fadcfe653",
+      "chrome": [
+        5655,
+        5874
+      ],
+      "edge": [
+        5774,
+        5960
+      ],
+      "firefox": [
+        5307,
+        6056
+      ],
+      "safari": [
+        0,
+        3802
+      ]
+    }
   }
 }
