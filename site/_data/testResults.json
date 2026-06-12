@@ -19714,5 +19714,180 @@
         3863
       ]
     }
+  },
+  "2026-06-04": {
+    "sizes-auto": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "calc-size-and-interpolate-size": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "core-web-vitals--cls-and-loaf": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "corner-shape": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "css-modules": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "customizable-select": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "customized-built-in-elements": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "decorators": {
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "fedcm": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "field-sizing": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "intersection-observer-v2": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "jpegxl": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "justify-self-block": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "move-before": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "reading-flow": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "requestidlecallback": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "scheduler": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "sibling-count": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "speculation-rules": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "temporal": {
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "text-wrap-pretty": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "trusted-types": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "virtual-keyboard": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "web-bluetooth": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "webdriver-bidi": {
+      "sha": null,
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    }
   }
 }
