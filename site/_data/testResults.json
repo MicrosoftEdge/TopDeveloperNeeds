@@ -20340,5 +20340,456 @@
         3854
       ]
     }
+  },
+  "2026-06-18": {
+    "sizes-auto": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        102,
+        106
+      ],
+      "edge": [
+        102,
+        106
+      ],
+      "firefox": [
+        106,
+        106
+      ],
+      "safari": [
+        52,
+        106
+      ]
+    },
+    "calc-size-and-interpolate-size": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        4407,
+        4409
+      ],
+      "edge": [
+        4407,
+        4409
+      ],
+      "firefox": [
+        969,
+        4409
+      ],
+      "safari": [
+        973,
+        4409
+      ]
+    },
+    "core-web-vitals--cls-and-loaf": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        200,
+        242
+      ],
+      "edge": [
+        199,
+        242
+      ],
+      "firefox": [
+        4,
+        159
+      ],
+      "safari": [
+        4,
+        159
+      ]
+    },
+    "corner-shape": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        918,
+        1042
+      ],
+      "edge": [
+        924,
+        1042
+      ],
+      "firefox": [
+        129,
+        1042
+      ],
+      "safari": [
+        128,
+        1042
+      ]
+    },
+    "css-modules": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        51,
+        51
+      ],
+      "edge": [
+        51,
+        51
+      ],
+      "firefox": [
+        51,
+        51
+      ],
+      "safari": [
+        5,
+        35
+      ]
+    },
+    "customizable-select": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        248,
+        277
+      ],
+      "edge": [
+        246,
+        277
+      ],
+      "firefox": [
+        68,
+        269
+      ],
+      "safari": [
+        58,
+        269
+      ]
+    },
+    "customized-built-in-elements": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        700,
+        708
+      ],
+      "edge": [
+        700,
+        708
+      ],
+      "firefox": [
+        708,
+        708
+      ],
+      "safari": [
+        168,
+        708
+      ]
+    },
+    "decorators": {
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "fedcm": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        125,
+        192
+      ],
+      "edge": [
+        119,
+        197
+      ],
+      "firefox": [
+        4,
+        180
+      ],
+      "safari": [
+        1,
+        180
+      ]
+    },
+    "field-sizing": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        94,
+        95
+      ],
+      "edge": [
+        94,
+        95
+      ],
+      "firefox": [
+        94,
+        95
+      ],
+      "safari": [
+        94,
+        95
+      ]
+    },
+    "intersection-observer-v2": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        54,
+        69
+      ],
+      "edge": [
+        38,
+        77
+      ],
+      "firefox": [
+        15,
+        71
+      ],
+      "safari": [
+        15,
+        71
+      ]
+    },
+    "jpegxl": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        1,
+        50
+      ],
+      "edge": [
+        1,
+        50
+      ],
+      "firefox": [
+        1,
+        50
+      ],
+      "safari": [
+        23,
+        50
+      ]
+    },
+    "justify-self-block": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        373,
+        373
+      ],
+      "edge": [
+        373,
+        373
+      ],
+      "firefox": [
+        111,
+        373
+      ],
+      "safari": [
+        111,
+        373
+      ]
+    },
+    "move-before": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        127,
+        129
+      ],
+      "edge": [
+        127,
+        129
+      ],
+      "firefox": [
+        119,
+        129
+      ],
+      "safari": [
+        6,
+        129
+      ]
+    },
+    "reading-flow": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        89,
+        92
+      ],
+      "edge": [
+        83,
+        92
+      ],
+      "firefox": [
+        21,
+        92
+      ],
+      "safari": [
+        18,
+        92
+      ]
+    },
+    "requestidlecallback": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        56,
+        58
+      ],
+      "edge": [
+        56,
+        58
+      ],
+      "firefox": [
+        57,
+        58
+      ],
+      "safari": [
+        10,
+        62
+      ]
+    },
+    "scheduler": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        307,
+        307
+      ],
+      "edge": [
+        307,
+        307
+      ],
+      "firefox": [
+        305,
+        307
+      ],
+      "safari": [
+        2,
+        203
+      ]
+    },
+    "sibling-count": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        134,
+        144
+      ],
+      "edge": [
+        134,
+        144
+      ],
+      "firefox": [
+        29,
+        144
+      ],
+      "safari": [
+        96,
+        144
+      ]
+    },
+    "speculation-rules": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        462,
+        734
+      ],
+      "edge": [
+        606,
+        716
+      ],
+      "firefox": [
+        1,
+        558
+      ],
+      "safari": [
+        105,
+        658
+      ]
+    },
+    "temporal": {
+      "chrome": null,
+      "edge": null,
+      "firefox": null,
+      "safari": null
+    },
+    "text-wrap-pretty": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        14,
+        14
+      ],
+      "edge": [
+        14,
+        14
+      ],
+      "firefox": [
+        2,
+        14
+      ],
+      "safari": [
+        14,
+        14
+      ]
+    },
+    "trusted-types": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        3561,
+        3673
+      ],
+      "edge": [
+        3561,
+        3673
+      ],
+      "firefox": [
+        3650,
+        3675
+      ],
+      "safari": [
+        3528,
+        3672
+      ]
+    },
+    "virtual-keyboard": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        43,
+        43
+      ],
+      "edge": [
+        43,
+        43
+      ],
+      "firefox": [
+        15,
+        43
+      ],
+      "safari": [
+        15,
+        43
+      ]
+    },
+    "web-bluetooth": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        23,
+        376
+      ],
+      "edge": [
+        143,
+        378
+      ],
+      "firefox": [
+        24,
+        377
+      ],
+      "safari": [
+        24,
+        377
+      ]
+    },
+    "webdriver-bidi": {
+      "sha": "3ed169fc68",
+      "chrome": [
+        5699,
+        5965
+      ],
+      "edge": [
+        5820,
+        6054
+      ],
+      "firefox": [
+        5456,
+        6147
+      ],
+      "safari": [
+        0,
+        3893
+      ]
+    }
   }
 }

@@ -291,7 +291,7 @@
     "support": {
       "chrome": "123",
       "edge": "123",
-      "firefox": false,
+      "firefox": "152",
       "safari": "26.2"
     },
     "wpt": "/results/?q=feature:field-sizing",
