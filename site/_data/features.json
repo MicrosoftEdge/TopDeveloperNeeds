@@ -507,7 +507,7 @@
     "support": {
       "chrome": "138",
       "edge": "138",
-      "firefox": false,
+      "firefox": "154",
       "safari": "26.2"
     },
     "wpt": "/results?q=feature:sibling-count",
