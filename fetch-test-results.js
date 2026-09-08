@@ -64,8 +64,16 @@ async function getTestResults(feature, week) {
 
 async function getTest262Results(test262FeatureName, date) {
   try {
-    const response = await fetch(`${TEST262_DATA_END_POINT}/${date}/features.json`);
-    const data = await response.json();
+    let data;
+
+    try {
+      const response = await fetch(`${TEST262_DATA_END_POINT}/${date}/features.json`);
+      data = await response.json();
+    } catch (e) {
+      const response = await fetch(`${TEST262_DATA_END_POINT}/${date}/meta.json`);
+      const meta = await response.json();
+      data = meta.features;
+    }
 
     const results = data[test262FeatureName];
     const total = results.total;
@@ -177,8 +185,14 @@ async function main() {
       console.log("");
       console.log(`--- Feature: ${feature.id} ---`);
 
+      // A result counts as "fetched" if at least one browser has a non-null
+      // value. We can't rely on `sha`/`date` for this: those are only set on
+      // WPT results (sha) or on empty Test262 results built when there's no
+      // date entry for the week (date), so relying on them here always
+      // treated successful Test262 results as "not fetched" and caused them
+      // to be needlessly (and destructively) re-fetched on every run.
       const existingResult = existingTestResultsData[indexDate]?.[feature.id];
-      const hasBeenFetched = existingResult && (existingResult.sha != null || existingResult.date != null);
+      const hasBeenFetched = existingResult && BROWSERS.some(browserName => existingResult[browserName] != null);
       if (hasBeenFetched && !feature.forceUpdateResults) {
         console.log(`Already have data for ${feature.id} for this date. Skipping.`);
         continue;

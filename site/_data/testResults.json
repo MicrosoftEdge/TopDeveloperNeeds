@@ -21829,10 +21829,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "6e7a742af1",
@@ -22044,10 +22056,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        2,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "6e7a742af1",
@@ -22280,10 +22304,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "37cd7ff74e",
@@ -22495,10 +22531,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        5931,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "37cd7ff74e",
@@ -22731,10 +22779,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "80f8308fdb",
@@ -22946,10 +23006,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6250,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "80f8308fdb",
@@ -23182,10 +23254,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "14d3819692",
@@ -23397,10 +23481,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6431,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "14d3819692",
@@ -23633,10 +23729,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "2517845b61",
@@ -23848,10 +23956,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6665,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "2517845b61",
@@ -24084,10 +24204,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "29f6ff4d08",
@@ -24299,10 +24431,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6699,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "29f6ff4d08",
@@ -24535,10 +24679,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "7aceb5837f",
@@ -24750,10 +24906,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6699,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "7aceb5837f",
@@ -24986,10 +25154,22 @@
       ]
     },
     "decorators": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        3,
+        27
+      ],
+      "edge": [
+        3,
+        27
+      ],
+      "firefox": [
+        3,
+        27
+      ],
+      "safari": [
+        3,
+        27
+      ]
     },
     "fedcm": {
       "sha": "5ce815a83b",
@@ -25201,10 +25381,22 @@
       ]
     },
     "temporal": {
-      "chrome": null,
-      "edge": null,
-      "firefox": null,
-      "safari": null
+      "chrome": [
+        6696,
+        6713
+      ],
+      "edge": [
+        6696,
+        6713
+      ],
+      "firefox": [
+        6705,
+        6713
+      ],
+      "safari": [
+        6699,
+        6713
+      ]
     },
     "text-wrap-pretty": {
       "sha": "5ce815a83b",
