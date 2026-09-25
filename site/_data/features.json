@@ -672,7 +672,7 @@
     "name": "Web Bluetooth",
     "description": "The Web Bluetooth API enables selecting and communicating with nearby Bluetooth devices.",
     "spec": [
-      "https://webbluetoothcg.github.io/web-bluetooth/"
+      "https://bluetooth.spec.whatwg.org/"
     ],
     "rationale": [
       {
