@@ -345,7 +345,7 @@
       }
     ],
     "support": {
-      "chrome": false,
+      "chrome": "155",
       "edge": false,
       "firefox": false,
       "safari": "17"
