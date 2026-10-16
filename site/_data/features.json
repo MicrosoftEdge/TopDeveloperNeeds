@@ -347,7 +347,7 @@
     "support": {
       "chrome": "155",
       "edge": false,
-      "firefox": false,
+      "firefox": "158",
       "safari": "17"
     },
     "wpt": "/results?q=feature:jpegxl",
