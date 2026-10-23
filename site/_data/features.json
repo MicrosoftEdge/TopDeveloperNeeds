@@ -255,8 +255,8 @@
       }
     ],
     "support": {
-      "chrome": "116",
-      "edge": "116",
+      "chrome": "136",
+      "edge": "136",
       "firefox": false,
       "safari": false
     },
